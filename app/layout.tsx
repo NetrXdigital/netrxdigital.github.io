@@ -7,22 +7,63 @@ const font = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "NetrX | Digital Marketing Company",
-  description: "Grow your business with Bird, a design & development studio.",
+  description: "Transform your business with NetrX's cutting-edge digital marketing solutions. We drive growth through strategic SEO, social media, and data-driven campaigns.",
+  
+  // Open Graph configuration
   openGraph: {
+    title: "NetrX | Digital Marketing Company", // Can be different from main title
+    description: "Transform your business with NetrX's cutting-edge digital marketing solutions. We drive growth through strategic SEO, social media, and data-driven campaigns.",
+    url: "https://your-domain.com", // Your actual domain
+    siteName: "NetrX",
+    type: "website", // Options: website, article, video.movie, etc.
+    locale: "en_US",
+    
     images: [
       {
-        url: 'https://www.google.com/maps/uv?viewerState=lb&pb=!1s0x11ae81c94242f451:0x2a6b0cac40414137!5sGlobstand+technologies&imagekey=!1e10!2sAF1QipPrTTNGxsOszQTXFD3b68e40o0V_LiVsTWwh-H6&cr=rp_35',
+        url: "/og-image.jpg", // Path to your image (recommended: 1200x630px)
         width: 1200,
         height: 630,
-        alt: 'Bird Logo',
+        alt: "NetrX Digital Marketing - Grow Your Business Online",
+        type: "image/jpeg",
+      },
+      // You can add multiple images as fallbacks
+      {
+        url: "/og-image-square.jpg", // Square version for some platforms
+        width: 1200,
+        height: 1200,
+        alt: "NetrX Digital Marketing Logo",
+        type: "image/jpeg",
       },
     ],
   },
-};
 
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
+  // Twitter-specific configuration (inherits from openGraph if not specified)
+  twitter: {
+    card: "summary_large_image", // Options: summary, summary_large_image, app, player
+    site: "@your_twitter_handle", // Your Twitter handle
+    creator: "@your_twitter_handle",
+    title: "NetrX | Digital Marketing Company",
+    description: "Transform your business with NetrX's cutting-edge digital marketing solutions.",
+    images: ["/twitter-image.jpg"], // Can be same as OG image
+  },
+
+  // Additional metadata
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  
+  // For better SEO
+  keywords: ["digital marketing", "SEO", "social media marketing", "PPC", "content marketing"],
+  authors: [{ name: "NetrX Team" }],
+  category: "Digital Marketing",
 };
 
 export default function RootLayout({
