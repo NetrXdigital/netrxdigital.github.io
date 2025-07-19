@@ -6,8 +6,10 @@ import { PiCheckBold } from "react-icons/pi";
 import NumberTicker from "@/components/magicui/number-ticker";
 import { IconStarFilled } from "@tabler/icons-react";
 import LetsMakeThingsHappenSection from "@/components/ui/lets-make-things-happen";
+
 import Header from "@/components/Header";
 import Footer from "@/components/footer";
+
 
 export default function About() {
   return (
@@ -18,7 +20,6 @@ export default function About() {
   bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)]
    bg-[size:14px_24px]"
     >
-
       {/* Hero Section */}
       <main className="pt-20 pb-10">
         <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
@@ -141,7 +142,7 @@ export default function About() {
                 We stay ahead of the curve with the latest technologies and design trends to deliver cutting-edge solutions that give you a competitive advantage.
               </p>
             </div>
-            
+           
             <div className="text-center p-8 bg-muted/50 rounded-lg hover:shadow-lg transition-shadow">
               <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <PiCheckBold className="text-3xl text-white" />
