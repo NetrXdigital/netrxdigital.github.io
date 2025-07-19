@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
+import Header from "@/components/Header";
 
 const font = Space_Grotesk({ subsets: ["latin"] });
 
@@ -72,12 +74,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={font.className}>
-
-        {children}
-        <Analytics />
-
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${font.className} bg-background text-foreground`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* Global Header with Theme Toggle */}
+          <Header />
+          
+          {/* Main Content */}
+          <main>
+            {children}
+          </main>
+          
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );
