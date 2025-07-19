@@ -96,6 +96,10 @@ export default function Home() {
               Services
             </ScrollLink>
 
+            <Link href={"/about_us"} className="hover:text-blue-500">
+              About Us
+            </Link>
+
             <ScrollLink
               to="process"
               smooth={true}
@@ -104,23 +108,10 @@ export default function Home() {
               Process
             </ScrollLink>
 
-            <ScrollLink
-              to="guarentees"
-              smooth={true}
-              className="hover:text-blue-500"
-            >
-              Guarentees
-            </ScrollLink>
           </div>
         </div>
 
         <div className="flex items-center gap-x-4">
-          <a href="tel:519400200" className="hidden lg:flex">
-            <button className="px-4 py-2 rounded-md flex items-center gap-x-3">
-              +91 8210947209
-            </button>
-          </a>
-
           <Link
             href={"/meeting"}
             className="
@@ -356,42 +347,6 @@ export default function Home() {
         </main>
       </Element>
 
-      <section>
-        <main className="md:flex items-center justify-center space-y-6 md:space-y-0 md:gap-x-20 xl:w-4/5 2xl:w-[68%] mx-auto px-6 md:px-0">
-          <Image
-            src={"/logo/logo.webp"}
-            width={10000}
-            height={10000}
-            className=" md:w-1/3 rounded-md"
-            alt="image"
-          />
-          <div className="flex flex-col gap-y-5 md:w-1/2">
-            <h1 className="text-lg md:text-2xl ">
-              &quot;We&apos;ve been working with Bird for over 2 years and
-              they&apos;ve been amazing to work with. They&apos;ve helped us
-              grow our business and we couldn&apos;t be happier with the
-              results. &quot;
-            </h1>
-            <div className="flex items-center gap-x-1">
-              <IconStarFilled className="text-4xl text-yellow-500" />
-              <IconStarFilled className="text-4xl text-yellow-500" />
-              <IconStarFilled className="text-4xl text-yellow-500" />
-              <IconStarFilled className="text-4xl text-yellow-500" />
-              <IconStarFilled className="text-4xl text-yellow-500" />
-            </div>
-
-            <span className="text-xl font-medium">
-              Jordan, Brisson <br />
-              CEO, Atlas Massage
-            </span>
-          </div>
-        </main>
-      </section>
-
-      <Element name="guarentees">
-        <ShootingStarsAndStarsBackgroundDemo />
-      </Element>
-
       <section className="my-10 md:py-20 xl:w-4/5 2xl:w-[68%] md:mx-auto">
       <LetsMakeThingsHappenSection />
       </section>
@@ -409,12 +364,12 @@ export default function Home() {
           </h1>
           <p className="text-left  text-xl  text-gray-500">+91 8210947209</p>
           <p className="text-left  text-xl  text-gray-500">
-            admin@birdsoftware.ca
+            netrxdigital@gmail.com
           </p>
         </div>
 
         <div className="flex md:justify-center gap-x-4 mt-10">
-          © 2025 Bird. All Rights Reserved.
+          © 2025 NetrX. All Rights Reserved.
           <Link href="/" className="text-blue-500">
             Privacy Policy
           </Link>
