@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 const font = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Bird | Design & Development Studio",
+  title: "NetrX | Digital Marketing Company",
   description: "Grow your business with Bird, a design & development studio.",
   openGraph: {
     images: [
@@ -18,6 +18,11 @@ export const metadata: Metadata = {
       },
     ],
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
