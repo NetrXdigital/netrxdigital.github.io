@@ -70,7 +70,7 @@ export default function Home() {
             <CoverDemo />
           </h1>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center text-left md:justify-items-center md:mx-auto mt-10 md:mt-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center text-center justify-items-center md:mx-auto mt-10 md:mt-16">
             <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
               <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center">
                 <PiCheckBold className="text-xl text-blue-500" />
@@ -103,7 +103,7 @@ export default function Home() {
       <section className="w-full py-20 bg-card">
         <div className="px-6 md:px-12 lg:px-20">
           <p
-            className="md:text-center
+            className="text-center
              text-xl md:text-2xl my-6 md:my-10 md:w-4/5 mx-auto text-gray-500"
           >
             Schedule a call with us to discuss your project and get a quote in
@@ -112,9 +112,9 @@ export default function Home() {
 
           <div
             className="
-                   flex 
-                    md:justify-center 
-                    items-center 
+                   flex
+                    justify-center
+                    items-center
                     gap-x-4
                      "
           >
@@ -221,25 +221,25 @@ export default function Home() {
           <h1>
             <WordPullUpDemo />
           </h1>
-          <p className="md:text-center py-4 md:w-1/2 mx-auto text-xl md:text-2xl text-gray-500">
+          <p className="text-center py-4 md:w-1/2 mx-auto text-xl md:text-2xl text-gray-500">
             All of our services are designed to help your business stand out
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 justify-items-center">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="flex flex-col justify-between h-full space-y-4 text-center bg-gray-100 p-4 cursor-pointer hover:scale-105 transition-transform rounded-md"
+                className="flex flex-col justify-between h-full space-y-4 text-center bg-gray-100 dark:bg-gray-800 p-4 cursor-pointer hover:scale-105 transition-transform rounded-md"
               >
                 <Image
                   src={service.icon}
                   width={10000}
                   height={10000}
-                  className="object-contain bg-gray-100 p-4 w-full h-40 rounded-md"
+                  className="object-contain bg-gray-100 dark:bg-gray-800 p-4 w-full h-40 rounded-md"
                   alt="image"
                 />
                 <h1 className="text-xl font-medium">{service.title}</h1>
-                <p className="text-gray-500">{service.description}</p>
+                <p className="text-gray-500 dark:text-gray-300">{service.description}</p>
               </div>
             ))}
           </div>
