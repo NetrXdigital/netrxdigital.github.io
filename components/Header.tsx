@@ -20,13 +20,13 @@ export default function Header() {
           alt="Logo"
           width={1000}
           height={1000}
-          className="w-24 sm:w-28 md:w-32"
+          className="w-20 sm:w-24 md:w-28"
         />
       </Link>
 
       {/* Navigation Links */}
       <div className="flex flex-grow justify-center">
-        <div className="flex gap-x-4 sm:gap-x-6 md:gap-x-10 items-center text-gray-700 dark:text-gray-300 font-medium text-base sm:text-lg cursor-pointer">
+        <div className="flex gap-x-2 sm:gap-x-4 md:gap-x-6 items-center text-gray-700 dark:text-gray-300 font-medium text-sm sm:text-sm md:text-base cursor-pointer">
           <Link href={"/"} className="hover:text-blue-500">
             Home
           </Link>
@@ -47,8 +47,8 @@ export default function Header() {
         <Link
           href={"/meeting"}
           className="
-py-2 px-4 text-sm
-sm:py-3 sm:px-6 md:text-lg
+py-0.5 px-2 text-[0.6rem]
+sm:py-1 sm:px-3 md:text-sm
 hover:bg-[#abcbff]
 rounded-[6px]
 border-2
