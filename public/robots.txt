@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://netrxdigital.github.io/sitemap.xml
