@@ -10,7 +10,7 @@ import NumberTicker from "@/components/magicui/number-ticker";
 import { InfiniteMovingLogos } from "@/components/ui/infinite-moving-logos";
 import Image from "next/image";
 import Link from "next/link";
-import { PiCheckBold } from "react-icons/pi";
+import { PiCheckBold, PiPlayFill } from "react-icons/pi";
 import { Element } from "react-scroll";
 import LetsMakeThingsHappenSection from "@/components/ui/lets-make-things-happen";
 import Footer from "@/components/footer";
@@ -32,19 +32,19 @@ const services = [
     icon: "/images/content_creation.png",
     title: "Content Creation",
     description:
-      "Boost your brand's online presence with our social media marketing services",
+      "With our content creation services, we help businesses drive results",
   },
   {
     icon: "/images/social_media_marketing.png",
     title: "Social Media Marketing",
     description:
-      "Interact with your customers and increase sales with our email marketing services",
+      "Boost your brand's online presence with our social media marketing services",
   },
   {
     icon: "/images/email_marketing.png",
     title: "Email Marketing",
     description:
-      "With our content creation services, we help businesses drive results",
+      "Interact with your customers and increase sales with our email marketing services",
   },
   {
     icon: "/images/pay_per_click.png",
@@ -98,6 +98,102 @@ export default function Home() {
           </div>
           </div>
       </section>
+
+      {/* VSL Video Section */}
+      <Element name="video">
+        <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+          <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Watch How We{" "}
+                <span className="text-blue-500 relative">
+                  Transform
+                  <Image
+                    src={"/icons/squiggle.svg"}
+                    width={10000}
+                    height={10000}
+                    className="absolute -bottom-2 left-0 w-full h-3"
+                    alt="underline"
+                  />
+                </span>{" "}
+                Businesses
+              </h2>
+              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+                Discover the proven strategies and results that have helped our clients 
+                achieve remarkable growth in their digital presence
+              </p>
+            </div>
+
+            <div className="relative max-w-5xl mx-auto">
+              {/* Video Container with Enhanced Styling */}
+              <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
+                {/* Decorative Elements */}
+                <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500 rounded-full opacity-70"></div>
+                <div className="absolute -top-2 -right-6 w-6 h-6 bg-indigo-400 rounded-full opacity-50"></div>
+                <div className="absolute -bottom-6 -left-2 w-10 h-10 bg-purple-400 rounded-full opacity-40"></div>
+                
+                {/* Video Iframe */}
+                <div className="relative aspect-video">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/U1HNnUpjROg?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1"
+                    title="Digital Marketing Success Stories - How We Transform Businesses"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                
+                {/* Overlay for better visual appeal */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+              </div>
+
+              {/* Call-to-Action Below Video */}
+              <div className="text-center mt-8">
+                <div className="inline-flex items-center gap-x-3 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-lg">
+                  <PiPlayFill className="text-blue-500 text-xl" />
+                  <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                    Watch the full case study above
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Video Benefits/Features */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <PiCheckBold className="text-blue-500 text-xl" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Real Results</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  See actual case studies and measurable outcomes from our campaigns
+                </p>
+              </div>
+              
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <PiCheckBold className="text-green-500 text-xl" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Proven Strategies</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Learn about the methodologies that drive consistent growth
+                </p>
+              </div>
+              
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <PiCheckBold className="text-purple-500 text-xl" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Client Success</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Hear directly from clients about their transformation journey
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Element>
 
       {/* Full Width CTA Section - Moved outside container */}
       <section className="w-full py-20 bg-card">
@@ -161,7 +257,6 @@ export default function Home() {
         </div>
       </section>
 
-
       <section className="w-full py-20">
         <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto mt-14">
           <div className="md:flex items-center justify-between gap-y-4 my-10 gap-x-28 mx-auto">
@@ -212,8 +307,6 @@ export default function Home() {
           </div>
           </div>
       </section>
-
-      
 
       {/* Services Section */}
       <Element name="services">

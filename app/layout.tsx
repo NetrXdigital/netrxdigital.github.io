@@ -78,7 +78,7 @@ export default function RootLayout({
       <body className={`${font.className} bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
