@@ -72,25 +72,25 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center text-center justify-items-center md:mx-auto mt-10 md:mt-16">
             <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
-              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center">
+              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center hover:scale-105">
                 <PiCheckBold className="text-xl text-blue-500" />
                 Design
               </p>
             </BoxReveal>
             <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
-              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center">
+              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center hover:scale-105">
                 <PiCheckBold className="text-xl text-blue-500" />
                 Development
               </p>
             </BoxReveal>
             <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
-              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center">
+              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center hover:scale-105">
                 <PiCheckBold className="text-xl text-blue-500" />
                 Marketing
               </p>
             </BoxReveal>
             <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
-              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center">
+              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center hover:scale-105">
                 <PiCheckBold className="text-xl text-blue-500" />
                 Strategy
               </p>
