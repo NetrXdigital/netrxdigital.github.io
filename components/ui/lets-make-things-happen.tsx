@@ -24,7 +24,7 @@ function LetsMakeThingsHappenSection() {
             px-10
         
             md:px-16
-      md:text-xl
+      md:text-m
       hover:bg-[#abcbff] 
       rounded-[6px]
       border-2 

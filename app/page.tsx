@@ -219,7 +219,7 @@ export default function Home() {
               className="py-3 
               px-10
               md:px-16
-        md:text-xl
+        md:text-m
         hover:bg-[#abcbff] 
         rounded-[6px]
         border-2 
@@ -239,7 +239,7 @@ export default function Home() {
                 py-3 
      px-10
      md:px-16
-        md:text-xl
+        md:text-m
         hover:bg-[#abcbff] 
         rounded-[6px]
         border-2 
