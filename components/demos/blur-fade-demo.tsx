@@ -9,7 +9,7 @@ const works = [
     imageUrl: "/images/business.webp",
     title: "Stylizeunique",
     description: "Custom resin art creations tailored to client specifications. Handcrafted unique pieces that bring artistic vision to life.",
-    link: "#",
+    link: "https://stylizeunique.github.io/",
   }
 ];
 
