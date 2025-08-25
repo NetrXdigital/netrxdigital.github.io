@@ -94,19 +94,19 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <h3 className="text-blue-500 text-4xl md:text-6xl font-bold mb-2">
-                <NumberTicker value={5} />+
+                <NumberTicker value={20} />+
               </h3>
               <p className="text-muted-foreground text-lg">Happy Clients</p>
             </div>
             <div>
               <h3 className="text-blue-500 text-4xl md:text-6xl font-bold mb-2">
-                <NumberTicker value={2} />+
+                <NumberTicker value={32} />+
               </h3>
               <p className="text-muted-foreground text-lg">Projects Completed</p>
             </div>
             <div>
               <h3 className="text-blue-500 text-4xl md:text-6xl font-bold mb-2">
-                <NumberTicker value={1} />+
+                <NumberTicker value={2} />+
               </h3>
               <p className="text-muted-foreground text-lg">Years Experience</p>
             </div>
@@ -219,7 +219,7 @@ export default function About() {
               Why Choose NetrX?
             </h2>
             <p className="text-lg text-muted-foreground md:w-2/3 mx-auto mb-8">
-              With over 5+ happy clients and 2+ successful projects, we have the experience and expertise to take your business to the next level. Our comprehensive approach combines design, development, marketing, and strategy to deliver exceptional results.
+              With over 20+ happy clients and 32+ successful projects, we have the experience and expertise to take your business to the next level. Our comprehensive approach combines design, development, marketing, and strategy to deliver exceptional results.
             </p>
             
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
