@@ -41,6 +41,8 @@ export default function Header() {
           <nav className="flex items-center gap-3 sm:gap-5 text-sm md:text-[15px] font-medium text-gray-700 dark:text-gray-300">
             <Link href="/" className="hover:text-blue-500">Home</Link>
             <Link href="/showcase" className="hover:text-blue-500">Showcase</Link>
+            {/* NEW: Blog button */}
+            <Link href="/blogs" className="hover:text-blue-500">Blogs</Link>
             <Link href="/about_us" className="hover:text-blue-500">About Us</Link>
           </nav>
         </div>

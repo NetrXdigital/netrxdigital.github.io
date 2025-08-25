@@ -91,10 +91,10 @@ export const InfiniteMovingLogos = ({
         
               flex items-center
               
-              flex-shrink-00 px-8 "
+               flex-shrink-0 px-8 "
             style={{
               background:
-                "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
+                "linear-gradient(180deg, var(--slate-800), var(--slate-900))",
             }}
             key={item.name}
           >
