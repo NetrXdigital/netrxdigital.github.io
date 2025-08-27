@@ -57,47 +57,67 @@ const services = [
 export default function Home() {
   return (
     <div
-      className="overflow-clip 
- inset-0 
- -z-10 h-full w-full bg-background
-  bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)]
-   bg-[size:14px_24px]"
+      className="overflow-clip inset-0 -z-10 h-full w-full bg-background
+      bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)]
+      bg-[size:14px_24px]"
     >
-      {/* Hero Section */}
-      <section className="md:pb-10 pt-20">
-        <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto mt-14">
-          <h1>
+      {/* ====================== HERO WITH VIDEO BG ====================== */}
+      <section
+        className="relative pt-24 md:pt-28 min-h-[80vh] md:min-h-[86vh] flex items-center overflow-hidden"
+        aria-label="Hero"
+      >
+        {/* Background video — place file at /public/videos/hero-bg.mp4 */}
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/videos/hero-bg.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          // optional poster for first paint:
+          // poster="/images/hero-poster.jpg"
+        />
+
+        {/* Readability overlays */}
+        <div className="absolute inset-0 bg-black/35" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent,rgba(0,0,0,0.35))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.08)_1px,transparent_1px)] bg-[size:14px_24px]" />
+
+        {/* Content */}
+        <div className="relative z-10 md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
+          <h1 className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             <CoverDemo />
           </h1>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center text-center justify-items-center md:mx-auto mt-10 md:mt-16">
             <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
-              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center hover:scale-105">
-                <PiCheckBold className="text-xl text-blue-500" />
+              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center text-white/95 hover:scale-105">
+                <PiCheckBold className="text-xl text-blue-400" />
                 Design
               </p>
             </BoxReveal>
             <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
-              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center hover:scale-105">
-                <PiCheckBold className="text-xl text-blue-500" />
+              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center text-white/95 hover:scale-105">
+                <PiCheckBold className="text-xl text-blue-400" />
                 Development
               </p>
             </BoxReveal>
             <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
-              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center hover:scale-105">
-                <PiCheckBold className="text-xl text-blue-500" />
+              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center text-white/95 hover:scale-105">
+                <PiCheckBold className="text-xl text-blue-400" />
                 Marketing
               </p>
             </BoxReveal>
             <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
-              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center hover:scale-105">
-                <PiCheckBold className="text-xl text-blue-500" />
+              <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center text-white/95 hover:scale-105">
+                <PiCheckBold className="text-xl text-blue-400" />
                 Strategy
               </p>
             </BoxReveal>
           </div>
-          </div>
+        </div>
       </section>
+      {/* ==================== /HERO WITH VIDEO BG ===================== */}
 
       {/* VSL Video Section */}
       <Element name="video">
@@ -119,20 +139,17 @@ export default function Home() {
                 Businesses
               </h2>
               <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
-                Discover the proven strategies and results that have helped our clients 
-                achieve remarkable growth in their digital presence
+                Discover the proven strategies and results that have helped our
+                clients achieve remarkable growth in their digital presence
               </p>
             </div>
 
             <div className="relative max-w-5xl mx-auto">
-              {/* Video Container with Enhanced Styling */}
               <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
-                {/* Decorative Elements */}
                 <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500 rounded-full opacity-70"></div>
                 <div className="absolute -top-2 -right-6 w-6 h-6 bg-indigo-400 rounded-full opacity-50"></div>
                 <div className="absolute -bottom-6 -left-2 w-10 h-10 bg-purple-400 rounded-full opacity-40"></div>
-                
-                {/* Video Iframe */}
+
                 <div className="relative aspect-video">
                   <iframe
                     className="w-full h-full"
@@ -143,12 +160,10 @@ export default function Home() {
                     allowFullScreen
                   ></iframe>
                 </div>
-                
-                {/* Overlay for better visual appeal */}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
               </div>
 
-              {/* Call-to-Action Below Video */}
               <div className="text-center mt-8">
                 <div className="inline-flex items-center gap-x-3 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-lg">
                   <PiPlayFill className="text-blue-500 text-xl" />
@@ -159,7 +174,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Video Benefits/Features */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
               <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
                 <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -167,10 +181,11 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Real Results</h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  See actual case studies and measurable outcomes from our campaigns
+                  See actual case studies and measurable outcomes from our
+                  campaigns
                 </p>
               </div>
-              
+
               <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
                 <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
                   <PiCheckBold className="text-green-500 text-xl" />
@@ -180,7 +195,7 @@ export default function Home() {
                   Learn about the methodologies that drive consistent growth
                 </p>
               </div>
-              
+
               <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
                 <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
                   <PiCheckBold className="text-purple-500 text-xl" />
@@ -195,61 +210,30 @@ export default function Home() {
         </section>
       </Element>
 
-      {/* Full Width CTA Section - Moved outside container */}
+      {/* Full Width CTA Section */}
       <section className="w-full py-20 bg-card">
         <div className="px-6 md:px-12 lg:px-20">
-          <p
-            className="text-center
-             text-xl md:text-2xl my-6 md:my-10 md:w-4/5 mx-auto text-gray-500"
-          >
+          <p className="text-center text-xl md:text-2xl my-6 md:my-10 md:w-4/5 mx-auto text-gray-500">
             Schedule a call with us to discuss your project and get a quote in
             minutes
           </p>
 
-          <div
-            className="
-                   flex
-                    justify-center
-                    items-center
-                    gap-x-4
-                     "
-          >
+          <div className="flex justify-center items-center gap-x-4">
             <Link
               href="/meeting"
-              className="py-3 
-              px-10
-              md:px-16
-        md:text-m
-        hover:bg-[#abcbff] 
-        rounded-[6px]
-        border-2 
-        border-black 
-        dark:border-white 
-         bg-[#121212] 
-         text-white 
-         transition 
-         duration-200 
-         hover:shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
+              className="py-3 px-10 md:px-16 md:text-m hover:bg-[#abcbff] rounded-[6px]
+              border-2 border-black dark:border-white bg-[#121212] text-white transition duration-200 
+              hover:shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)]
+              dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
             >
               Book a Call
             </Link>
             <Link
               href={"/showcase"}
-              className="
-                py-3 
-     px-10
-     md:px-16
-        md:text-m
-        hover:bg-[#abcbff] 
-        rounded-[6px]
-        border-2 
-        border-black 
-        dark:border-white
-        bg-[#121212] 
-        text-white 
-        transition 
-        duration-200 
-        hover:shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
+              className="py-3 px-10 md:px-16 md:text-m hover:bg-[#abcbff] rounded-[6px]
+              border-2 border-black dark:border-white bg-[#121212] text-white transition duration-200 
+              hover:shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)]
+              dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
             >
               Showcase
             </Link>
@@ -293,19 +277,13 @@ export default function Home() {
                 speed="slow"
                 direction="left"
                 items={[
-                  {
-                    logo: "/logo/logo.webp",
-                    name: "Logo",
-                  },
-                  {
-                    logo: "/logo/logo.webp",
-                    name: "Logo",
-                  },
+                  { logo: "/logo/logo.webp", name: "Logo" },
+                  { logo: "/logo/logo.webp", name: "Logo" },
                 ]}
               />
             </section>
           </div>
-          </div>
+        </div>
       </section>
 
       {/* Services Section */}
@@ -332,7 +310,9 @@ export default function Home() {
                   alt="image"
                 />
                 <h1 className="text-xl font-medium">{service.title}</h1>
-                <p className="text-gray-500 dark:text-gray-300">{service.description}</p>
+                <p className="text-gray-500 dark:text-gray-300">
+                  {service.description}
+                </p>
               </div>
             ))}
           </div>
@@ -345,48 +325,46 @@ export default function Home() {
 
       {/* Process Section */}
       <section className="py-20 bg-card">
-      <Element name="process">
-        <main className="md:px-0 mx-6 md:mx-auto">
-          <h1 className="text-3xl md:text-5xl md:text-center font-medium flex items-center gap-x-2 mx-auto justify-center">
-            Our{" "}
-            <span className="text-blue-500 flex gap-x-1 items-center">
-              {" "}
-              <Image
-                src={"/icons/squiggle.svg"}
-                width={10000}
-                height={10000}
-                className="w-6"
-                alt="image"
-              />
-              Creative
-              <Image
-                src={"/icons/star.svg"}
-                width={10000}
-                height={10000}
-                className="w-6 mb-8"
-                alt="image"
-              />
-            </span>{" "}
-            Process
-          </h1>
+        <Element name="process">
+          <main className="md:px-0 mx-6 md:mx-auto">
+            <h1 className="text-3xl md:text-5xl md:text-center font-medium flex items-center gap-x-2 mx-auto justify-center">
+              Our{" "}
+              <span className="text-blue-500 flex gap-x-1 items-center">
+                {" "}
+                <Image
+                  src={"/icons/squiggle.svg"}
+                  width={10000}
+                  height={10000}
+                  className="w-6"
+                  alt="image"
+                />
+                Creative
+                <Image
+                  src={"/icons/star.svg"}
+                  width={10000}
+                  height={10000}
+                  className="w-6 mb-8"
+                  alt="image"
+                />
+              </span>{" "}
+              Process
+            </h1>
 
-          <p className="text-center 
-          py-4 md:w-1/2 mx-auto 
-          text-xl md:text-2xl text-gray-500">
-            All of our services are designed to help your business to get
-            noticed.
-          </p>
+            <p className="text-center py-4 md:w-1/2 mx-auto text-xl md:text-2xl text-gray-500">
+              All of our services are designed to help your business to get
+              noticed.
+            </p>
 
-          <div className="flex flex-col md:flex-row items-center justify-center w-full md:w-1/2 mx-auto">
-            <div className="w-full md:w-1/2 order-2 md:order-1">
-              <AnimatedBeamMultipleOutputDemo />
+            <div className="flex flex-col md:flex-row items-center justify-center w-full md:w-1/2 mx-auto">
+              <div className="w-full md:w-1/2 order-2 md:order-1">
+                <AnimatedBeamMultipleOutputDemo />
+              </div>
+              <div className="w-full md:w-1/2 order-1 md:order-2 md:ml-0">
+                <BoxRevealDemo />
+              </div>
             </div>
-            <div className="w-full md:w-1/2 order-1 md:order-2 md:ml-0">
-              <BoxRevealDemo />
-            </div>
-          </div>
-        </main>
-      </Element>
+          </main>
+        </Element>
       </section>
 
       <section className="my-10 md:py-20 xl:w-4/5 2xl:w-[68%] md:mx-auto">
