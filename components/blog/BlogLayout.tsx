@@ -11,7 +11,7 @@ export type BlogLayoutProps = {
   description: string;
   publishDate: string; // ISO
   updatedDate?: string; // ISO
-  imageUrl?: string; // /images/blog/slug.jpg
+  imageUrl?: string; 
   toc?: TocItem[];
   children: React.ReactNode;
 };
@@ -22,7 +22,7 @@ export default function BlogLayout({
   description,
   publishDate,
   updatedDate,
-  imageUrl = `/images/blog/${slug}.jpg`,
+  imageUrl = `/images/blogs/${slug}.webp`,
   toc = [],
   children,
 }: BlogLayoutProps) {
