@@ -1,6 +1,16 @@
 // app/blog/page.tsx
 import Link from "next/link";
-import { FiSearch, FiTrendingUp, FiTarget, FiPenTool, FiBookOpen } from "react-icons/fi";
+import { 
+  FiSearch,      // 🔍 SEO & keyword research
+  FiShoppingCart,// 🛒 Ecommerce & product/category pages
+  FiTrendingUp,  // 📈 Growth, analytics, and ranking improvements
+  FiSettings,    // ⚙️ Technical SEO (site speed, mobile-first, etc.)
+  FiPenTool,     // ✍️ Content marketing, blogs, buyer guides
+  FiLink,        // 🔗 Backlinks & authority building
+  FiBarChart2,   // 📊 Tracking KPIs and continuous optimisation
+  FiTarget,
+  FiBookOpen,      // 🎯 Local SEO, buyer intent focus
+} from "react-icons/fi";
 
 type BlogItem = {
   slug: string;
@@ -46,6 +56,13 @@ const BLOGS: BlogItem[] = [
     icon: FiBookOpen,
     date: "2025-08-15",
   },
+  {
+  slug: "ecommerce-seo-patna",
+  title: "SEO for Ecommerce Explained: Increasing Online Visibility (Patna & Bihar)",
+  description: "A quick guide to Ecommerce SEO in Patna—rank higher, get traffic, boost sales.",
+  icon: FiShoppingCart,
+  date: "2025-09-02",
+}
 ];
 
 export default function BlogIndexPage() {
