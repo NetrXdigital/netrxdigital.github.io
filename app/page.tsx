@@ -14,6 +14,8 @@ import { PiCheckBold, PiPlayFill } from "react-icons/pi";
 import { Element } from "react-scroll";
 import LetsMakeThingsHappenSection from "@/components/ui/lets-make-things-happen";
 import Footer from "@/components/footer";
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const services = [
   {
@@ -54,6 +56,266 @@ const services = [
   },
 ];
 
+function useAutoScroller(ref: React.RefObject<HTMLDivElement>, delayMs = 180000) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let paused = false;
+    const onEnter = () => (paused = true);
+    const onLeave = () => (paused = false);
+
+    el.addEventListener("mouseenter", onEnter);
+    el.addEventListener("focusin", onEnter);
+    el.addEventListener("mouseleave", onLeave);
+    el.addEventListener("focusout", onLeave);
+
+    const id = setInterval(() => {
+      if (paused || !ref.current) return;
+
+      const node = ref.current;
+      const nextLeft = node.scrollLeft + node.clientWidth * 0.95;
+      const maxLeft = node.scrollWidth - node.clientWidth - 4; // tolerance
+      if (nextLeft >= maxLeft) {
+        node.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        node.scrollBy({ left: node.clientWidth * 0.95, behavior: "smooth" });
+      }
+    }, delayMs);
+
+    return () => {
+      clearInterval(id);
+      el.removeEventListener("mouseenter", onEnter);
+      el.removeEventListener("focusin", onEnter);
+      el.removeEventListener("mouseleave", onLeave);
+      el.removeEventListener("focusout", onLeave);
+    };
+  }, [ref, delayMs]);
+}
+
+function ArrowButton({
+  dir,
+  onClick,
+  className = "",
+}: {
+  dir: "left" | "right";
+  onClick: () => void;
+  className?: string;
+}) {
+  const Icon = dir === "left" ? ChevronLeft : ChevronRight;
+  return (
+    <button
+      type="button"
+      aria-label={dir === "left" ? "Scroll left" : "Scroll right"}
+      onClick={onClick}
+      className={`inline-flex items-center justify-center
+        h-10 w-10 rounded-full border border-border
+        bg-card/70 backdrop-blur
+        hover:bg-card transition
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-ring
+        ${className}`}
+    >
+      <Icon className="h-5 w-5" />
+    </button>
+  );
+}
+
+// ===== Testimonials carousel =====
+function TestimonialsSection() {
+  const items = [
+    {
+      quote:
+        "NetrX Digital helped us boost our online presence and generate consistent leads through smart marketing strategies. Their SEO and social media expertise made a real difference in our growth. Highly recommended!",
+      name: "Shouaib Ahmed",
+      role: "CEO, Instant Hub",
+      logo: "/logo/instant_hub.webp",
+    },
+    {
+      quote:
+        "NetrX Digital helped my business grow tremendously. Their marketing strategies and SEO expertise brought real results — more visibility, more leads, and a stronger online presence. Highly recommend their services for anyone serious about growing their brand online.",
+      name: "Raza",
+      role: "Founder, Raza Pioneer Labs",
+      logo: "/logo/raza.webp",
+    },
+    {
+      quote:
+        "NetrX Digital has truly transformed our business growth journey. Their expert digital marketing strategies, attention to detail, and result-driven approach helped us reach a wider audience and establish a stronger online presence. Highly professional and committed team — we couldn’t have asked for a better partner in our digital growth.",
+      name: "Priya Patel",
+      role: "Executive, Kosut Builders and Developers Pvt. Ltd.",
+      logo: "/logo/kosut.webp",
+    },
+    {
+      quote:
+        "NetrX Digital helped my business grow online with professional SEO and digital marketing services. Highly reliable, creative, and result-driven team.",
+      name: "Anshu",
+      role: "Founder, StylizeUnique",
+      logo: "/logo/stylizeunique.webp",
+    },
+    {
+      quote:
+        "NetrX Digital has been a game-changer for my gym. Their marketing strategies brought in more clients than I ever expected, and my local visibility improved drastically. Highly professional and result-oriented service — truly helped my business grow fast.",
+      name: "Parth Singh",
+      role: "Founder, S R Fitness",
+      logo: "/logo/s_r_fitness.webp",
+    },
+  ];
+
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  useAutoScroller(scrollerRef, 3000); // 3 seconds
+
+  const scrollByAmount = (dir: "left" | "right") => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const delta = el.clientWidth * 0.95 * (dir === "left" ? -1 : 1);
+    el.scrollBy({ left: delta, behavior: "smooth" });
+  };
+
+  return (
+    <section className="py-16 md:py-20 bg-card/30">
+      <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold">What clients say</h2>
+          <div className="hidden md:flex gap-2">
+            <ArrowButton dir="left" onClick={() => scrollByAmount("left")} />
+            <ArrowButton dir="right" onClick={() => scrollByAmount("right")} />
+          </div>
+        </div>
+
+        <div className="relative">
+          {/* mobile arrow buttons */}
+          <div className="md:hidden absolute inset-y-1/2 -translate-y-1/2 left-2 z-10">
+            <ArrowButton dir="left" onClick={() => scrollByAmount("left")} />
+          </div>
+          <div className="md:hidden absolute inset-y-1/2 -translate-y-1/2 right-2 z-10">
+            <ArrowButton dir="right" onClick={() => scrollByAmount("right")} />
+          </div>
+
+          <div
+            ref={scrollerRef}
+            className="
+              group relative
+              overflow-x-auto overflow-y-hidden
+              snap-x snap-mandatory
+              scroll-smooth
+              hide-scrollbar
+              flex gap-6
+              pr-2
+            "
+            aria-label="Client testimonials"
+            tabIndex={0}
+          >
+            {items.map((t, i) => (
+              <article
+                key={i}
+                className="
+                  min-w-[85%] sm:min-w-[70%] md:min-w-[48%] lg:min-w-[38%]
+                  snap-start scroll-ml-4
+                  rounded-2xl border border-border bg-card
+                  p-6 shadow-sm
+                "
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <Image
+                    src={t.logo}
+                    alt={`${t.name} logo`}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded object-contain"
+                  />
+                  <div>
+                    <div className="font-semibold">{t.name}</div>
+                    <div className="text-sm text-muted-foreground">{t.role}</div>
+                  </div>
+                </div>
+                <p className="text-lg leading-relaxed">“{t.quote}”</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== Client logos carousel =====
+function ClientsLogosSection() {
+  const clients = [
+    { name: "Instant Hub", logo: "/logo/instant_hub.webp" },
+    { name: "Raza Pioneer Labs", logo: "/logo/raza.webp" },
+    { name: "Kosut Builders and Developers Pvt. Ltd.", logo: "/logo/kosut.webp" },
+    { name: "StylizeUnique", logo: "/logo/stylizeunique.webp" },
+    { name: "S R Fitness", logo: "/logo/s_r_fitness.webp" },
+  ];
+
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  useAutoScroller(scrollerRef, 3000); // 3 seconds
+
+  const scrollByAmount = (dir: "left" | "right") => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const delta = el.clientWidth * 0.95 * (dir === "left" ? -1 : 1);
+    el.scrollBy({ left: delta, behavior: "smooth" });
+  };
+
+  return (
+    <section className="py-14 md:py-16 bg-background">
+      <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold">Brands we’ve worked with</h2>
+          <div className="hidden md:flex gap-2">
+            <ArrowButton dir="left" onClick={() => scrollByAmount("left")} />
+            <ArrowButton dir="right" onClick={() => scrollByAmount("right")} />
+          </div>
+        </div>
+
+        <div className="relative">
+          {/* mobile arrows */}
+          <div className="md:hidden absolute inset-y-1/2 -translate-y-1/2 left-2 z-10">
+            <ArrowButton dir="left" onClick={() => scrollByAmount("left")} />
+          </div>
+          <div className="md:hidden absolute inset-y-1/2 -translate-y-1/2 right-2 z-10">
+            <ArrowButton dir="right" onClick={() => scrollByAmount("right")} />
+          </div>
+
+          <div
+            ref={scrollerRef}
+            className="
+              relative overflow-x-auto overflow-y-hidden
+              snap-x snap-mandatory scroll-smooth hide-scrollbar
+              flex gap-6 items-center
+              py-2
+            "
+            aria-label="Client logos"
+            tabIndex={0}
+          >
+            {clients.map((c, i) => (
+              <div
+                key={i}
+                className="
+                  min-w-[45%] sm:min-w-[32%] md:min-w-[22%] lg:min-w-[18%]
+                  snap-start scroll-ml-4
+                  rounded-xl border border-border bg-card
+                  px-4 py-6 flex items-center justify-center
+                "
+                title={c.name}
+              >
+                <Image
+                  src={c.logo}
+                  alt={`${c.name} logo`}
+                  width={160}
+                  height={80}
+                  className="h-10 w-auto object-contain opacity-90"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 export default function Home() {
   return (
     <div
@@ -67,16 +329,16 @@ export default function Home() {
         aria-label="Hero"
       >
         {/* Background video — place file at /public/videos/hero-bg.mp4 */}
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/videos/hero-bg.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          // optional poster for first paint:
-          // poster="/images/hero-poster.jpg"
-        />
+        
+      <video
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none z-0"
+        src="/videos/hero-bg.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+
 
         {/* Readability overlays */}
         <div className="absolute inset-0 bg-black/35" />
@@ -366,6 +628,11 @@ export default function Home() {
           </main>
         </Element>
       </section>
+      {/* === NEW: Testimonials carousel === */}
+      <TestimonialsSection />
+
+      {/* === NEW: Client logos carousel === */}
+      <ClientsLogosSection />
 
       <section className="my-10 md:py-20 xl:w-4/5 2xl:w-[68%] md:mx-auto">
         <LetsMakeThingsHappenSection />

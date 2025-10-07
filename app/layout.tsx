@@ -129,16 +129,11 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <Header />
           <main>{children}</main>
           <Analytics />
-        </ThemeProvider>
+      </ThemeProvider>
       </body>
     </html>
   );
