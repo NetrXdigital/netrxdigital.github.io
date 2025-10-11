@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
+import FloatingChatButtons from "@/components/FloatingChatButtons";
 
 const font = Space_Grotesk({ subsets: ["latin"] });
 
@@ -132,6 +133,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           <main>{children}</main>
+          <FloatingChatButtons /> 
           <Analytics />
       </ThemeProvider>
       </body>
