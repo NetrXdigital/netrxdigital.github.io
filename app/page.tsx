@@ -248,12 +248,12 @@ function ClientsLogosSection() {
   ];
 
   const scrollerRef = useRef<HTMLDivElement>(null);
-  useAutoScroller(scrollerRef, 3000); // 3 seconds
+  useAutoScroller(scrollerRef, 3000); // auto-scroll every 3s
 
   const scrollByAmount = (dir: "left" | "right") => {
     const el = scrollerRef.current;
     if (!el) return;
-    const delta = el.clientWidth * 0.95 * (dir === "left" ? -1 : 1);
+    const delta = el.clientWidth * 0.9 * (dir === "left" ? -1 : 1);
     el.scrollBy({ left: delta, behavior: "smooth" });
   };
 
@@ -261,7 +261,9 @@ function ClientsLogosSection() {
     <section className="py-14 md:py-16 bg-background">
       <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl md:text-4xl font-bold">Brands we’ve worked with</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">
+            Brands we’ve worked with
+          </h2>
           <div className="hidden md:flex gap-2">
             <ArrowButton dir="left" onClick={() => scrollByAmount("left")} />
             <ArrowButton dir="right" onClick={() => scrollByAmount("right")} />
@@ -280,10 +282,10 @@ function ClientsLogosSection() {
           <div
             ref={scrollerRef}
             className="
-              relative overflow-x-auto overflow-y-hidden
+              flex gap-10 items-center
+              overflow-x-auto overflow-y-hidden
               snap-x snap-mandatory scroll-smooth hide-scrollbar
-              flex gap-6 items-center
-              py-2
+              py-4
             "
             aria-label="Client logos"
             tabIndex={0}
@@ -292,19 +294,22 @@ function ClientsLogosSection() {
               <div
                 key={i}
                 className="
-                  min-w-[45%] sm:min-w-[32%] md:min-w-[22%] lg:min-w-[18%]
                   snap-start scroll-ml-4
-                  rounded-xl border border-border bg-card
-                  px-4 py-6 flex items-center justify-center
+                  flex items-center justify-center
+                  min-w-[40%] sm:min-w-[30%] md:min-w-[22%] lg:min-w-[18%]
+                  transition-transform hover:scale-105
                 "
                 title={c.name}
               >
                 <Image
                   src={c.logo}
                   alt={`${c.name} logo`}
-                  width={160}
-                  height={80}
-                  className="h-10 w-auto object-contain opacity-90"
+                  width={220}
+                  height={120}
+                  className="
+                    h-24 sm:h-28 md:h-44 w-auto object-contain
+                    brightness-110 contrast-110
+                  "
                 />
               </div>
             ))}
@@ -314,6 +319,7 @@ function ClientsLogosSection() {
     </section>
   );
 }
+
 
 
 export default function Home() {
