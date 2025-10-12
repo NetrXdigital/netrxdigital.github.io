@@ -5,10 +5,12 @@ const Footer = () => {
   return (
     <footer className="bg-background border-t border-border py-10 px-6 sm:px-10 md:px-14 lg:px-20">
       <div className="xl:w-4/5 2xl:w-[68%] mx-auto space-y-10">
+        
         {/* ===== TOP SECTION ===== */}
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 md:gap-8">
+          
           {/* Left: Logo + Contact Info */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3 w-full md:w-1/2">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3 w-full md:w-[55%]">
             <Image
               src="/logo/logo.webp"
               width={180}
@@ -23,11 +25,17 @@ const Footer = () => {
               <p className="text-base sm:text-lg text-muted-foreground break-all">
                 netrxdigital@gmail.com
               </p>
+              <p className="text-base sm:text-lg text-muted-foreground break-all">
+                Radhakrishna Nagar, 70, 35 Feet Rd,near 
+              </p>
+               <p className="text-base sm:text-lg text-muted-foreground break-all">
+                Panchsheel Hospital, Patna, Bihar 800032
+              </p>
             </div>
           </div>
 
           {/* Right: Embedded Map */}
-          <div className="w-full md:w-1/3 h-[220px] sm:h-[250px] md:h-[280px] rounded-xl overflow-hidden shadow-md">
+          <div className="w-full md:w-[85%] h-[220px] sm:h-[250px] md:h-[350px] rounded-xl overflow-hidden shadow-md md:-ml-6">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.898675207026!2d85.1115919!3d25.575037599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4893031b8dc1b0b3%3A0x122cc7864962e1df!2sNetrX%20Digital%20-%20Best%20Digital%20Marketing%20Agency%20in%20Patna%20%2C%20Bihar!5e0!3m2!1sen!2sin!4v1756751281162!5m2!1sen!2sin"
               width="100%"
