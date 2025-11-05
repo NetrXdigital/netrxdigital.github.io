@@ -56,12 +56,12 @@ const Footer = () => {
               All Rights Reserved.
             </p>
             <div className="flex justify-center sm:justify-end">
-              <Link
+              {/* <Link
                 href="/privacy-policy"
                 className="text-blue-500 hover:underline"
               >
                 Privacy Policy
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
