@@ -17,6 +17,11 @@ import NumberTicker from "@/components/magicui/number-ticker";
 import { InfiniteMovingLogos } from "@/components/ui/infinite-moving-logos";
 import LetsMakeThingsHappenSection from "@/components/ui/lets-make-things-happen";
 import Footer from "@/components/footer";
+import { ShieldCheck, Sparkles } from "lucide-react";
+import { motion, useMotionValue, useSpring, useTransform} from "framer-motion";
+
+
+
 
 /* -------------------- Utilities -------------------- */
 
@@ -127,7 +132,7 @@ function ScrollProgress() {
 
 /* -------------------- Testimonials carousel -------------------- */
 
-/* -------------------- Testimonials carousel (center-mode, no per-card refs) -------------------- */
+/* -------------------- Testimonials carousel (futuristic, cursor reactive) -------------------- */
 function TestimonialsSection() {
   const items = [
     { quote: "NetrX Digital helped us boost our online presence and generate consistent leads through smart marketing strategies. Their SEO and social media expertise made a real difference in our growth. Highly recommended!", name: "Shouaib Ahmed", role: "CEO, Instant Hub", logo: "/logo/instanthub.png" },
@@ -140,7 +145,7 @@ function TestimonialsSection() {
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  // Autoplay (respects reduced motion)
+  // ===== Autoplay (respects reduced motion)
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mq.matches) return;
@@ -153,26 +158,77 @@ function TestimonialsSection() {
   const go = (dir: "prev" | "next") =>
     setI((p) => (dir === "next" ? (p + 1) % items.length : (p - 1 + items.length) % items.length));
 
+  // ===== Card tilt + mouse glow
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+
+  const sx = useSpring(mx, { stiffness: 120, damping: 14 });
+  const sy = useSpring(my, { stiffness: 120, damping: 14 });
+
+  const rotateX = useTransform(sy, [-0.5, 0.5], [8, -8]);   // tilt up/down
+  const rotateY = useTransform(sx, [-0.5, 0.5], [-8, 8]);   // tilt left/right
+  const glowX = useTransform(sx, [-0.5, 0.5], ["0%", "100%"]);
+  const glowY = useTransform(sy, [-0.5, 0.5], ["0%", "100%"]);
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;  // -0.5 to 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    mx.set(x);
+    my.set(y);
+  };
+
+  const onLeave = () => {
+    mx.set(0);
+    my.set(0);
+  };
+
+  // ===== Keyboard support
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") go("prev");
+      if (e.key === "ArrowRight") go("next");
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  // ===== Autoplay progress ring
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    let start = performance.now();
+    let raf = 0;
+    const loop = (t: number) => {
+      const delta = (t - start) % 5000;
+      setProgress(delta / 5000);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, [i]);
+
   return (
-    <section className="py-16 md:py-20">
+    <section className="relative py-16 md:py-20">
+      {/* Subtle constellation grid + corner glow */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(1000px_400px_at_10%_-10%,rgba(99,102,241,.15),transparent),radial-gradient(800px_300px_at_110%_120%,rgba(56,189,248,.12),transparent)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/.2)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/.2)_1px,transparent_1px)] bg-[size:18px_28px]" />
+      </div>
+
       <div className="mx-6 md:mx-auto xl:w-4/5 2xl:w-[68%]">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl md:text-4xl font-bold">What clients say</h2>
+
+          {/* Magnetic arrow buttons on desktop */}
           <div className="hidden md:flex gap-2">
-            <button
-              onClick={() => go("prev")}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/70 hover:bg-card transition"
-              aria-label="Previous testimonial"
-            >
+            <MagneticButton ariaLabel="Previous testimonial" onClick={() => go("prev")}>
               <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              onClick={() => go("next")}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/70 hover:bg-card transition"
-              aria-label="Next testimonial"
-            >
+            </MagneticButton>
+            <MagneticButton ariaLabel="Next testimonial" onClick={() => go("next")}>
               <ChevronRight className="h-5 w-5" />
-            </button>
+            </MagneticButton>
           </div>
         </div>
 
@@ -180,56 +236,100 @@ function TestimonialsSection() {
         <div
           className="relative max-w-3xl mx-auto"
           onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
+          onMouseLeave={() => { setPaused(false); onLeave(); }}
           onFocus={() => setPaused(true)}
           onBlur={() => setPaused(false)}
         >
-          <div className="rounded-3xl border bg-card p-6 md:p-8 shadow-sm">
-            <div className="flex items-center gap-3 mb-5">
-              <Image
-                src={items[i].logo}
-                alt={`${items[i].name} logo`}
-                width={44}
-                height={44}
-                className="h-11 w-11 rounded object-contain"
-              />
-              <div>
-                <div className="font-semibold">{items[i].name}</div>
-                <div className="text-sm text-muted-foreground">{items[i].role}</div>
+          <motion.div
+            ref={cardRef}
+            onMouseMove={onMouseMove}
+            style={{
+              rotateX,
+              rotateY,
+              transformStyle: "preserve-3d",
+            }}
+            className="relative rounded-3xl border bg-card/70 backdrop-blur p-6 md:p-8 shadow-[0_0_0_1px_hsl(var(--border)/.5),0_20px_60px_-20px_rgba(0,0,0,.35)]"
+          >
+            {/* Neon gradient border via pseudo-layer */}
+            <span className="pointer-events-none absolute -inset-px rounded-[22px] bg-[conic-gradient(from_180deg_at_50%_50%,rgba(59,130,246,.45),rgba(99,102,241,.45),rgba(168,85,247,.45),rgba(59,130,246,.45))] opacity-40 blur-sm" />
+            {/* Mouse glow */}
+            <motion.span
+              style={{
+                left: glowX,
+                top: glowY,
+              }}
+              aria-hidden
+              className="pointer-events-none absolute size-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(99,102,241,.30),transparent_60%)]"
+            />
+            {/* Content */}
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="relative">
+                  <Image
+                    src={items[i].logo}
+                    alt={`${items[i].name} logo`}
+                    width={44}
+                    height={44}
+                    className="h-11 w-11 rounded object-contain ring-2 ring-blue-500/40"
+                  />
+                  <span className="absolute -right-1 -bottom-1 inline-block h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-background" />
+                </div>
+                <div>
+                  <div className="font-semibold">{items[i].name}</div>
+                  <div className="text-sm text-muted-foreground">{items[i].role}</div>
+                </div>
+
+                {/* Progress ring */}
+                <div className="ml-auto">
+                  <ProgressRing progress={progress} />
+                </div>
+              </div>
+
+              {/* Quote */}
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35 }}
+                className="relative"
+              >
+                {/* faint quote mark */}
+                <svg className="absolute -top-6 -left-4 h-12 w-12 opacity-10" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.17 6A4.17 4.17 0 0 0 3 10.17V21h8.33V10.17A4.17 4.17 0 0 0 7.17 6Zm9.5 0A4.17 4.17 0 0 0 12.5 10.17V21H20.8V10.17A4.17 4.17 0 0 0 16.67 6Z" />
+                </svg>
+                <p className="relative text-lg md:text-xl leading-relaxed">
+                  “{items[i].quote}”
+                </p>
+              </motion.div>
+
+              {/* Mobile controls */}
+              <div className="mt-6 flex items-center justify-between md:hidden">
+                <button
+                  onClick={() => go("prev")}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/70 hover:bg-card transition"
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={() => go("next")}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/70 hover:bg-card transition"
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
               </div>
             </div>
-
-            {/* Quote with fade transition */}
-            <div key={i} className="transition-opacity duration-500 opacity-100">
-              <p className="text-lg leading-relaxed">“{items[i].quote}”</p>
-            </div>
-
-            {/* Mobile controls */}
-            <div className="mt-6 flex items-center justify-between md:hidden">
-              <button
-                onClick={() => go("prev")}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/70 hover:bg-card transition"
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button
-                onClick={() => go("next")}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/70 hover:bg-card transition"
-                aria-label="Next testimonial"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
+          </motion.div>
 
           {/* Dots */}
           <div className="mt-6 flex items-center justify-center gap-2">
             {items.map((_, idx) => (
-              <button
+              <motion.button
                 key={idx}
                 onClick={() => setI(idx)}
                 aria-label={`Go to testimonial ${idx + 1}`}
+                whileHover={{ scale: 1.2 }}
                 className={`h-2.5 rounded-full transition-all ${
                   i === idx ? "w-8 bg-primary" : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
                 }`}
@@ -241,88 +341,166 @@ function TestimonialsSection() {
     </section>
   );
 }
+function MagneticButton({
+  children,
+  onClick,
+  ariaLabel,
+}: {
+  children: React.ReactNode;
+  onClick: () => void;
+  ariaLabel: string;
+}) {
+  const ref = useRef<HTMLButtonElement | null>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const tx = useSpring(x, { stiffness: 300, damping: 20, mass: 0.4 });
+  const ty = useSpring(y, { stiffness: 300, damping: 20, mass: 0.4 });
+
+  const handleMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const dx = e.clientX - (rect.left + rect.width / 2);
+    const dy = e.clientY - (rect.top + rect.height / 2);
+    x.set(dx * 0.15);
+    y.set(dy * 0.15);
+  };
+  const reset = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.button
+      ref={ref}
+      onMouseMove={handleMove}
+      onMouseLeave={reset}
+      onFocus={reset}
+      onClick={onClick}
+      aria-label={ariaLabel}
+      style={{ x: tx, y: ty }}
+      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/70 hover:bg-card transition relative overflow-hidden"
+    >
+      {/* subtle inner glow */}
+      <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100" />
+      {children}
+    </motion.button>
+  );
+}
+
+function ProgressRing({ progress }: { progress: number }) {
+  const size = 28;
+  const stroke = 3;
+  const r = (size - stroke) / 2;
+  const c = 2 * Math.PI * r;
+  const offset = c * (1 - progress);
+
+  return (
+    <svg width={size} height={size} className="text-muted-foreground">
+      <circle cx={size/2} cy={size/2} r={r} stroke="currentColor" strokeWidth={stroke} fill="none" opacity={0.25} />
+      <circle
+        cx={size/2}
+        cy={size/2}
+        r={r}
+        stroke="url(#g)"
+        strokeWidth={stroke}
+        fill="none"
+        strokeDasharray={c}
+        strokeDashoffset={offset}
+        strokeLinecap="round"
+      />
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#60a5fa" />
+          <stop offset="50%" stopColor="#a78bfa" />
+          <stop offset="100%" stopColor="#22d3ee" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
 
 
 /* -------------------- Client logos carousel -------------------- */
-function ClientsLogosSection() {
-  const clients = [
-    { name: "Instant Hub", logo: "/logo/instanthub.png" },
-    { name: "Raza Pioneer Labs", logo: "/logo/raza.png" },
-    { name: "Kosut Builders and Developers Pvt. Ltd.", logo: "/logo/Kosut Builder.png" },
-    { name: "StylizeUnique", logo: "/logo/business.png" },
-    { name: "S R Fitness", logo: "/logo/srfitness.png" },
-  ];
+// function ClientsLogosSection() {
+//   const clients = [
+//     { name: "Instant Hub", logo: "/logo/instanthub.png" },
+//     { name: "Raza Pioneer Labs", logo: "/logo/raza.png" },
+//     { name: "Kosut Builders and Developers Pvt. Ltd.", logo: "/logo/Kosut Builder.png" },
+//     { name: "StylizeUnique", logo: "/logo/business.png" },
+//     { name: "S R Fitness", logo: "/logo/srfitness.png" },
+//   ];
 
-  // Duplicate for seamless looping
-  const duplicatedClients = [...clients, ...clients];
+//   // Duplicate for seamless looping
+//   const duplicatedClients = [...clients, ...clients];
 
-  const scrollerRef = useRef<HTMLDivElement>(null);
+//   const scrollerRef = useRef<HTMLDivElement>(null);
 
-  return (
-    <section className="py-14 md:py-16 bg-background overflow-hidden">
-      <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground">
-            Brands we’ve worked with
-          </h2>
-        </div>
+//   return (
+//     <section className="py-14 md:py-16 bg-background overflow-hidden">
+//       <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
+//         <div className="flex items-center justify-between mb-6">
+//           <h2 className="text-2xl md:text-4xl font-bold text-foreground">
+//             Brands we’ve worked with
+//           </h2>
+//         </div>
 
-        <div className="relative">
-          <div
-            ref={scrollerRef}
-            className="flex gap-12 items-center animate-scroll"
-            aria-label="Client logos"
-            tabIndex={0}
-          >
-            {duplicatedClients.map((c, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 flex items-center justify-center min-w-[180px] md:min-w-[220px] transition-transform hover:scale-105"
-                title={c.name}
-              >
-                <div className="flex items-center justify-center bg-white rounded-lg shadow-sm p-4">
-                  <Image
-                    src={c.logo}
-                    alt={`${c.name} logo`}
-                    width={200}
-                    height={100}
-                    className="h-24 w-auto md:h-28 object-contain transition-transform duration-500"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+//         <div className="relative">
+//           <div
+//             ref={scrollerRef}
+//             className="flex gap-12 items-center animate-scroll"
+//             aria-label="Client logos"
+//             tabIndex={0}
+//           >
+//             {duplicatedClients.map((c, i) => (
+//               <div
+//                 key={i}
+//                 className="flex-shrink-0 flex items-center justify-center min-w-[180px] md:min-w-[220px] transition-transform hover:scale-105"
+//                 title={c.name}
+//               >
+//                 <div className="flex items-center justify-center bg-white rounded-lg shadow-sm p-4">
+//                   <Image
+//                     src={c.logo}
+//                     alt={`${c.name} logo`}
+//                     width={200}
+//                     height={100}
+//                     className="h-24 w-auto md:h-28 object-contain transition-transform duration-500"
+//                   />
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
 
-      <style jsx>{`
-        /* Hide scrollbar globally */
-        ::-webkit-scrollbar {
-          display: none;
-        }
-        * {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
+//       <style jsx>{`
+//         /* Hide scrollbar globally */
+//         ::-webkit-scrollbar {
+//           display: none;
+//         }
+//         * {
+//           -ms-overflow-style: none;
+//           scrollbar-width: none;
+//         }
 
-        /* Seamless auto scroll animation */
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
+//         /* Seamless auto scroll animation */
+//         @keyframes scroll {
+//           0% {
+//             transform: translateX(0);
+//           }
+//           100% {
+//             transform: translateX(-50%);
+//           }
+//         }
 
-        .animate-scroll {
-          width: max-content;
-          animation: scroll 25s linear infinite;
-        }
-      `}</style>
-    </section>
-  );
-}
+//         .animate-scroll {
+//           width: max-content;
+//           animation: scroll 25s linear infinite;
+//         }
+//       `}</style>
+//     </section>
+//   );
+// }
 
 /* -------------------- Page -------------------- */
 
@@ -359,8 +537,8 @@ export default function Home() {
             <CoverDemo />
           </h1>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
+          <div className="mt-8 flex flex-wrap gap-4">
+            {/* <Link
               href="/meeting"
               className="inline-flex h-12 items-center justify-center rounded-xl px-6 text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:opacity-95 shadow-lg"
             >
@@ -371,7 +549,7 @@ export default function Home() {
               className="inline-flex h-12 items-center justify-center rounded-xl px-6 border border-white/40 text-white/95 hover:bg-white/10"
             >
               See our work
-            </Link>
+            </Link> */}
           </div>
 
           {/* Quick pillars */}
@@ -456,7 +634,7 @@ export default function Home() {
       </Element>
 
       {/* Full Width CTA Section */}
-      <section className="w-full py-20 bg-card">
+      {/* <section className="w-full py-20 bg-card">
         <div className="px-6 md:px-12 lg:px-20">
           <p className="text-center text-xl md:text-2xl my-6 md:my-10 md:w-4/5 mx-auto text-gray-500">
             Schedule a call with us to discuss your project and get a quote in minutes
@@ -477,44 +655,152 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Trust strip */}
-      <section className="w-full py-20">
-        <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto mt-14">
-          <div className="md:flex items-center justify-between gap-y-4 my-10 gap-x-28 mx-auto">
-            <div className="md:w-2/5">
-              <h2 className="text-2xl font-medium text-gray-600 w-4/5">Trusted by fast-moving brands</h2>
-              <div className="flex my-6 gap-x-5 w-full">
-                <div>
-                  <h3 className="text-blue-500 text-3xl md:text-5xl">
-                    <NumberTicker value={20} />+
-                    <p className="text-gray-500 text-sm md:text-md">Happy Clients</p>
-                  </h3>
+      {/* Trust strip – FUTURISTIC */}
+<section className="relative w-full py-24 overflow-hidden">
+  {/* Ambient grid + aurora glows */}
+  <div
+    className="pointer-events-none absolute inset-0 -z-10"
+    aria-hidden="true"
+  >
+    {/* fine grid */}
+    <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/.25)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/.25)_1px,transparent_1px)] bg-[size:18px_28px]" />
+    {/* aurora blobs */}
+    <div className="absolute -top-24 -left-16 h-72 w-72 rounded-full blur-3xl opacity-40 bg-gradient-to-br from-blue-500/50 via-indigo-500/40 to-purple-500/40" />
+    <div className="absolute -bottom-24 -right-16 h-72 w-72 rounded-full blur-3xl opacity-40 bg-gradient-to-tr from-fuchsia-500/40 via-blue-500/40 to-cyan-500/40" />
+  </div>
+
+  <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      {/* LEFT: Heading + Stats */}
+      <div className="relative">
+        {/* tiny sparkles badge */}
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-muted-foreground backdrop-blur bg-card/70">
+          <Sparkles className="h-3.5 w-3.5 text-blue-500" />
+          <span>Real clients • Real outcomes</span>
+        </div>
+
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+          <span className="bg-clip-text text-transparent bg-[conic-gradient(at_20%_20%,#60a5fa_0deg,#a78bfa_120deg,#22d3ee_240deg,#60a5fa_360deg)]">
+            Trusted by fast-moving brands
+          </span>
+        </h2>
+
+        {/* stat cards */}
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
+          {/* card 1 */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5 }}
+            className="relative rounded-2xl p-5 md:p-6 border bg-card/60 backdrop-blur shadow-[0_0_0_1px_hsl(var(--border)/.5)]"
+          >
+            {/* glow ring */}
+            <span className="pointer-events-none absolute inset-0 rounded-2xl [mask-image:radial-gradient(50%_50%_at_50%_50%,black,transparent)] ring-1 ring-blue-500/25" />
+            <div className="flex items-start justify-between">
+              <div>
+                <div className="text-3xl md:text-5xl font-bold text-blue-500">
+                  <NumberTicker value={20} />+
                 </div>
-                <div className="w-px bg-gray-300 self-stretch" />
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-blue-500 text-3xl md:text-5xl whitespace-nowrap overflow-hidden">
-                    <NumberTicker value={32} />+
-                    <p className="text-gray-500 text-sm md:text-md">Projects Completed</p>
-                  </h3>
-                </div>
+                <p className="mt-1 text-sm text-muted-foreground">Happy Clients</p>
+              </div>
+              <div className="h-9 w-9 rounded-full grid place-items-center bg-blue-500/10 border border-blue-500/30">
+                <ShieldCheck className="h-5 w-5 text-blue-500" />
               </div>
             </div>
+            <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+          </motion.div>
 
-            <section className="overflow-hidden mt-10 md:w-4/5">
-              <InfiniteMovingLogos
-                speed="slow"
-                direction="left"
-                items={[
-                  { logo: "/logo/logo.webp", name: "Logo" },
-                  { logo: "/logo/logo.webp", name: "Logo" },
-                ]}
-              />
-            </section>
+          {/* card 2 */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="relative rounded-2xl p-5 md:p-6 border bg-card/60 backdrop-blur shadow-[0_0_0_1px_hsl(var(--border)/.5)]"
+          >
+            <span className="pointer-events-none absolute inset-0 rounded-2xl [mask-image:radial-gradient(50%_50%_at_50%_50%,black,transparent)] ring-1 ring-purple-500/25" />
+            <div className="flex items-start justify-between">
+              <div>
+                <div className="text-3xl md:text-5xl font-bold text-indigo-500">
+                  <NumberTicker value={32} />+
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">Projects Completed</p>
+              </div>
+              <div className="h-9 w-9 rounded-full grid place-items-center bg-indigo-500/10 border border-indigo-500/30">
+                <ShieldCheck className="h-5 w-5 text-indigo-500" />
+              </div>
+            </div>
+            <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent" />
+          </motion.div>
+        </div>
+
+        {/* subtle note */}
+        <p className="mt-6 text-sm text-muted-foreground">
+          From startups to established brands — we partner for velocity and compounding growth.
+        </p>
+      </div>
+
+      {/* RIGHT: Dual marquees with edge fade */}
+      <div className="relative">
+        {/* edge mask for fade-in/out */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent" />
+
+        <div className="space-y-6">
+          {/* marquee 1 */}
+          <div className="overflow-hidden rounded-xl border bg-card/60 backdrop-blur">
+            <InfiniteMovingLogos
+              speed="slow"
+              direction="left"
+              items={[
+                { logo: "/logo/instanthub.png", name: "Instant Hub" },
+                { logo: "/logo/raza.png", name: "Raza Pioneer Labs" },
+                { logo: "/logo/Kosut Builder.png", name: "Kosut Builders" },
+                { logo: "/logo/business.png", name: "StylizeUnique" },
+                { logo: "/logo/srfitness.png", name: "S R Fitness" },
+              ]}
+            />
+          </div>
+          {/* marquee 2 (counter direction for depth) */}
+          <div className="overflow-hidden rounded-xl border bg-card/60 backdrop-blur">
+            <InfiniteMovingLogos
+              speed="slow"
+              direction="right"
+              items={[
+                { logo: "/logo/srfitness.png", name: "S R Fitness" },
+                { logo: "/logo/business.png", name: "StylizeUnique" },
+                { logo: "/logo/Kosut Builder.png", name: "Kosut Builders" },
+                { logo: "/logo/raza.png", name: "Raza Pioneer Labs" },
+                { logo: "/logo/instanthub.png", name: "Instant Hub" },
+              ]}
+            />
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+
+  {/* tiny shimmer line at bottom */}
+  <div className="mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto mt-10">
+    <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-white/10" />
+  </div>
+
+  {/* local styles for mask utility (if needed) */}
+  <style jsx>{`
+    /* Fallback for Safari mask flickers (kept super light) */
+    @supports not (background: paint(worklet)) {
+      .mask-fade {
+        -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+        mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+      }
+    }
+  `}</style>
+</section>
+
 
       {/* Services Section */}
       <Element name="services">
@@ -585,7 +871,7 @@ export default function Home() {
 
       {/* NEW: Testimonials + Logos */}
       <TestimonialsSection />
-      <ClientsLogosSection />
+      {/* <ClientsLogosSection /> */}
 
       {/* Final CTA */}
       <section className="my-10 md:py-20 xl:w-4/5 2xl:w-[68%] md:mx-auto">
