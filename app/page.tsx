@@ -839,35 +839,126 @@ export default function Home() {
         <ScrollBasedVelocityDemo />
       </section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-card">
-        <Element name="process">
-          <main className="md:px-0 mx-6 md:mx-auto">
-            <h2 className="text-3xl md:text-5xl md:text-center font-medium flex items-center gap-x-2 mx-auto justify-center">
-              Our{" "}
-              <span className="text-blue-500 flex gap-x-1 items-center">
-                <Image src={"/icons/squiggle.svg"} width={40} height={40} className="w-6" alt="squiggle" />
-                Creative
-                <Image src={"/icons/star.svg"} width={40} height={40} className="w-6 mb-8" alt="star" />
-              </span>{" "}
-              Process
-            </h2>
+     {/* Process Section – SIMPLE, CURSOR GLOW + HOVER TILT (no extra deps) */}
+<section
+  className="relative py-24 bg-card overflow-hidden"
+  onMouseMove={(e) => {
+    const el = e.currentTarget as HTMLElement;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    el.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  }}
+  onMouseLeave={(e) => {
+    const el = e.currentTarget as HTMLElement;
+    el.style.setProperty("--mx", `-9999px`);
+    el.style.setProperty("--my", `-9999px`);
+  }}
+>
+  {/* subtle grid + two aurora blobs (pure CSS) */}
+  <div className="pointer-events-none absolute inset-0 -z-10">
+    <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/.25)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/.25)_1px,transparent_1px)] bg-[size:18px_28px]" />
+    <div className="absolute -top-24 -left-24 h-[22rem] w-[22rem] rounded-full blur-3xl opacity-40 bg-gradient-to-br from-blue-500/40 via-indigo-500/30 to-purple-500/30" />
+    <div className="absolute -bottom-24 -right-24 h-[22rem] w-[22rem] rounded-full blur-3xl opacity-40 bg-gradient-to-tr from-cyan-400/35 via-fuchsia-500/30 to-blue-500/30" />
+  </div>
 
-            <p className="text-center py-4 md:w-1/2 mx-auto text-xl md:text-2xl text-gray-500">
-              We design to get your business noticed.
-            </p>
+  {/* cursor-follow glow (uses CSS vars set above) */}
+  <div
+    aria-hidden
+    className="pointer-events-none absolute h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full z-0"
+    style={{
+      left: "var(--mx, -9999px)",
+      top: "var(--my, -9999px)",
+      background:
+        "radial-gradient(closest-side, rgba(99,102,241,0.16), rgba(99,102,241,0.0) 60%)",
+    }}
+  />
 
-            <div className="flex flex-col md:flex-row items-center justify-center w-full md:w-1/2 mx-auto">
-              <div className="w-full md:w-1/2 order-2 md:order-1">
-                <AnimatedBeamMultipleOutputDemo />
-              </div>
-              <div className="w-full md:w-1/2 order-1 md:order-2 md:ml-0">
-                <BoxRevealDemo />
-              </div>
+  <Element name="process">
+    <main className="md:px-0 mx-6 md:mx-auto xl:w-4/5 2xl:w-[68%] relative z-10">
+      {/* badge */}
+      <div className="mx-auto mb-4 w-fit rounded-full border px-3 py-1 text-xs text-muted-foreground backdrop-blur bg-background/50">
+        Iterative • Data-driven • Fast
+      </div>
+
+      {/* title */}
+      <h2 className="text-center text-3xl md:text-5xl font-extrabold tracking-tight">
+        Our{" "}
+        <span className="bg-clip-text text-transparent bg-[conic-gradient(at_20%_20%,#60a5fa_0deg,#a78bfa_120deg,#22d3ee_240deg,#60a5fa_360deg)]">
+          Creative
+        </span>{" "}
+        Process
+      </h2>
+
+      {/* subcopy */}
+      <p className="text-center py-4 md:w-1/2 mx-auto text-lg md:text-xl text-gray-500">
+        We blend strategy, motion design, and engineering to get your brand noticed.
+      </p>
+
+      {/* demos in a simple glass panel */}
+      <div className="relative mx-auto mt-8 max-w-4xl rounded-2xl border bg-background/60 backdrop-blur p-5 md:p-6 shadow-[0_0_0_1px_hsl(var(--border)/.4),0_25px_80px_-30px_rgba(0,0,0,.25)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="rounded-xl border bg-card/60 p-4 hover:-translate-y-0.5 transition">
+            <AnimatedBeamMultipleOutputDemo />
+          </div>
+          <div className="rounded-xl border bg-card/60 p-4 hover:-translate-y-0.5 transition">
+            <BoxRevealDemo />
+          </div>
+        </div>
+
+        {/* animated timeline */}
+        <div className="mt-6 h-1 w-full rounded-full bg-muted relative overflow-hidden">
+          <span className="absolute inset-y-0 left-0 w-1/3 animate-[timeline_6s_linear_infinite] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
+        </div>
+      </div>
+
+      {/* simple hover-tilt cards (pure CSS) */}
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+        {[
+          { step: "01", title: "Discover", desc: "Audit, goals, audience mapping to align with business value." },
+          { step: "02", title: "Strategy", desc: "Positioning, content architecture, growth loops, KPIs." },
+          { step: "03", title: "Build", desc: "Design systems + performance-first code with QA built in." },
+          { step: "04", title: "Launch & Learn", desc: "Ship, measure, iterate — CRO, SEO, creative testing." },
+        ].map((s) => (
+          <div
+            key={s.step}
+            className="group relative rounded-2xl border bg-background/60 backdrop-blur p-5 md:p-6 shadow-[0_0_0_1px_hsl(var(--border)/.35)] 
+                       transition-transform duration-300 hover:-translate-y-1 hover:[transform:perspective(900px)_rotateX(3deg)_rotateY(-3deg)]"
+          >
+            {/* gradient stroke */}
+            <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-transparent 
+                             [background:linear-gradient(#000,transparent),linear-gradient(to_right,#60a5fa,#a78bfa,#22d3ee)] 
+                             [background-clip:padding-box,_border-box] border border-transparent" />
+            {/* inner glow that reacts to cursor vars */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full"
+              style={{
+                left: "var(--mx, -9999px)",
+                top: "var(--my, -9999px)",
+                background:
+                  "radial-gradient(closest-side, rgba(99,102,241,0.14), rgba(99,102,241,0.0) 65%)",
+              }}
+            />
+            <div className="relative">
+              <div className="text-xs text-muted-foreground mb-2">Step {s.step}</div>
+              <h3 className="text-lg font-semibold">{s.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
             </div>
-          </main>
-        </Element>
-      </section>
+          </div>
+        ))}
+      </div>
+    </main>
+  </Element>
+
+  {/* local keyframes */}
+  <style jsx>{`
+    @keyframes timeline {
+      0% { transform: translateX(-30%); }
+      100% { transform: translateX(130%); }
+    }
+  `}</style>
+</section>
+
 
       {/* NEW: Testimonials + Logos */}
       <TestimonialsSection />
