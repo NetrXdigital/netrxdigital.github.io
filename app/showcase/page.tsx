@@ -54,22 +54,6 @@ export default function ShowcasePage() {
 
         <BlurFadeDemo />
 
-        {/* Testimonial */}
-        {/* <h3 className="mt-16 text-xl md:text-2xl font-semibold">What Clients Say</h3>
-        <figure className="mt-4 rounded-2xl border bg-card/60 p-6 md:p-8">
-          <blockquote className="text-base md:text-lg leading-relaxed">
-            “NetrX Digital has truly transformed our business growth journey. Their expert
-            digital marketing strategies, attention to detail, and result-driven approach
-            helped us reach a wider audience and establish a stronger online presence.
-            Highly professional and committed team — we couldn’t have asked for a better
-            partner in our digital growth.”
-          </blockquote>
-          <figcaption className="mt-4 text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">Priya Patel</span> — Executive,
-            Kosut Builders and Developers Pvt. Ltd.
-          </figcaption>
-        </figure> */}
-
         {/* CTA */}
         <div className="mt-16">
           <LetsMakeThingsHappenSection />
