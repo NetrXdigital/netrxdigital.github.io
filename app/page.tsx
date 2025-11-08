@@ -20,9 +20,6 @@ import Footer from "@/components/footer";
 import { ShieldCheck, Sparkles } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform} from "framer-motion";
 
-
-
-
 /* -------------------- Utilities -------------------- */
 
 const services = [
