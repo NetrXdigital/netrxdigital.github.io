@@ -343,7 +343,7 @@ export default function Home() {
                 <span className="bg-clip-text text-transparent bg-[conic-gradient(at_20%_20%,#60a5fa_0deg,#a78bfa_120deg,#22d3ee_240deg,#60a5fa_360deg)]">
                   Trusted by fast-moving brands
                 </span>
-              </h2>
+              </h2> 
 
               <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
                 <motion.div
@@ -396,39 +396,24 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent" />
+           <div className="relative">
+  <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-background to-transparent" />
+  <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent" />
 
-              <div className="space-y-6">
-                <div className="overflow-hidden rounded-xl border bg-card/60 backdrop-blur">
-                  <InfiniteMovingLogos
-                    speed="slow"
-                    direction="left"
-                    items={[
-                      { logo: "/logo/instanthub.png", name: "Instant Hub" },
-                      { logo: "/logo/raza.png", name: "Raza Pioneer Labs" },
-                      { logo: "/logo/Kosut Builder.png", name: "Kosut Builders" },
-                      { logo: "/logo/business.png", name: "StylizeUnique" },
-                      { logo: "/logo/srfitness.png", name: "S R Fitness" },
-                    ]}
-                  />
-                </div>
-                <div className="overflow-hidden rounded-xl border bg-card/60 backdrop-blur">
-                  <InfiniteMovingLogos
-                    speed="slow"
-                    direction="right"
-                    items={[
-                      { logo: "/logo/srfitness.png", name: "S R Fitness" },
-                      { logo: "/logo/business.png", name: "StylizeUnique" },
-                      { logo: "/logo/Kosut Builder.png", name: "Kosut Builders" },
-                      { logo: "/logo/raza.png", name: "Raza Pioneer Labs" },
-                      { logo: "/logo/instanthub.png", name: "Instant Hub" },
-                    ]}
-                  />
-                </div>
-              </div>
-            </div>
+  <div className="overflow-hidden rounded-xl border bg-card/60 backdrop-blur">
+    <InfiniteMovingLogos
+      speed="slow"
+      direction="left"
+      items={[
+        { logo: "/logo/instanthub.png", name: "Instant Hub" },
+        { logo: "/logo/raza.png", name: "Raza Pioneer Labs" },
+        { logo: "/logo/Kosut Builder.png", name: "Kosut Builders" },
+        { logo: "/logo/business.png", name: "StylizeUnique" },
+        { logo: "/logo/srfitness.png", name: "S R Fitness" },
+      ]}
+    />
+  </div>
+</div>
           </div>
         </div>
 
@@ -448,32 +433,31 @@ export default function Home() {
 
       {/* Services */}
       <Element name="services">
-        <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto ">
-          <h2>
-            <WordPullUpDemo />
-          </h2>
-          <p className="text-center py-4 md:w-1/2 mx-auto text-xl md:text-2xl text-gray-500">
-            All of our services are designed to help your business stand out
-          </p>
+         <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
+    <h2><WordPullUpDemo /></h2>
+    <p className="text-center py-4 md:w-1/2 mx-auto text-xl md:text-2xl text-gray-500">
+      All of our services are designed to help your business stand out
+    </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 justify-items-center">
-            {services.map((service) => (
-              <TiltCard key={service.title} className="p-5">
-                <Image
-                  src={service.icon}
-                  width={480}
-                  height={240}
-                  className="object-contain bg-gray-100 dark:bg-gray-800 p-4 w-full h-40 rounded-md"
-                  alt={service.title}
-                />
-                <h3 className="mt-4 text-lg md:text-xl font-semibold">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
-                <span className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
-              </TiltCard>
-            ))}
-          </div>
-        </div>
-      </Element>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 justify-items-center">
+      {services.map((service) => (
+        <TiltCard key={service.title} className="p-5 w-full">
+          <Image
+            src={service.icon}
+            width={480}
+            height={240}
+            className="object-contain bg-gray-100 dark:bg-gray-800 p-4 w-full h-40 rounded-md"
+            alt={service.title}
+          />
+          <h3 className="mt-4 text-lg md:text-xl font-semibold">{service.title}</h3>
+          <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
+          <span className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
+        </TiltCard>
+      ))}
+    </div>
+  </div>
+</Element>
+
 
       <section className="py-20">
         <ScrollBasedVelocityDemo />
