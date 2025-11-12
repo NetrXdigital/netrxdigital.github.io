@@ -215,113 +215,170 @@ export default function Home() {
       <ScrollProgress />
 
       {/* ====================== HERO WITH VIDEO BG ====================== */}
-      <section className="relative pt-24 md:pt-28 min-h-[80vh] md:min-h-[86vh] flex items-center overflow-hidden" aria-label="Hero">
-        <video
-          className="absolute inset-0 h-full w-full object-cover pointer-events-none z-0"
-          src="/videos/hero-bg.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent,rgba(0,0,0,0.35))]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.08)_1px,transparent_1px)] bg-[size:14px_24px]" />
+      {/* ====================== HERO WITH VIDEO BG ====================== */}
+<section
+  className="relative pt-24 md:pt-32 min-h-[84vh] md:min-h-[93vh] flex items-center overflow-hidden"
+  aria-label="Hero"
+>
+  <video
+    className="absolute inset-0 h-full w-full object-cover pointer-events-none z-0"
+    src="/videos/hero-bg.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+  />
+  <div className="absolute inset-0 bg-black/35" />
+  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent,rgba(0,0,0,0.35))]" />
+  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.08)_1px,transparent_1px)] bg-[size:14px_24px]" />
 
-        <div className="relative z-10 md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto text-center">
-          <h1 className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-            <CoverDemo />
-          </h1>
+  <div className="relative z-10 md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto text-center">
+    <h1 className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+      <CoverDemo />
+    </h1>
 
-          {/* Magnetic CTAs */}
-          <div className="mt-8 flex items-center justify-center gap-3">
-            <MagneticLink as={Link} href="/meeting" className="px-6 py-3">
-              Book a Call
-            </MagneticLink>
-            <MagneticLink as={Link} href="/showcase" className="px-6 py-3">
-              Showcase
-            </MagneticLink>
-          </div>
+    {/* Magnetic CTAs */}
+    <div className="mt-8 flex items-center justify-center gap-3">
+      <MagneticLink as={Link} href="/meeting" className="px-6 py-3">
+        Book a Call
+      </MagneticLink>
+      <MagneticLink as={Link} href="/showcase" className="px-6 py-3">
+        Showcase
+      </MagneticLink>
+    </div>
 
-          {/* Pillars */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center text-center justify-items-center md:mx-auto mt-10 md:mt-16">
-            {["Design", "Development", "Marketing", "Strategy"].map((label) => (
-              <BoxReveal key={label} boxColor={"#3b82f6"} duration={0.5}>
-                <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center text-white/95 hover:scale-105">
-                  <PiCheckBold className="text-xl text-blue-400" />
-                  {label}
-                </p>
-              </BoxReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* Pillars */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center text-center justify-items-center md:mx-auto mt-10 md:mt-16">
+      {["Design", "Development", "Marketing", "Strategy"].map((label) => (
+        <BoxReveal key={label} boxColor={"#3b82f6"} duration={0.5}>
+          <p className="md:text-xl font-semibold flex gap-x-2 md:gap-x-4 items-center text-white/95 hover:scale-105">
+            <PiCheckBold className="text-xl text-blue-400" />
+            {label}
+          </p>
+        </BoxReveal>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* VSL Video Section */}
-      <Element name="video">
-        <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-          <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Watch How We{" "}
-                <span className="text-blue-500 relative">
-                  Transform
-                  <Image src={"/icons/squiggle.svg"} width={800} height={30} className="absolute -bottom-2 left-0 w-full h-3" alt="underline" />
-                </span>{" "}
-                Businesses
-              </h2>
-              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
-                Proven strategies and real outcomes that grow traffic, leads, and revenue.
-              </p>
-            </div>
+      {/* VSL Video Section – MATCHED to Process BG */}
+<Element name="video">
+  <section
+    className="relative py-24 overflow-hidden"
+    onMouseMove={(e) => {
+      const el = e.currentTarget as HTMLElement;
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+      el.style.setProperty("--my", `${e.clientY - rect.top}px`);
+    }}
+    onMouseLeave={(e) => {
+      const el = e.currentTarget as HTMLElement;
+      el.style.setProperty("--mx", `-9999px`);
+      el.style.setProperty("--my", `-9999px`);
+    }}
+  >
+    {/* === FUTURISTIC BACKGROUND (same recipe as Process) === */}
+    <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+      {/* holographic grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/.25)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/.25)_1px,transparent_1px)] bg-[size:18px_28px]" />
+      {/* aurora blobs */}
+      <div className="absolute -top-24 -left-24 h-[22rem] w-[22rem] rounded-full blur-3xl opacity-40 bg-gradient-to-br from-blue-500/40 via-indigo-500/30 to-purple-500/30" />
+      <div className="absolute -bottom-24 -right-24 h-[22rem] w-[22rem] rounded-full blur-3xl opacity-40 bg-gradient-to-tr from-cyan-400/35 via-fuchsia-500/30 to-blue-500/30" />
+      {/* subtle scanlines (optional, matches vibe) */}
+      <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:100%_3px] mix-blend-overlay" />
+    </div>
 
-            <div className="relative max-w-5xl mx-auto">
-              <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
-                <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500 rounded-full opacity-70"></div>
-                <div className="absolute -top-2 -right-6 w-6 h-6 bg-indigo-400 rounded-full opacity-50"></div>
-                <div className="absolute -bottom-6 -left-2 w-10 h-10 bg-purple-400 rounded-full opacity-40"></div>
+    {/* cursor-reactive local glow */}
+    <div
+      aria-hidden
+      className="pointer-events-none absolute h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full z-0"
+      style={{
+        left: "var(--mx, -9999px)",
+        top: "var(--my, -9999px)",
+        background:
+          "radial-gradient(closest-side, rgba(99,102,241,0.16), rgba(99,102,241,0) 60%)",
+      }}
+    />
 
-                <div className="relative aspect-video">
-                  <iframe
-                    className="w-full h-full"
-                    src="https://www.youtube.com/embed/nFzc15dg1fc?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1"
-                    title="Digital Marketing Success Stories - How We Transform Businesses"
-                    frameBorder="0"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    loading="lazy"
-                    allowFullScreen
-                  />
-                </div>
+    <div className="md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto relative z-10">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          Watch How We{" "}
+          <span className="text-blue-500 relative">
+            Transform
+            <Image
+              src={"/icons/squiggle.svg"}
+              width={800}
+              height={30}
+              className="absolute -bottom-2 left-0 w-full h-3"
+              alt="underline"
+            />
+          </span>{" "}
+          Businesses
+        </h2>
+        <p className="text-xl md:text-2xl text-gray-500 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+          Proven strategies and real outcomes that grow traffic, leads, and revenue.
+        </p>
+      </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
-              </div>
+      <div className="relative max-w-5xl mx-auto">
+        <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
+          <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500 rounded-full opacity-70" />
+          <div className="absolute -top-2 -right-6 w-6 h-6 bg-indigo-400 rounded-full opacity-50" />
+          <div className="absolute -bottom-6 -left-2 w-10 h-10 bg-purple-400 rounded-full opacity-40" />
 
-              <div className="text-center mt-8">
-                <div className="inline-flex items-center gap-x-3 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-lg">
-                  <PiPlayFill className="text-blue-500 text-xl" />
-                  <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Watch the full case study above</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-              {[
-                { title: "Real Results", desc: "See actual case studies and measurable outcomes" },
-                { title: "Proven Strategies", desc: "Methodologies that drive consistent growth" },
-                { title: "Client Success", desc: "Hear directly from clients about their journey" },
-              ].map((c) => (
-                <div key={c.title} className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <PiCheckBold className="text-blue-500 text-xl" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{c.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">{c.desc}</p>
-                </div>
-              ))}
-            </div>
+          <div className="relative aspect-video">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/nFzc15dg1fc?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1"
+              title="Digital Marketing Success Stories - How We Transform Businesses"
+              frameBorder="0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              loading="lazy"
+              allowFullScreen
+            />
           </div>
-        </section>
-      </Element>
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+        </div>
+
+        <div className="text-center mt-8">
+          <div className="inline-flex items-center gap-x-3 bg-white/90 dark:bg-gray-800/90 px-6 py-3 rounded-full shadow-lg backdrop-blur">
+            <PiPlayFill className="text-blue-500 text-xl" />
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+              Watch the full case study above
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        {[
+          { title: "Real Results", desc: "See actual case studies and measurable outcomes" },
+          { title: "Proven Strategies", desc: "Methodologies that drive consistent growth" },
+          { title: "Client Success", desc: "Hear directly from clients about their journey" },
+        ].map((c) => (
+          <div
+            key={c.title}
+            className="text-center p-6 rounded-2xl border border-transparent 
+                       bg-[radial-gradient(circle_at_top_left,rgba(30,41,59,0.9),rgba(17,24,39,0.95))]
+                       shadow-[0_0_30px_-10px_rgba(99,102,241,0.3)] backdrop-blur-xl 
+                       transition-transform duration-300 hover:-translate-y-1"
+          >
+            <div className="w-12 h-12 bg-blue-100/20 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PiCheckBold className="text-blue-400 text-xl" />
+            </div>
+            <h3 className="text-lg font-semibold text-white mb-2">{c.title}</h3>
+            <p className="text-blue-100/80 text-sm">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Element>
+
 
       {/* Trust strip – FUTURISTIC */}
       <section className="relative w-full py-24 overflow-hidden">
@@ -357,7 +414,7 @@ export default function Home() {
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="text-3xl md:text-5xl font-bold text-blue-500">
-                        <NumberTicker value={20} />+
+                        <NumberTicker value={50} />+
                       </div>
                       <p className="mt-1 text-sm text-muted-foreground">Happy Clients</p>
                     </div>
@@ -379,7 +436,7 @@ export default function Home() {
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="text-3xl md:text-5xl font-bold text-indigo-500">
-                        <NumberTicker value={32} />+
+                        <NumberTicker value={70} />+
                       </div>
                       <p className="mt-1 text-sm text-muted-foreground">Projects Completed</p>
                     </div>
@@ -537,8 +594,10 @@ export default function Home() {
               ].map((s) => (
                 <div
                   key={s.step}
-                  className="group relative rounded-2xl border bg-background/60 backdrop-blur p-5 md:p-6 shadow-[0_0_0_1px_hsl(var(--border)/.35)] 
-                       transition-transform duration-300 hover:-translate-y-1 hover:[transform:perspective(900px)_rotateX(3deg)_rotateY(-3deg)]"
+                 className="group relative rounded-2xl overflow-hidden border border-transparent p-[1px]
+             bg-gradient-to-br from-blue-500/40 via-indigo-500/30 to-cyan-400/40 
+             shadow-[0_0_30px_-10px_rgba(99,102,241,0.5)] hover:shadow-[0_0_40px_-10px_rgba(147,197,253,0.8)]
+             transition-transform duration-300 hover:-translate-y-1 hover:[transform:perspective(900px)_rotateX(3deg)_rotateY(-3deg)]"
                 >
                   <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-transparent 
                              [background:linear-gradient(#000,transparent),linear-gradient(to_right,#60a5fa,#a78bfa,#22d3ee)] 
@@ -552,11 +611,11 @@ export default function Home() {
                       background: "radial-gradient(closest-side, rgba(99,102,241,0.14), rgba(99,102,241,0) 65%)",
                     }}
                   />
-                  <div className="relative">
-                    <div className="text-xs text-muted-foreground mb-2">Step {s.step}</div>
-                    <h3 className="text-lg font-semibold">{s.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                  </div>
+                  <div className="rounded-2xl bg-[radial-gradient(circle_at_top_left,rgba(30,41,59,0.9),rgba(17,24,39,0.95))] backdrop-blur-xl p-5 md:p-6">
+    <div className="text-xs text-blue-200 mb-2">Step {s.step}</div>
+    <h3 className="text-lg font-semibold text-white">{s.title}</h3>
+    <p className="mt-2 text-sm text-blue-100/80">{s.desc}</p>
+  </div>
                 </div>
               ))}
             </div>
