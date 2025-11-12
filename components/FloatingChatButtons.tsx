@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FaWhatsapp, FaInstagram, FaFacebookMessenger } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaFacebookMessenger, FaPhoneAlt } from "react-icons/fa";
 
 export default function FloatingChatButtons() {
   return (
@@ -24,9 +24,17 @@ export default function FloatingChatButtons() {
           shadow-lg hover:shadow-xl
           text-white text-2xl
           transition-transform transform hover:scale-110
+          animate-pulse-slow
         "
       >
-        <FaWhatsapp />
+        <FaWhatsapp className="drop-shadow-lg" />
+         <span
+    className="
+      absolute inset-0 rounded-full
+      animate-ping-slow
+      bg-green-600/30
+    "
+  ></span>
       </Link>
 
       {/* Instagram */}
@@ -42,28 +50,48 @@ export default function FloatingChatButtons() {
           shadow-lg hover:shadow-xl
           text-white text-2xl
           transition-transform transform hover:scale-110
+           animate-pulse-slow
         "
       >
-        <FaInstagram />
+        <FaInstagram  className="drop-shadow-lg"/>
+         {/* Pulse Ring */}
+  <span
+    className="
+      absolute inset-0 rounded-full
+      animate-ping-slow
+      bg-blue-400/30
+    "
+  ></span>
       </Link>
 
-      {/* Facebook Messenger */}
-      <Link
-        href="https://m.me/netrxdigital.in"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on Facebook Messenger"
-        className="
-          flex items-center justify-center
-          w-12 h-12 rounded-full
-          bg-blue-600 hover:bg-blue-700
-          shadow-lg hover:shadow-xl
-          text-white text-2xl
-          transition-transform transform hover:scale-110
-        "
-      >
-        <FaFacebookMessenger />
-      </Link>
+      {/* Phone Call */}
+<Link
+  href="tel:+918210947209"
+  aria-label="Call NetrX Digital"
+  title="Call Now"
+  className="
+    relative
+    flex items-center justify-center
+    w-12 h-12 rounded-full
+    bg-gradient-to-tr from-blue-600 via-blue-500 to-cyan-400
+    shadow-lg hover:shadow-xl
+    text-white text-2xl
+    transition-transform transform hover:scale-110
+    animate-pulse-slow
+  "
+>
+  <FaPhoneAlt className="drop-shadow-lg" />
+
+  {/* Pulse Ring */}
+  <span
+    className="
+      absolute inset-0 rounded-full
+      animate-ping-slow
+      bg-blue-400/30
+    "
+  ></span>
+</Link>
+
     </div>
   );
 }

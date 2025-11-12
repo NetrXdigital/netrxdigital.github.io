@@ -89,6 +89,14 @@ const config = {
           }
         },
 
+        // ADDED ↓↓↓
+        'ping-slow': {
+          '0%':   { transform: 'scale(1)',   opacity: '0.6' },
+          '75%':  { transform: 'scale(1.6)', opacity: '0'   },
+          '100%': { transform: 'scale(1.6)', opacity: '0'   },
+        },
+        // ADDED ↑↑↑
+
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -96,6 +104,10 @@ const config = {
         'scroll': 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
         'shimmer' : 'shimmer 8s infinite',
         'shine' : 'shine 2s  linear infinite',
+          // ADDED ↓↓↓
+        'ping-slow': 'ping-slow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'pulse-slow': 'pulse 3s ease-in-out infinite', // uses Tailwind's built-in "pulse" keyframes
+        // ADDED ↑↑↑
       },
     },
   },
