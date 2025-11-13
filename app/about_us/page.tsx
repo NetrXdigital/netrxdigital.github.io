@@ -22,120 +22,252 @@ export default function About() {
     >
       
 
-      {/* HERO – GOLDEN RATIO SPLIT */}
-      <main className="pt-20 pb-16">
-        <div className="mx-6 md:px-0 xl:w-4/5 2xl:w-[68%] md:mx-auto">
-          <section
-            className="
-              relative overflow-hidden rounded-3xl border border-border/70
-              bg-gradient-to-br from-background via-background/95 to-background/80
-              shadow-[0_18px_45px_rgba(15,23,42,0.3)]
-              px-6 py-10 sm:px-10 sm:py-14
-            "
+      {/* HERO – GOLDEN RATIO SPLIT (ANIMATED) */}
+{/* HERO – FUTURISTIC GOLDEN RATIO */}
+<main className="pt-20 pb-16">
+  <div className="mx-6 md:px-0 xl:w-4/5 2xl:w-[68%] md:mx-auto">
+    <motion.section
+      initial={{ opacity: 0, y: 32 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="
+        relative overflow-hidden rounded-3xl border border-border/70
+        bg-gradient-to-br from-background via-background/95 to-background/80
+        shadow-[0_22px_55px_rgba(15,23,42,0.55)]
+        px-6 py-10 sm:px-10 sm:py-14
+      "
+    >
+      {/* SCAN LINE */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-[-20%] top-0 h-32 bg-gradient-to-b from-white/16 via-white/0 to-transparent mix-blend-screen"
+        initial={{ y: "-120%" }}
+        animate={{ y: ["-120%", "210%"] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* ROTATING AURORA RING */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -inset-40 rounded-[3rem] opacity-60"
+        style={{
+          backgroundImage:
+            "conic-gradient(from 180deg at 50% 50%, rgba(59,130,246,0.09), rgba(45,212,191,0.18), rgba(129,140,248,0.16), transparent 70%)",
+        }}
+        initial={{ rotate: 0 }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* FLOATING PARTICLE FIELD */}
+      <div className="pointer-events-none absolute inset-0">
+        {Array.from({ length: 14 }).map((_, i) => (
+          <motion.span
+            key={i}
+            className="absolute h-1 w-1 rounded-full bg-cyan-300/70 shadow-[0_0_18px_rgba(34,211,238,0.8)]"
+            style={{
+              top: `${10 + (i * 7) % 80}%`,
+              left: `${(i * 17) % 100}%`,
+            }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: [0.1, 1, 0.2], y: [0, -12, 0] }}
+            transition={{
+              duration: 3 + (i % 5),
+              repeat: Infinity,
+              repeatType: "mirror",
+              ease: "easeInOut",
+              delay: i * 0.22,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* MAIN GRID – GOLDEN SPLIT */}
+      <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.618fr)_minmax(0,1fr)] items-center">
+        {/* LEFT SIDE – COPY / CTA */}
+        <div className="space-y-6 relative z-10">
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.4 }}
+            className="inline-flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-blue-300"
           >
-            {/* Fibonacci-style glows */}
-            <div className="pointer-events-none absolute -top-32 -left-24 h-64 w-64 rounded-full bg-gradient-to-br from-blue-500/35 via-sky-400/25 to-emerald-400/25 blur-3xl" />
-            <div className="pointer-events-none absolute bottom-[-18%] right-[-10%] h-80 w-80 rounded-full bg-gradient-to-tr from-amber-400/25 via-purple-500/25 to-blue-500/25 blur-3xl" />
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            AI-powered growth studio
+          </motion.p>
 
-            <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.618fr)_minmax(0,1fr)] items-center">
-              {/* Left: copy (≈ 1.618) */}
-              <div className="space-y-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-blue-500">
-                  About NetrX Digital
-                </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, duration: 0.55, ease: "easeOut" }}
+            className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] text-foreground"
+          >
+            We blend{" "}
+            <span className="text-blue-500 inline-flex items-center gap-1">
+              strategy
+              <Image
+                src="/icons/squiggle.svg"
+                width={100}
+                height={100}
+                className="w-7 h-7"
+                alt="decorative squiggle"
+              />
+              &amp; execution
+            </span>{" "}
+            to build brands that actually grow.
+          </motion.h1>
 
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] text-foreground">
-                  We blend{" "}
-                  <span className="text-blue-500 inline-flex items-center gap-1">
-                    strategy
-                    <Image
-                      src="/icons/squiggle.svg"
-                      width={100}
-                      height={100}
-                      className="w-7 h-7"
-                      alt="decorative squiggle"
-                    />
-                    &amp; execution
-                  </span>{" "}
-                  to build brands that actually grow.
-                </h1>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.26, duration: 0.45 }}
+            className="text-base md:text-lg text-muted-foreground max-w-xl"
+          >
+            NetrX Digital is an AI-powered performance marketing studio from Patna.
+            We design and run systems that turn attention into measurable revenue
+            for doctors, founders, and local brands across India.
+          </motion.p>
 
-                <p className="text-base md:text-lg text-muted-foreground max-w-xl">
-                  NetrX Digital is an AI-powered performance marketing studio from
-                  Patna. We design and run systems that turn attention into
-                  measurable revenue for businesses across India.
-                </p>
+          {/* CTA ROW */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.34, duration: 0.4 }}
+            className="flex flex-wrap gap-4 text-sm md:text-base"
+          >
+            <Link
+              href="/meeting"
+              className="
+                inline-flex items-center justify-center rounded-xl
+                bg-foreground text-background px-6 py-3
+                font-medium
+                shadow-[0_18px_40px_rgba(15,23,42,0.7)]
+                hover:translate-y-0.5 hover:shadow-[0_12px_32px_rgba(15,23,42,0.8)]
+                transition
+              "
+            >
+              Book a strategy call
+            </Link>
+            <Link
+              href="/showcase"
+              className="
+                inline-flex items-center justify-center rounded-xl
+                border border-border/80 bg-background/80 px-6 py-3
+                font-medium text-foreground
+                hover:bg-background hover:shadow-[0_10px_28px_rgba(15,23,42,0.55)]
+                transition
+              "
+            >
+              View our client work
+            </Link>
+          </motion.div>
 
-                <div className="flex flex-wrap gap-4 text-sm md:text-base">
-                  <Link
-                    href="/meeting"
-                    className="
-                      inline-flex items-center justify-center rounded-xl
-                      bg-foreground text-background px-6 py-3
-                      font-medium
-                      shadow-[0_14px_35px_rgba(15,23,42,0.45)]
-                      hover:translate-y-0.5 hover:shadow-[0_10px_28px_rgba(15,23,42,0.5)]
-                      transition
-                    "
-                  >
-                    Book a strategy call
-                  </Link>
-                  <Link
-                    href="/showcase"
-                    className="
-                      inline-flex items-center justify-center rounded-xl
-                      border border-border/80 bg-background/80 px-6 py-3
-                      font-medium text-foreground
-                      hover:bg-background hover:shadow-[0_10px_26px_rgba(15,23,42,0.35)]
-                      transition
-                    "
-                  >
-                    View our client work
-                  </Link>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-4 text-xs md:text-sm text-muted-foreground">
-                  <div className="inline-flex items-center gap-1">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <IconStarFilled
-                        key={i}
-                        className="h-3.5 w-3.5 text-amber-400"
-                      />
-                    ))}
-                    <span className="ml-1 font-medium text-foreground">
-                      4.9 / 5
-                    </span>
-                    <span className="opacity-80">based on client feedback</span>
-                  </div>
-                  <span className="hidden md:inline-block h-3 w-px bg-border/70" />
-                  <span>Built for founders, doctors, and local brands.</span>
-                </div>
-              </div>
-
-              {/* Right: logo / visual (≈ 1) */}
-              <div className="relative">
-                <div className="aspect-[1.618/1] rounded-3xl border border-border bg-card/80 backdrop-blur flex items-center justify-center overflow-hidden">
-                  <Image
-                    src="/logo/logo.webp"
-                    width={520}
-                    height={420}
-                    className="object-contain w-full h-full p-6"
-                    alt="NetrX Digital logo"
-                  />
-                </div>
-
-                {/* small Fibonacci tiles */}
-                <div className="pointer-events-none absolute bottom-4 right-4 grid grid-cols-2 gap-2 opacity-70">
-                  <div className="h-7 w-7 rounded-lg bg-blue-500/70" />
-                  <div className="h-7 w-7 rounded-lg bg-emerald-500/70" />
-                  <div className="h-7 w-7 rounded-lg bg-amber-400/70" />
-                  <div className="h-7 w-7 rounded-lg bg-purple-500/70" />
-                </div>
-              </div>
+          {/* SOCIAL PROOF STRIP */}
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.42, duration: 0.35 }}
+            className="flex flex-wrap items-center gap-4 text-xs md:text-sm text-muted-foreground"
+          >
+            <div className="inline-flex items-center gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <IconStarFilled
+                  key={i}
+                  className="h-3.5 w-3.5 text-amber-400"
+                />
+              ))}
+              <span className="ml-1 font-medium text-foreground">4.9 / 5</span>
+              <span className="opacity-80">based on client feedback</span>
             </div>
-          </section>
+            <span className="hidden md:inline-block h-3 w-px bg-border/70" />
+            <span>Built for founders, doctors, and high-intent local brands.</span>
+          </motion.div>
         </div>
-      </main>
+
+        {/* RIGHT SIDE – FLOATING LOGO PANEL */}
+        <div className="relative z-10">
+          {/* floating card with subtle breathing + hover tilt */}
+          <motion.div
+            className="aspect-[1.618/1] rounded-3xl border border-border bg-card/80 backdrop-blur flex items-center justify-center overflow-hidden relative"
+            initial={{ opacity: 0, y: 24, scale: 0.96 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+            }}
+            transition={{ delay: 0.28, duration: 0.6, ease: "easeOut" }}
+            whileHover={{ rotateX: 6, rotateY: -6, scale: 1.02 }}
+            style={{ transformStyle: "preserve-3d" as any }}
+          >
+            {/* inner breathing glow */}
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute inset-[1px] rounded-[1.45rem]"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 0% 0%, rgba(56,189,248,0.18), transparent 55%), radial-gradient(circle at 100% 100%, rgba(129,140,248,0.22), transparent 55%)",
+              }}
+              animate={{ opacity: [0.4, 0.9, 0.4] }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative z-10"
+            >
+              <Image
+                src="/logo/logo.webp"
+                width={10}
+                height={10}
+                className="object-contain w-full h-full p-6"
+                alt="NetrX Digital logo"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* ORBITING DATA CHIPS */}
+          <div className="pointer-events-none absolute inset-0">
+            <motion.div
+              className="absolute -right-6 top-6 rounded-2xl border border-blue-500/40 bg-blue-500/15 px-3 py-2 text-[11px] text-blue-100 shadow-[0_0_18px_rgba(59,130,246,0.8)]"
+              initial={{ opacity: 0, x: 16, y: -8 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.4 }}
+            >
+              +220% leads (healthcare)
+            </motion.div>
+
+            <motion.div
+              className="absolute -left-4 bottom-10 rounded-2xl border border-emerald-500/40 bg-emerald-500/15 px-3 py-2 text-[11px] text-emerald-100 shadow-[0_0_16px_rgba(16,185,129,0.8)]"
+              initial={{ opacity: 0, x: -16, y: 8 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.4 }}
+            >
+              AI-optimised funnels
+            </motion.div>
+
+            <motion.div
+              className="absolute right-10 -bottom-3 rounded-full border border-amber-400/50 bg-amber-400/15 px-3 py-1.5 text-[10px] text-amber-100"
+              animate={{ y: [0, -4, 0] }}
+              transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              Live testing 24/7
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </motion.section>
+  </div>
+</main>
+
 
       {/* OUR STORY – 1.618 TEXT / 1 IMAGE */}
       <section className="py-20 bg-card/80">
