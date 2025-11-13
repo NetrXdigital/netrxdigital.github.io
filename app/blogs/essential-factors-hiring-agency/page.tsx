@@ -25,7 +25,7 @@ export const metadata: MD3 = {
       "Looking to hire a digital marketing agency in Patna? Discover what to evaluate before partnering—portfolio, expertise, communication, and long-term value.",
     type: "article",
     url: "/blog/essential-factors-hiring-agency",
-    images: ["/images/blog/essential-factors-hiring-agency.jpg"],
+    images: ["/images/blogs/essential-factors-hiring-agency.webp"],
   },
   twitter: {
     card: "summary_large_image",
@@ -33,7 +33,7 @@ export const metadata: MD3 = {
       "Essential Factors to Evaluate When Hiring a Digital Marketing Agency in Patna | NetrX Digital",
     description:
       "A complete guide by NetrX Digital to help Patna businesses select the right marketing partner for measurable online growth.",
-    images: ["/images/blog/essential-factors-hiring-agency.jpg"],
+    images: ["/images/blogs/essential-factors-hiring-agency.webp"],
   },
 };
 
@@ -44,7 +44,7 @@ export default function Page() {
       title="Essential Factors to Evaluate When Hiring a Digital Marketing Agency in Patna"
       description="Before hiring a digital marketing agency in Patna, understand the key elements that define credibility, creativity, and ROI-driven marketing."
       publishDate="2025-11-12"
-    imageUrl="/images/blog/essential-factors-hiring-agency.jpg"
+    imageUrl="/images/blogs/essential-factors-hiring-agency.webp"
       toc={[
         { id: "goals", label: "Define Clear Goals" },
         { id: "portfolio", label: "Check the Portfolio" },
