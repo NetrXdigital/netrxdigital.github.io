@@ -150,22 +150,90 @@ export default function BlogIndexPage() {
       </div>
 
       {/* Header */}
-      <header className="px-6 md:px-0 md:mx-auto xl:w-4/5 2xl:w-[68%] pt-16 md:pt-20">
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-muted-foreground backdrop-blur bg-background/70">
-          <FiZap className="h-4 w-4 text-blue-500" />
-          <span>AI-curated insights</span>
-        </div>
+<motion.header
+  initial={{ opacity: 0, y: 24 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  className="relative px-6 md:px-0 md:mx-auto xl:w-4/5 2xl:w-[68%] pt-16 md:pt-20"
+>
+  {/* background orbs */}
+  <div
+    aria-hidden
+    className="pointer-events-none absolute -top-10 -left-10 h-40 w-40 rounded-full bg-gradient-to-br from-blue-500/25 via-cyan-400/20 to-emerald-400/25 blur-3xl opacity-70"
+  />
+  <div
+    aria-hidden
+    className="pointer-events-none absolute -bottom-8 right-0 h-32 w-32 rounded-full bg-gradient-to-tr from-purple-500/25 via-indigo-500/20 to-sky-400/25 blur-3xl opacity-70"
+  />
 
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-          <span className="bg-clip-text text-transparent bg-[conic-gradient(at_20%_20%,#60a5fa_0deg,#a78bfa_120deg,#22d3ee_240deg,#60a5fa_360deg)]">
-            Blogs & Playbooks
-          </span>
-        </h1>
-        <p className="text-gray-600 dark:text-gray-300 mt-3 max-w-2xl">
-          Sharp, practical reads on SEO, PPC, and growth — written by humans,
-          <span className="text-blue-500"> supercharged by AI</span>.
-        </p>
-      </header>
+  {/* badge */}
+  <motion.div
+    initial={{ opacity: 0, x: -14 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
+    className="relative inline-flex items-center gap-2 rounded-full border border-border/70 px-3 py-1 text-xs text-muted-foreground backdrop-blur bg-background/80"
+  >
+    {/* animated dot */}
+    <span className="relative flex h-2 w-2">
+      <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
+      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+    </span>
+    <FiZap className="h-4 w-4 text-blue-500" />
+    <span className="uppercase tracking-[0.22em] text-[10px]">
+      AI-curated insights
+    </span>
+  </motion.div>
+
+  {/* heading + fx */}
+  <div className="relative mt-5 inline-block">
+    {/* halo behind the text */}
+    <motion.div
+      aria-hidden
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="pointer-events-none absolute -inset-x-10 -top-6 h-16 rounded-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.35),transparent_60%)] blur-2xl"
+    />
+
+    <motion.h1
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.15, duration: 0.6, ease: "easeOut" }}
+      className="relative text-3xl md:text-5xl font-extrabold tracking-tight"
+    >
+      <span className="bg-clip-text text-transparent bg-[conic-gradient(at_20%_20%,#60a5fa_0deg,#a78bfa_120deg,#22d3ee_240deg,#60a5fa_360deg)]">
+        Blogs &amp; Playbooks
+      </span>
+    </motion.h1>
+
+    {/* scanning underline */}
+    <div className="relative mt-2 h-[2px] w-full overflow-hidden rounded-full bg-border/60">
+      <motion.div
+        aria-hidden
+        className="h-full w-1/3 rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-violet-500"
+        initial={{ x: "-120%" }}
+        animate={{ x: "140%" }}
+        transition={{
+          duration: 2.4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+    </div>
+  </div>
+
+  {/* subheading */}
+  <motion.p
+    initial={{ opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+    className="text-gray-600 dark:text-gray-300 mt-4 max-w-2xl text-sm md:text-base"
+  >
+    Sharp, practical reads on SEO, PPC, and growth — written by humans,
+    <span className="text-blue-500"> supercharged by AI</span>.
+  </motion.p>
+</motion.header>
+
 
       {/* Controls */}
       <div className="px-6 md:px-0 md:mx-auto xl:w-4/5 2xl:w-[68%] mt-8">
