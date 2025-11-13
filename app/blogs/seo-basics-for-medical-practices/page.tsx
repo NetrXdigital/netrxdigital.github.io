@@ -3,7 +3,8 @@ import type { Metadata as MD } from "next";
 import BlogLayout from "@/components/blog/BlogLayout";
 
 export const metadata: MD = {
-  title: "SEO Basics for Medical Practices in Patna: Essential Strategies for Digital Success | Blog",
+  title:
+    "SEO Basics for Medical Practices in Patna: Essential Strategies for Digital Success | Blog",
   description:
     "No fluff. A practical guide for clinics in Patna to rank on Google: local SEO, E-E-A-T, technical SEO, and content that drives patient appointments.",
   keywords: [
@@ -46,116 +47,183 @@ export default function Page() {
         { id: "content", label: "3) Create Helpful Content" },
         { id: "ux", label: "4) Improve Website Experience" },
         { id: "eeat", label: "5) Build E-E-A-T" },
-        { id: "technical", label: "6) Metadata & Technical SEO" },
+        { id: "technical", label: "6) Technical SEO" },
         { id: "why-now", label: "Why Focus on SEO Now?" },
         { id: "cta", label: "Work With NetrX Digital" },
       ]}
     >
-      <section id="intro">
-        <p>
-          In Patna’s fast-evolving healthcare landscape, medical practices are discovering that search
-          engine optimisation (SEO) is no longer optional but essential for attracting new patients.
-          With more individuals searching for doctors and clinics online, ranking on the first page of
-          Google for local health services is a vital part of practice growth and credibility.
-        </p>
-      </section>
+      {/* --- GRID SYSTEM BASED ON GOLDEN RATIO (1.618:1) --- */}
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.618fr)_minmax(0,1fr)] xl:gap-12">
 
-      <section id="what-is-medical-seo">
-        <h2>What Is Medical SEO and Why Does It Matter?</h2>
-        <p>
-          Medical SEO refers to the process of optimising a healthcare practice’s website so it appears
-          higher in search engine results when patients look for specific treatments, symptoms, or local
-          practitioners. Successful SEO helps medical practices:
-        </p>
-        <ul>
-          <li>Increase visibility with prospective patients searching for healthcare services</li>
-          <li>Establish trust and expertise in their medical field</li>
-          <li>Drive organic traffic, resulting in more appointments and walk-ins</li>
-        </ul>
-      </section>
+        {/* ------------------------ MAIN CONTENT ------------------------ */}
+        <article className="space-y-10">
 
-      <section id="essential-strategies">
-        <h2>Essential SEO Strategies for Medical Websites</h2>
-      </section>
+          {/* HERO CARD */}
+          <section
+            id="intro"
+            className="
+              relative rounded-3xl px-6 py-8 sm:px-8 sm:py-10 border border-border/60
+              bg-gradient-to-br from-background via-background/95 to-background/70
+              shadow-[0_18px_45px_rgba(15,23,42,0.25)]
+              overflow-hidden
+            "
+          >
+            {/* GLOWS */}
+            <div className="absolute -top-20 -right-16 h-48 w-48 bg-gradient-to-br from-blue-500/30 to-sky-400/20 blur-3xl" />
+            <div className="absolute -bottom-28 -left-20 h-52 w-52 bg-gradient-to-tr from-amber-400/25 to-purple-500/25 blur-3xl" />
 
-      <section id="local-listings">
-        <h3>1) Claim and Optimise Local Listings</h3>
-        <p>
-          Local SEO is critical for healthcare businesses. Claim your Google Business Profile and other
-          local directories. Ensure your Name, Address, and Phone number (NAP) are accurate and
-          consistent everywhere. Add clear photos, up-to-date business hours, service descriptions, and
-          reply professionally to patient reviews.
-        </p>
-      </section>
+            <div className="relative space-y-4">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-blue-500">
+                Medical SEO · Patna · 2025
+              </p>
 
-      <section id="keyword-research">
-        <h3>2) Keyword Research: Find the Right Search Terms</h3>
-        <p>
-          Begin with targeted, location-specific keywords that patients use to search for clinics and
-          doctors in Patna. Examples include “skin specialist in Patna” or “best dental clinic near me.”
-          Use tools like Google Keyword Planner or SEMrush to identify and integrate these relevant
-          phrases in your website’s titles, headings, and body content.
-        </p>
-      </section>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight">
+                SEO Basics for Medical Practices in Patna
+              </h1>
 
-      <section id="content">
-        <h3>3) Create High-Quality, Helpful Content</h3>
-        <p>
-          Publish informative blog posts about common health concerns, treatments, and frequently asked
-          questions. Value-driven content not only attracts visitors but also establishes your expertise
-          and authority—an important ranking factor for Google.
-        </p>
-      </section>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                More patients are searching online before visiting any clinic.
+                Ranking on Google is no longer optional—it’s a survival requirement
+                in Patna’s fast-growing healthcare market.
+              </p>
 
-      <section id="ux">
-        <h3>4) Improve Website Experience</h3>
-        <p>
-          Google rewards websites that are fast, secure, and easy to navigate. Make sure your site
-          loads quickly, is mobile-friendly, and uses HTTPS for security. Ensure navigation is seamless
-          and appointment booking is simple for users.
-        </p>
-      </section>
+              <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+                <span className="inline-flex items-center gap-1 rounded-full border px-3 py-1 border-border/60">
+                  <span className="h-1.5 w-1.5 bg-green-500 rounded-full" />
+                  5–6 min read
+                </span>
+                <span>Ideal for doctors scaling online patient flow.</span>
+              </div>
+            </div>
+          </section>
 
-      <section id="eeat">
-        <h3>5) Build Credibility and Trust (E-E-A-T)</h3>
-        <p>
-          Google uses E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) to rank
-          websites tackling health topics. Display doctor profiles, accreditations, genuine
-          testimonials, and accurate medical content reviewed by clinicians. Respond to both positive
-          and negative patient reviews online.
-        </p>
-      </section>
+          {/* ---------------------- SECTION CONTENT ---------------------- */}
 
-      <section id="technical">
-        <h3>6) Keep Metadata and Technical SEO Optimised</h3>
-        <p>
-          Craft unique, compelling meta titles and descriptions for every page using your target
-          keywords. Optimise image file names and alt text, use structured data to highlight your
-          services, and routinely check for technical errors that might hinder your site’s performance.
-        </p>
-      </section>
+          <section id="what-is-medical-seo" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">
+              What Is Medical SEO and Why Does It Matter?
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Medical SEO ensures your clinic appears when patients search for symptoms,
+              treatments, or specialists in Patna. Strong SEO helps you:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm sm:text-base text-muted-foreground">
+              <li>Increase visibility for health-related searches</li>
+              <li>Build trust and credibility in your speciality</li>
+              <li>Drive consistent appointment bookings</li>
+            </ul>
+          </section>
 
-      <section id="why-now">
-        <h2>Why Focus on SEO Now?</h2>
-        <p>
-          SEO isn’t just about higher search rankings for medical practices—it’s an investment in
-          trust, visibility, and long-term growth. In Patna, where healthcare choices are abundant,
-          strong SEO ensures your clinic is discoverable, reputable, and ready to serve new patients
-          online.
-        </p>
-        <p>
-          With these basics, medical practices in Patna can set the foundation for a robust online
-          presence and attract more patients.
-        </p>
-      </section>
+          <section id="essential-strategies">
+            <h2 className="text-xl sm:text-2xl font-semibold">
+              Essential SEO Strategies for Medical Websites
+            </h2>
+          </section>
 
-      <section id="cta">
-        <h2>For Clinics That Want Results</h2>
-        <p>
-          For tailored SEO solutions and digital marketing expertise in the healthcare sector, NetrX
-          Digital helps clinics rise above the competition and achieve lasting growth.
-        </p>
-      </section>
+          <section id="local-listings" className="space-y-3">
+            <h3 className="text-lg sm:text-xl font-semibold">1) Claim & Optimise Local Listings</h3>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              Local SEO drives maximum footfall.
+              Keep NAP details consistent across GBP, Justdial, Practo, Sulekha, and other directories.
+            </p>
+          </section>
+
+          <section id="keyword-research" className="space-y-3">
+            <h3 className="text-lg sm:text-xl font-semibold">2) Keyword Research</h3>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              Target local search terms such as:
+              “skin specialist Patna”, “dentist Kankarbagh”, “orthopedic near Boring Road”.
+            </p>
+          </section>
+
+          <section id="content" className="space-y-3">
+            <h3 className="text-lg sm:text-xl font-semibold">3) Create Helpful Content</h3>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              Publish content around common symptoms, treatments, FAQs, recovery guides,
+              and doctor-explained medical insights. Google values accuracy + expertise.
+            </p>
+          </section>
+
+          <section id="ux" className="space-y-3">
+            <h3 className="text-lg sm:text-xl font-semibold">4) Improve Website Experience</h3>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              Prioritise mobile speed, secure HTTPS, simple navigation,
+              and one-tap appointment booking.
+            </p>
+          </section>
+
+          <section id="eeat" className="space-y-3">
+            <h3 className="text-lg sm:text-xl font-semibold">5) Build E-E-A-T</h3>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              Highlight doctor qualifications, experience, awards, patient success stories,
+              and medically reviewed content. This boosts rankings + trust.
+            </p>
+          </section>
+
+          <section id="technical" className="space-y-3">
+            <h3 className="text-lg sm:text-xl font-semibold">6) Technical SEO</h3>
+            <ul className="list-disc list-inside space-y-2 text-sm sm:text-base text-muted-foreground">
+              <li>Optimise meta titles & descriptions</li>
+              <li>Use proper alt text for medical images</li>
+              <li>Implement LocalBusiness & MedicalOrganization schema</li>
+              <li>Fix broken links and crawl errors</li>
+            </ul>
+          </section>
+
+          <section id="why-now" className="space-y-3 border-t border-border/60 pt-6">
+            <h2 className="text-xl sm:text-2xl font-semibold">
+              Why Focus on SEO Now?
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              Patna’s healthcare competition is rising fast. Clinics that invest in SEO today
+              secure top visibility, long-term rankings, and consistent patient flow.
+            </p>
+          </section>
+
+          <section id="cta" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">For Clinics That Want Results</h2>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              NetrX Digital helps clinics dominate search results using ethical,
+              advanced healthcare SEO—with measurable growth and more appointments.
+            </p>
+          </section>
+        </article>
+
+        {/* ------------------------ SIDEBAR ------------------------ */}
+        <aside className="space-y-6 lg:space-y-7">
+
+          <div className="rounded-2xl border border-border/70 p-6 bg-card/90 shadow">
+            <h3 className="text-sm font-semibold">Best For</h3>
+            <ul className="mt-2 space-y-1.5 text-xs text-muted-foreground list-disc list-inside">
+              <li>Clinics wanting predictable patient flow</li>
+              <li>New medical practices in Patna</li>
+              <li>Doctors running ads but not ranking organically</li>
+              <li>Healthcare brands building authority</li>
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-blue-500/30 p-6 bg-gradient-to-br from-blue-500/10 to-background">
+            <h3 className="text-sm font-semibold">Quick Optimization Checklist</h3>
+            <ul className="mt-2 text-xs list-disc list-inside text-muted-foreground space-y-1.5">
+              <li>Accurate GBP profile</li>
+              <li>Local keywords in H1 + meta title</li>
+              <li>Fast-loading mobile UI</li>
+              <li>Schema for clinic details</li>
+              <li>Doctor credentials visible</li>
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-emerald-400/40 p-6 bg-gradient-to-br from-emerald-500/10 to-background">
+            <h3 className="text-sm font-semibold">High-Impact SEO Actions</h3>
+            <ul className="mt-2 text-xs text-muted-foreground list-disc list-inside space-y-1.5">
+              <li>Add patient reviews monthly</li>
+              <li>Publish 2 blogs per month</li>
+              <li>Fix technical issues quarterly</li>
+              <li>Track rankings for top keywords</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </BlogLayout>
   );
 }
