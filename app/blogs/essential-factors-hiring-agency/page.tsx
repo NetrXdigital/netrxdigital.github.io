@@ -3,7 +3,8 @@ import Link from "next/link";
 import BlogLayout from "@/components/blog/BlogLayout";
 
 export const metadata: MD3 = {
-  title: "Essential Factors to Evaluate When Hiring a Digital Marketing Agency in Patna | NetrX Digital",
+  title:
+    "Essential Factors to Evaluate When Hiring a Digital Marketing Agency in Patna | NetrX Digital",
   description:
     "Learn how to choose the right digital marketing agency in Patna. NetrX Digital explains key factors like portfolio, expertise, reputation, and budget to help your brand grow online.",
   keywords: [
@@ -24,7 +25,6 @@ export const metadata: MD3 = {
     description:
       "Looking to hire a digital marketing agency in Patna? Discover what to evaluate before partnering—portfolio, expertise, communication, and long-term value.",
     type: "article",
-    url: "/blog/essential-factors-hiring-agency",
     images: ["/images/blogs/essential-factors-hiring-agency.webp"],
   },
   twitter: {
@@ -44,171 +44,216 @@ export default function Page() {
       title="Essential Factors to Evaluate When Hiring a Digital Marketing Agency in Patna"
       description="Before hiring a digital marketing agency in Patna, understand the key elements that define credibility, creativity, and ROI-driven marketing."
       publishDate="2025-11-12"
-    imageUrl="/images/blogs/essential-factors-hiring-agency.webp"
+      imageUrl="/images/blogs/essential-factors-hiring-agency.webp"
       toc={[
         { id: "goals", label: "Define Clear Goals" },
         { id: "portfolio", label: "Check the Portfolio" },
         { id: "team", label: "Evaluate Team Expertise" },
         { id: "website", label: "Inspect Their Website" },
-        { id: "clients", label: "Client Portfolio & Testimonials" },
+        { id: "clients", label: "Client Testimonials" },
         { id: "reputation", label: "Assess Industry Reputation" },
         { id: "budget", label: "Set a Realistic Budget" },
         { id: "communication", label: "Review Communication Process" },
         { id: "partnership", label: "Think Long-Term Partnership" },
         { id: "faq", label: "Frequently Asked Questions" },
+        { id: "wrap", label: "Final Thoughts" },
       ]}
     >
-      <section id="intro">
-        <p>
-          Choosing a <strong>digital marketing agency in Patna</strong> can be
-          overwhelming. With countless options promising quick growth, it’s
-          essential to identify which partner actually aligns with your
-          business goals. At <strong>NetrX Digital</strong>, we help brands
-          focus on measurable strategies—traffic, leads, and real ROI—not just
-          vanity metrics.
-        </p>
-      </section>
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.618fr)_minmax(0,1fr)] xl:gap-12">
+        {/* ========== MAIN CONTENT (GOLDEN RATIO MAIN PANEL) ========== */}
+        <article className="space-y-10">
+          {/* HERO / INTRO */}
+          <section
+            id="intro"
+            className="
+              relative overflow-hidden rounded-3xl border border-border/70
+              bg-gradient-to-br from-background via-background/90 to-background/70
+              shadow-[0_18px_45px_rgba(15,23,42,0.28)]
+              px-6 py-8 sm:px-8 sm:py-10
+            "
+          >
+            <div className="pointer-events-none absolute -top-20 -right-10 h-40 w-40 rounded-full blur-3xl bg-gradient-to-br from-blue-500/30 via-indigo-400/20 to-purple-500/20" />
+            <div className="pointer-events-none absolute -bottom-24 -left-14 h-44 w-44 rounded-full blur-3xl bg-gradient-to-tr from-emerald-300/25 via-blue-400/25 to-amber-300/25" />
 
-      <section id="goals">
-        <h2>Define Clear Goals</h2>
-        <p>
-          The foundation of any successful marketing campaign begins with
-          clarity. Do you want to boost website traffic, improve brand
-          visibility, or increase conversions? Defining a single, measurable
-          objective gives direction and ensures every tactic supports that
-          primary goal.
-        </p>
-      </section>
+            <div className="relative space-y-4">
+              <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-blue-500">
+                Patna · Digital Strategy · Agency Selection Guide
+              </p>
 
-      <section id="portfolio">
-        <h2>Check the Portfolio</h2>
-        <p>
-          A presentable portfolio reveals an agency’s capability and
-          consistency. Review their past campaigns, creative execution, and
-          measurable outcomes. <strong>NetrX Digital</strong> showcases projects
-          across healthcare, retail, and service sectors that demonstrate
-          sustained online growth for Patna-based businesses.
-        </p>
-      </section>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight text-foreground">
+                Essential Factors to Evaluate When Hiring a Digital Marketing Agency in Patna
+              </h1>
 
-      <section id="team">
-        <h2>Evaluate Team Expertise</h2>
-        <p>
-          A skilled team delivers high-quality output. Before partnering, look
-          into the specialists behind the agency—SEO strategists, designers,
-          ad-managers, and content creators. At <strong>NetrX Digital</strong>,
-          our cross-functional experts combine creativity with analytics to
-          produce campaigns that perform.
-        </p>
-      </section>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Choosing a <strong>digital marketing agency in Patna</strong> can be
+                overwhelming. With countless options promising quick growth, it’s essential
+                to identify which partner actually aligns with your business goals. At{" "}
+                <strong>NetrX Digital</strong>, we focus on strategies that deliver
+                measurable growth—not vanity metrics.
+              </p>
 
-      <section id="website">
-        <h2>Inspect Their Website</h2>
-        <p>
-          A marketing agency’s own website reflects its design sense and
-          technical credibility. A responsive, SEO-optimised, fast-loading site
-          signals that the agency practices what it preaches.{" "}
-          <strong>NetrX Digital</strong> maintains a site built for speed,
-          conversions, and modern UX—standards we replicate for every client.
-        </p>
-      </section>
+              <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+                <span className="inline-flex items-center gap-1 rounded-full border border-border/70 bg-background/80 px-3 py-1">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+                  Estimated read: 5–7 minutes
+                </span>
+                <span>Ideal for: Businesses in Patna looking for long-term growth.</span>
+              </div>
+            </div>
+          </section>
 
-      <section id="clients">
-        <h2>Client Portfolio & Testimonials</h2>
-        <p>
-          Genuine testimonials and case studies are vital indicators of
-          reliability. Browse Google reviews or on-site feedback to understand
-          how the agency handles deadlines, reporting, and ROI.{" "}
-          <strong>NetrX Digital</strong> has earned client trust through
-          transparent communication and consistent delivery.
-        </p>
-      </section>
+          {/* === Sections === */}
+          <section id="goals" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">Define Clear Goals</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Know whether your priority is traffic, leads, branding, or conversions.
+              A strong agency builds a roadmap around ONE clear objective instead of scattered tactics.
+            </p>
+          </section>
 
-      <section id="reputation">
-        <h2>Assess Industry Reputation</h2>
-        <p>
-          Agencies with strong <em>social proof</em>—mentions, partnerships, or
-          community engagement—usually demonstrate higher accountability.
-          Choose an agency that actively contributes to Patna’s marketing
-          ecosystem through insights, blogs, and case studies.
-        </p>
-      </section>
+          <section id="portfolio" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">Check the Portfolio</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Review case studies, past campaigns, and measurable outcomes.{" "}
+              <strong>NetrX Digital</strong> has delivered results across healthcare, retail,
+              hospitality, and local service brands in Patna.
+            </p>
+          </section>
 
-      <section id="budget">
-        <h2>Set a Realistic Budget</h2>
-        <p>
-          Define a monthly or quarterly budget and clarify expectations.
-          Transparent pricing builds trust. <strong>NetrX Digital</strong>{" "}
-          structures cost plans based on your goals—be it local SEO,
-          performance ads, or full-service brand management—ensuring every rupee
-          spent delivers measurable outcomes.
-        </p>
-      </section>
+          <section id="team" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">Evaluate Team Expertise</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              From SEO to paid ads to design—each specialist should deliver quality. Our team
+              blends creativity with analytics for ROI-driven execution.
+            </p>
+          </section>
 
-      <section id="communication">
-        <h2>Review Communication Process</h2>
-        <p>
-          Effective collaboration depends on clear, regular communication. The
-          right agency should provide progress updates, reports, and strategic
-          calls. At <strong>NetrX Digital</strong>, clients receive weekly
-          dashboards and monthly reviews for complete transparency.
-        </p>
-      </section>
+          <section id="website" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">Inspect Their Website</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              If their own website is slow, poorly designed, or outdated—walk away. A good
+              agency’s digital presence reflects their real abilities.
+            </p>
+          </section>
 
-      <section id="partnership">
-        <h2>Think Long-Term Partnership</h2>
-        <p>
-          Growth requires continuity. Opt for a partner committed to
-          long-term results, not short campaigns.{" "}
-          <strong>NetrX Digital</strong> builds lasting relationships by
-          aligning our marketing roadmap with your business expansion strategy.
-        </p>
-      </section>
+          <section id="clients" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">Client Testimonials</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Real reviews reveal reliability. Look for consistency in delivery, communication,
+              and problem-solving.
+            </p>
+          </section>
 
-      <section id="faq">
-        <h2>Frequently Asked Questions</h2>
+          <section id="reputation" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">Assess Industry Reputation</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Agencies contributing to blogs, events, and marketing communities typically
+              demonstrate higher accountability.
+            </p>
+          </section>
 
-        <h3>1. How do I identify the right digital marketing agency in Patna?</h3>
-        <p>
-          Look for proven experience, local expertise, client transparency, and
-          strong online visibility. <strong>NetrX Digital</strong> combines all
-          four through performance-driven strategies tailored to Patna’s market.
-        </p>
+          <section id="budget" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">Set a Realistic Budget</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Define what you want to achieve and invest accordingly. Cheap retainers rarely
+              produce meaningful growth.
+            </p>
+          </section>
 
-        <h3>2. What services do agencies typically offer?</h3>
-        <p>
-          Common offerings include SEO, Social Media Marketing, Google Ads,
-          Local SEO, Web Development, and Content Marketing—all available at{" "}
-          <Link href="/" aria-label="NetrX Digital homepage">
-            NetrX Digital
-          </Link>
-          .
-        </p>
+          <section id="communication" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">Review Communication Process</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Weekly updates, monthly reports, and clear roadmaps are non-negotiable. We offer
+              transparent dashboards and monthly strategy calls.
+            </p>
+          </section>
 
-        <h3>3. How much does it cost to hire a marketing agency?</h3>
-        <p>
-          Costs depend on project scope and media spend. We offer scalable plans
-          for startups and enterprises with clear deliverables and ROI tracking.
-        </p>
+          <section id="partnership" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">Think Long-Term Partnership</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Growth compounds. Your agency should think beyond short campaigns, aligning with
+              your long-term vision and scaling phases.
+            </p>
+          </section>
 
-        <h3>4. How long before I see results?</h3>
-        <p>
-          Paid campaigns show results within weeks; SEO and organic efforts
-          typically take 3–6 months for noticeable ranking and lead growth.
-        </p>
-      </section>
+          <section id="faq" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold">Frequently Asked Questions</h2>
 
-      <section id="wrap">
-        <h2>Final Thoughts</h2>
-        <p>
-          Selecting the right <strong>digital marketing agency in Patna</strong>{" "}
-          is an investment in your brand’s future. Evaluate portfolios,
-          processes, and communication before committing.{" "}
-          <strong>NetrX Digital</strong> stands ready to help you achieve
-          measurable growth with data-backed, creative, and ethical marketing
-          strategies.
-        </p>
-      </section>
+            <h3 className="font-semibold text-sm sm:text-base">1. How do I find the right agency?</h3>
+            <p className="text-sm text-muted-foreground">
+              Look for local expertise, proof of work, and transparency.{" "}
+              <strong>NetrX Digital</strong> checks all three boxes.
+            </p>
+
+            <h3 className="font-semibold text-sm sm:text-base mt-3">2. What services do they offer?</h3>
+            <p className="text-sm text-muted-foreground">
+              SEO, SMM, Google Ads, Local SEO, Web Design, Branding, and Content—everything needed
+              to grow a Patna business online.
+            </p>
+
+            <h3 className="font-semibold text-sm sm:text-base mt-3">3. How long for results?</h3>
+            <p className="text-sm text-muted-foreground">
+              SEO takes 3–6 months. Paid ads produce faster results, but long-term growth relies
+              on consistent execution.
+            </p>
+          </section>
+
+          <section id="wrap" className="space-y-3 border-t border-border/60 pt-6 mt-6">
+            <h2 className="text-xl sm:text-2xl font-semibold">Final Thoughts</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Selecting the right agency is a long-term investment. Evaluate experience, processes,
+              and communication before trusting them with your brand. At{" "}
+              <strong>NetrX Digital</strong>, we deliver ethical, data-driven, and growth-focused
+              marketing.
+            </p>
+          </section>
+        </article>
+
+        {/* ========== SIDEBAR PANEL ========== */}
+        <aside className="space-y-6 lg:space-y-7">
+          {/* Why This Guide Matters */}
+          <div className="rounded-2xl border border-border/70 bg-card/90 p-5 sm:p-6 shadow-[0_12px_32px_rgba(15,23,42,0.26)]">
+            <h3 className="text-sm font-semibold text-foreground">Why This Guide Matters</h3>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-2 leading-relaxed">
+              Patna’s digital landscape is noisy. This guide helps businesses cut through the noise
+              with a clear evaluation framework.
+            </p>
+          </div>
+
+          {/* Who This Helps */}
+          <div className="rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 via-background to-background p-5 sm:p-6">
+            <h3 className="text-sm font-semibold text-foreground">Best For:</h3>
+            <ul className="mt-2 space-y-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed list-disc list-inside">
+              <li>Local Patna businesses</li>
+              <li>Clinics & service providers</li>
+              <li>Ecommerce & retail brands</li>
+              <li>Startups needing predictable growth</li>
+            </ul>
+          </div>
+
+          {/* Evaluation Checklist */}
+          <div className="rounded-2xl border border-border/70 bg-card/90 p-5 sm:p-6">
+            <h3 className="text-sm font-semibold text-foreground">Quick Evaluation Checklist</h3>
+            <ul className="mt-3 space-y-2 text-xs sm:text-sm text-muted-foreground leading-relaxed list-disc list-inside">
+              <li>Strong portfolio?</li>
+              <li>Transparent reporting?</li>
+              <li>Local Patna expertise?</li>
+              <li>No unrealistic claims?</li>
+            </ul>
+          </div>
+
+          {/* Red Flags */}
+          <div className="rounded-2xl border border-red-400/30 bg-gradient-to-br from-red-500/10 via-background to-background p-5 sm:p-6">
+            <h3 className="text-sm font-semibold text-red-500">Red Flags</h3>
+            <ul className="mt-2 space-y-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed list-disc list-inside">
+              <li>Guaranteeing #1 rankings</li>
+              <li>No long-term strategy</li>
+              <li>Poor website performance</li>
+              <li>No real testimonials</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </BlogLayout>
-  );
+  );
 }
