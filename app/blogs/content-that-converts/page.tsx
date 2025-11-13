@@ -1,4 +1,5 @@
-// app/blog/content-that-converts/page.tsx
+
+
 import type { Metadata as MD3 } from "next";
 import Link from "next/link";
 import BlogLayout from "@/components/blog/BlogLayout";
@@ -17,7 +18,7 @@ export const metadata: MD3 = {
     "appointment bookings",
     "dermatologist Boring Road",
     "dentist Kankarbagh",
-    "Patna clinics SEO"
+    "Patna clinics SEO",
   ],
   alternates: { canonical: "/blog/content-that-converts" },
   openGraph: {
@@ -52,88 +53,190 @@ export default function Page() {
         { id: "wrap", label: "Wrap-up" },
       ]}
     >
-      <section>
-        <p>
-          Every clinic wants more patients from its website, but not all online
-          content drives real results. <em>Content that converts</em> goes beyond
-          mere information—it’s designed to build trust, solve problems, and nudge
-          visitors to take meaningful actions, like booking an appointment or
-          making an enquiry.
-        </p>
-      </section>
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.618fr)_minmax(0,1fr)] xl:gap-12">
+        {/* ======== MAIN CONTENT (Golden Ratio ~1.618) ========= */}
+        <article className="space-y-10">
+          {/* HERO SECTION */}
+          <section
+            id="overview"
+            className="
+              relative overflow-hidden rounded-3xl border border-border/70
+              bg-gradient-to-br from-background via-background/90 to-background/70
+              shadow-[0_18px_45px_rgba(15,23,42,0.28)]
+              px-6 py-7 sm:px-8 sm:py-9
+            "
+          >
+            {/* Gradient Blobs */}
+            <div className="pointer-events-none absolute -top-20 -right-10 h-40 w-40 rounded-full bg-gradient-to-br from-indigo-500/35 via-blue-400/25 to-emerald-400/30 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-28 -left-20 h-48 w-48 rounded-full bg-gradient-to-tr from-amber-400/20 via-blue-500/20 to-purple-500/20 blur-3xl" />
 
-      <section id="understanding">
-        <h2>Understanding Conversion-Driven Content</h2>
-        <p>
-          High-converting content educates and guides potential patients while
-          encouraging action. The best-performing medical websites in India
-          create content that addresses urgent health concerns, uses clear
-          language, and showcases genuine results. Quality content should:
-        </p>
-        <ul>
-          <li>Answer common patient questions in Patna (e.g., “How to treat back pain?”, “Best skin care solutions”).</li>
-          <li>Tell real success stories and share testimonials.</li>
-          <li>Speak directly to the clinic’s target audience with empathy and expertise.</li>
-        </ul>
-      </section>
+            <div className="relative space-y-4">
+              <div className="flex flex-wrap items-center gap-3 text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                <span className="rounded-full border border-border/60 bg-background/80 px-3 py-1 text-[10px]">
+                  Conversion Content · SEO · Patna
+                </span>
+                <span className="text-[10px] text-muted-foreground/75">
+                  Healthcare Marketing Insights
+                </span>
+              </div>
 
-      <section id="strategies">
-        <h2>Proven Strategies to Craft Content That Converts</h2>
-        <h3>Use Powerful Headlines</h3>
-        <p>
-          Grab attention with headlines addressing real pain points, e.g., “Fast Remedies for Knee Pain in Patna.”
-        </p>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight text-foreground">
+                Content That Converts: The Secret to SEO Success for Patna Clinics
+              </h1>
 
-        <h3>Deliver Value First</h3>
-        <p>
-          Make posts researched, practical, and actionable—think guides, checklists, or expert tips for local health issues.
-        </p>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Every clinic wants more patients from its website, but not all online content drives
+                real results. “Content that converts” builds trust, solves patient problems, and
+                guides them toward booking an appointment or making an enquiry.
+              </p>
 
-        <h3>Visuals Boost Conversions</h3>
-        <p>
-          Infographics, patient photos, and videos improve retention and build credibility. Tools like Canva or Visme can help
-          create engaging visuals on a budget.
-        </p>
+              <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+                <span className="inline-flex items-center gap-1 rounded-full border border-border/70 bg-background/80 px-3 py-1">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+                  Estimated read: 5–7 minutes
+                </span>
+                <span>Ideal for: Clinics, diagnostic centres, and specialists.</span>
+              </div>
+            </div>
+          </section>
 
-        <h3>Clear Call-To-Action (CTA)</h3>
-        <p>
-          Tell readers what to do next—“Book a Consultation,” “Download Your Health Guide,” or “Message on WhatsApp for Appointments.”
-          Add a CTA in the middle and again at the end for maximum effect.
-        </p>
+          {/* ================== CONTENT SECTIONS ================== */}
 
-        <h3>Optimise for Local SEO</h3>
-        <p>
-          Use location-based keywords and create content around your Patna clinic’s specialties (“top dentist in Kankarbagh,”
-          “dermatologist near Boring Road”) to improve local discovery.
-        </p>
-      </section>
+          <section id="understanding" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
+              Understanding Conversion-Driven Content
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              High-converting content educates and guides potential patients while encouraging
+              action. The best-performing medical websites in India create content that addresses
+              urgent health concerns, uses clear language, and showcases genuine results.
+              Effective conversion content must:
+            </p>
+            <ul className="space-y-2 text-sm sm:text-base text-muted-foreground list-disc list-inside leading-relaxed">
+              <li>
+                Answer common patient questions in Patna (e.g., “How to treat back pain?”, “Best
+                skin care solutions”).
+              </li>
+              <li>Share testimonials, case studies, or recovery stories.</li>
+              <li>
+                Speak to patients with empathy while positioning the clinic as an expert.
+              </li>
+            </ul>
+          </section>
 
-      <section id="distribution">
-        <h2>Distribution: Make Your Content Work Harder</h2>
-        <ul>
-          <li>Repurpose across blogs, WhatsApp, Facebook, Instagram, and email newsletters.</li>
-          <li>Publish stories and tips that answer real patient needs to increase trust and conversions.</li>
-        </ul>
-      </section>
+          <section id="strategies" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
+              Proven Strategies to Craft Content That Converts
+            </h2>
 
-      <section id="seo-tips">
-        <h2>Additional SEO Tips for Healthcare Content</h2>
-        <ul>
-          <li>Update posts with new insights, testimonials, and case studies to lift rankings and credibility.</li>
-          <li>Use healthcare schema (services, reviews) for richer results in Google.</li>
-          <li>Ensure fast load speed, mobile-first UX, and HTTPS for privacy and higher conversions.</li>
-        </ul>
-      </section>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-md text-foreground">Use Powerful Headlines</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Write headlines that directly address patient pain points, e.g., "Fast Remedies for Knee Pain in Patna".
+                </p>
+              </div>
 
-      <section id="wrap">
-        <h2>Wrap-up</h2>
-        <p>
-          Content that converts does more than attract visitors—it turns them into patients. With the right mix of storytelling,
-          local relevance, and clear calls-to-action, Patna clinics can grow sustainably online.{" "}
-          <Link href="/" aria-label="NetrX Digital Homepage">NetrX Digital</Link> helps healthcare brands build performance-driven,
-          SEO-optimised content for lasting success.
-        </p>
-      </section>
+              <div>
+                <h3 className="font-semibold text-md text-foreground">Deliver Value First</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Focus on guides, checklists, and expert insights that actually solve patient problems.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-md text-foreground">Visuals Boost Conversions</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Infographics, before/after photos, and short videos dramatically improve retention and trust.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-md text-foreground">Clear Calls-To-Action</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  CTAs like “Book Consultation” or “WhatsApp for Appointment” guide patients to act without confusion.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-md text-foreground">Optimise for Local SEO</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Use Patna-focused keywords like “top dentist in Kankarbagh” or “dermatologist near Boring Road.”
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="distribution" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
+              Distribution: Make Your Content Work Harder
+            </h2>
+            <ul className="space-y-2 text-sm sm:text-base text-muted-foreground list-disc list-inside leading-relaxed">
+              <li>Repurpose blogs into Instagram reels, WhatsApp posts, and email tips.</li>
+              <li>Share helpful stories that directly address patient problems.</li>
+            </ul>
+          </section>
+
+          <section id="seo-tips" className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
+              Additional SEO Tips for Healthcare Content
+            </h2>
+            <ul className="space-y-2 text-sm sm:text-base text-muted-foreground list-disc list-inside leading-relaxed">
+              <li>Update content regularly with new insights or clinical achievements.</li>
+              <li>Use schema markup for richer Google results.</li>
+              <li>Ensure fast load speed and mobile-first UX for better conversions.</li>
+            </ul>
+          </section>
+
+          <section id="wrap" className="space-y-3 border-t border-border/60 pt-6 mt-4">
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Wrap-Up</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Content that converts does more than educate—it convinces. With storytelling, local
+              relevance, and clear CTAs, Patna clinics can dramatically improve patient acquisition.
+              <Link href="/" className="text-blue-600 hover:underline ml-1">
+                NetrX Digital
+              </Link>{" "}
+              helps clinics craft SEO-optimised, conversion-driven content strategies that work.
+            </p>
+          </section>
+        </article>
+
+        {/* ======== SIDEBAR (Golden Ratio ~1 part) ========= */}
+        <aside className="space-y-6 lg:space-y-7">
+          {/* Key Takeaways */}
+          <div className="rounded-2xl border border-border/70 bg-card/90 p-5 sm:p-6 shadow-[0_12px_32px_rgba(15,23,42,0.26)]">
+            <h3 className="text-sm font-semibold text-foreground">Key Takeaways</h3>
+            <ul className="mt-3 space-y-2 text-xs sm:text-sm text-muted-foreground leading-relaxed list-disc list-inside">
+              <li>Patients trust clear, visually engaging content.</li>
+              <li>Local relevance drastically improves conversion.</li>
+              <li>CTAs must be direct, repetitive, and positioned smartly.</li>
+              <li>SEO + storytelling = maximum impact.</li>
+            </ul>
+          </div>
+
+          {/* Who This Helps */}
+          <div className="rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 via-background to-background p-5 sm:p-6">
+            <h3 className="text-sm font-semibold text-foreground">Best For Clinics That:</h3>
+            <ul className="mt-2 space-y-1.5 text-xs sm:text-sm text-muted-foreground list-disc list-inside leading-relaxed">
+              <li>Need more patient enquiries.</li>
+              <li>Want stronger ranking for Patna-specific searches.</li>
+              <li>Have weak or inconsistent online content.</li>
+              <li>Are struggling to convert website traffic.</li>
+            </ul>
+          </div>
+
+          {/* Quick Checklist */}
+          <div className="rounded-2xl border border-border/70 bg-card/90 p-5 sm:p-6">
+            <h3 className="text-sm font-semibold text-foreground">Quick Conversion Checklist</h3>
+            <ul className="mt-3 space-y-2 text-xs sm:text-sm text-muted-foreground leading-relaxed list-disc list-inside">
+              <li>Does your homepage address top patient concerns?</li>
+              <li>Do all pages have strong CTAs?</li>
+              <li>Are you using visuals and proof elements?</li>
+              <li>Do you update content monthly?</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </BlogLayout>
   );
 }
