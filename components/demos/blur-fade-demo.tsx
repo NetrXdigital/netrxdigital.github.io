@@ -70,13 +70,33 @@ const works: Work[] = [
     google: "https://www.google.com/search?q=Raza+Pioneer+Mobile+Lab+Patna",
     tags: ["Retail", "Local SEO", "Mobile Shop"],
   },
+   // 🔹 NEW: Kosford Pharmaceuticals
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/Kosford.webp",
+    title: "Kosford Pharmaceuticals",
+    description:
+      "Brand identity and digital presence for Kosford Pharmaceuticals Private Limited, a modern pharma company distinct from the former US-based Kos Pharmaceuticals acquired by Abbott.",
+    // add link / instagram / google later if you have them
+    tags: ["Pharmaceuticals", "Branding", "Corporate"],
+  },
+
+  // 🔹 NEW: R&M Resin & Memories
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/R&M.webp",
+    title: "R&M Resin & Memories",
+    description:
+      "Resin & memory-preservation brand built around the tagline “you create. we preserve.” – sentimental pieces turned into long-lasting art.",
+    // add link / instagram when ready
+    tags: ["Resin Art", "Gifting", "Branding"],
+  },
 ];
 
 export function BlurFadeDemo() {
   return (
     <section id="photos" className="relative mt-8">
       {/* global cursor effects */}
-      <CursorFX />
 
       <div className="grid gap-8 md:grid-cols-2">
         {works.map(
