@@ -106,7 +106,7 @@ function ProgressRing({ progress }: { progress: number }) {
   );
 }
 
-export function TestimonialsSection() {
+function TestimonialsSection() {
   const items = [
     {
       quote:
@@ -334,8 +334,8 @@ export function TestimonialsSection() {
                     onClick={() => setI(idx)}
                     aria-label={`Go to testimonial ${idx + 1}`}
                     className={`h-2.5 rounded-full transition-all ${i === idx
-                        ? "w-8 bg-primary"
-                        : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                      ? "w-8 bg-primary"
+                      : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
                       }`}
                   />
                 ))}
