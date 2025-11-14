@@ -19,6 +19,7 @@ import {
   FiClipboard,
 } from "react-icons/fi";
 import { motion } from "framer-motion";
+import Footer from "@/components/footer";
 
 type BlogItem = {
   slug: string;
@@ -376,7 +377,12 @@ export default function BlogIndexPage() {
       {/* Subtle bottom divider */}
       <div className="px-6 md:px-0 md:mx-auto xl:w-4/5 2xl:w-[68%] my-14">
         <div className="h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+        
       </div>
+
+      <footer className="mt-16">
+        <Footer />
+      </footer>
     </div>
   );
 }
