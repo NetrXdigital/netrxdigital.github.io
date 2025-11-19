@@ -70,7 +70,7 @@ const works: Work[] = [
     google: "https://www.google.com/search?q=Raza+Pioneer+Mobile+Lab+Patna",
     tags: ["Retail", "Local SEO", "Mobile Shop"],
   },
-   // 🔹 NEW: Kosford Pharmaceuticals
+  // 🔹 NEW: Kosford Pharmaceuticals
   {
     background: "bg-card border border-border shadow-sm",
     imageUrl: "/images/Kosford.webp",
@@ -96,9 +96,14 @@ const works: Work[] = [
 export function BlurFadeDemo() {
   return (
     <section id="photos" className="relative mt-8">
-      {/* global cursor effects */}
-
-      <div className="grid gap-8 md:grid-cols-2">
+      <div
+        className="
+          grid
+          gap-[1.618rem]               /* golden-ratio-ish gap */
+          md:grid-cols-2
+          xl:grid-cols-3               /* 3 cards in a row on large screens */
+        "
+      >
         {works.map(
           (
             { imageUrl, title, description, link, instagram, google, tags, background },
@@ -108,17 +113,40 @@ export function BlurFadeDemo() {
               key={title}
               delay={0.18 + idx * 0.06}
               inView
-              className={`rounded-2xl ${background ?? ""} overflow-hidden`}
+              className={`
+                overflow-hidden
+                rounded-[1.25rem]      /* slightly smaller radius */
+                ${background ?? ""}
+              `}
             >
-              <TiltCard className="rounded-2xl hover:shadow-xl border border-border bg-card/80 backdrop-blur">
+              <TiltCard
+                className="
+                  rounded-[1.25rem]
+                  hover:shadow-xl
+                  border border-border/80
+                  bg-card/80
+                  backdrop-blur
+                  h-full
+                  flex flex-col           /* make card content stretch nicely */
+                "
+              >
                 {/* Image */}
-                <div className="relative h-64 w-full md:h-80 flex items-center justify-center bg-muted/30 rounded-lg overflow-hidden">
+                <div
+                  className="
+                    relative
+                    w-full
+                    aspect-[16/10]       /* golden-ish aspect ratio instead of tall fixed height */
+                    flex items-center justify-center
+                    bg-muted/30
+                    overflow-hidden
+                  "
+                >
                   <Image
                     src={imageUrl}
                     alt={`${title} — showcase image`}
                     fill
                     className="object-contain p-3 will-change-transform"
-                    sizes="(min-width: 1280px) 600px, (min-width: 768px) 50vw, 100vw"
+                    sizes="(min-width: 1280px) 360px, (min-width: 768px) 50vw, 100vw"
                     priority={idx === 0}
                   />
                   {/* subtle animated border */}
@@ -126,20 +154,26 @@ export function BlurFadeDemo() {
                 </div>
 
                 {/* Text */}
-                <div className="p-6 md:p-7">
-                  <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">
+                <div className="p-5 md:p-[1.618rem] flex-1 flex flex-col">
+                  <h3 className="text-lg md:text-xl font-semibold tracking-tight">
                     {title}
                   </h3>
-                  <p className="mt-2 text-sm md:text-base text-muted-foreground">
+                  <p className="mt-2 text-xs md:text-sm text-muted-foreground leading-relaxed">
                     {description}
                   </p>
 
                   {!!tags?.length && (
-                    <div className="mt-4 flex flex-wrap gap-2">
+                    <div className="mt-3 flex flex-wrap gap-2">
                       {tags.map((t) => (
                         <span
                           key={t}
-                          className="inline-flex items-center rounded-full border px-2.5 py-1 text-xs text-muted-foreground"
+                          className="
+                            inline-flex items-center
+                            rounded-full
+                            border px-2.5 py-1
+                            text-[0.7rem] md:text-xs
+                            text-muted-foreground
+                          "
                         >
                           {t}
                         </span>
@@ -148,7 +182,7 @@ export function BlurFadeDemo() {
                   )}
 
                   {/* Links with magnetic effect */}
-                  <div className="mt-5 flex flex-wrap items-center gap-4 text-sm font-medium">
+                  <div className="mt-4 flex flex-wrap items-center gap-3 text-xs md:text-sm font-medium">
                     {link && (
                       <MagneticLink
                         href={link}
@@ -168,7 +202,7 @@ export function BlurFadeDemo() {
                     {google && (
                       <MagneticLink
                         href={google}
-                        className="text-blue-600 hover:underline inline-flex items-center gap-1"
+                        className="text-blue-500 hover:underline inline-flex items-center gap-1"
                       >
                         Google <span aria-hidden>↗</span>
                       </MagneticLink>
