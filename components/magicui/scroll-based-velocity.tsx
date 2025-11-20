@@ -17,6 +17,7 @@ interface VelocityScrollProps {
   text: string;
   default_velocity?: number;
   className?: string;
+  wavy?: boolean;
 }
 
 interface ParallaxProps {
@@ -34,6 +35,7 @@ export function VelocityScroll({
   text,
   default_velocity = 5,
   className,
+  wavy = false,
 }: VelocityScrollProps) {
   function ParallaxText({
     children,
@@ -44,7 +46,7 @@ export function VelocityScroll({
     const { scrollY } = useScroll();
     const scrollVelocity = useVelocity(scrollY);
     const smoothVelocity = useSpring(scrollVelocity, {
-      damping: 50,
+      damping: 100,
       stiffness: 400,
     });
 
@@ -97,7 +99,26 @@ export function VelocityScroll({
         <motion.div className={cn("inline-block", className)} style={{ x }}>
           {Array.from({ length: repetitions }).map((_, i) => (
             <span key={i} ref={i === 0 ? textRef : null}>
-              {children}{" "}
+              {wavy ? (
+                children.split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    className="inline-block"
+                    initial={{ y: 0 }}
+                    animate={{ y: [-15, 15, -15] }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.05,
+                    }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))
+              ) : (
+                children
+              )}{" "}
             </span>
           ))}
         </motion.div>
