@@ -435,7 +435,7 @@ function TestimonialsSection() {
 export default function Home() {
   return (
     <div
-      className="overflow-clip inset-0 -z-10 min-h-screen w-full bg-background
+      className="overflow-clip inset-0 -z-10 min-h-screen w-full
       bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)]
       bg-[size:14px_24px]"
     >
@@ -448,7 +448,7 @@ export default function Home() {
         className="relative pt-24 md:pt-32 min-h-[84vh] md:min-h-[93vh] flex items-center overflow-hidden"
         aria-label="Hero"
       >
-        <InteractiveGridBackground className="absolute inset-0 z-0" />
+
 
         <div className="relative z-10 md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto text-center">
           <h1 className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
