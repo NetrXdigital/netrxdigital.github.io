@@ -14,7 +14,7 @@ export default function ShowcasePage() {
   return (
     <div
       className="
-        relative overflow-clip inset-0  min-h-screen w-full bg-background
+        relative overflow-clip inset-0  min-h-screen w-full
         bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)]
         bg-[size:14px_24px]
         pt-20
