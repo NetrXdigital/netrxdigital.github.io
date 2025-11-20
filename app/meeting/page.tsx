@@ -77,7 +77,7 @@ export default function Meeting() {
   return (
     <div
       className="
-        relative min-h-screen w-full overflow-hidden bg-background pt-20
+        relative min-h-screen w-full overflow-hidden pt-20
       "
     >
       {/* GLOBAL BG – GRID + GLOWS */}
