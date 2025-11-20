@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import FloatingChatButtons from "@/components/FloatingChatButtons";
+import { InteractiveGridBackground } from "@/components/ui/interactive-grid-background";
 
 const font = Space_Grotesk({ subsets: ["latin"] });
 
@@ -131,11 +132,12 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
 
         <ThemeProvider>
+          <InteractiveGridBackground className="fixed inset-0 -z-50" />
           <Header />
           <main>{children}</main>
-          <FloatingChatButtons /> 
+          <FloatingChatButtons />
           <Analytics />
-      </ThemeProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
