@@ -455,15 +455,17 @@ export default function Home() {
             <CoverDemo />
           </h1>
 
-          {/* Magnetic CTAs */}
-          <div className="mt-8 flex items-center justify-center gap-3">
-            <MagneticLink as={Link} href="/meeting" className="px-6 py-3">
-              Book a Call
-            </MagneticLink>
-            <MagneticLink as={Link} href="/showcase" className="px-6 py-3">
-              Showcase
-            </MagneticLink>
-          </div>
+          {/* Tagline */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="mt-8 flex items-center justify-center"
+          >
+            <p className="text-lg md:text-xl font-light tracking-wide text-gray-400">
+              Elevating <span className="font-medium text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">Digital Experiences</span> through Innovation
+            </p>
+          </motion.div>
 
           {/* Pillars */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center text-center justify-items-center md:mx-auto mt-10 md:mt-16">
