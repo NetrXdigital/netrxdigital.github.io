@@ -1171,7 +1171,7 @@ export default function Home() {
           <main className="md:px-0 mx-6 md:mx-auto xl:w-4/5 2xl:w-[68%] relative z-10">
             {/* HEADER */}
             <motion.div
-              className="text-center"
+              className="text-center mb-16"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -1181,7 +1181,7 @@ export default function Home() {
                 Iterative • Data-driven • Fast
               </div>
 
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6">
                 Our{" "}
                 <span className="bg-clip-text text-transparent bg-[conic-gradient(at_20%_20%,#60a5fa_0deg,#a78bfa_120deg,#22d3ee_240deg,#60a5fa_360deg)]">
                   Creative
@@ -1189,183 +1189,67 @@ export default function Home() {
                 Process
               </h2>
 
-              <p className="text-center py-4 md:w-1/2 mx-auto text-lg md:text-xl text-gray-500">
+              <p className="text-center max-w-2xl mx-auto text-lg text-gray-500 dark:text-gray-400">
                 We blend strategy, motion design, and engineering to get your brand noticed.
               </p>
             </motion.div>
 
-            <div className="mt-10 grid grid-cols-1 xl:grid-cols-[minmax(0,1.618fr)_minmax(0,1fr)] gap-8 xl:gap-10 items-stretch">
-              <motion.div
-                className="relative mx-auto max-w-4xl xl:max-w-none rounded-2xl border bg-background/60 backdrop-blur p-5 md:p-6 shadow-[0_0_0_1px_hsl(var(--border)/.4),0_25px_80px_-30px_rgba(0,0,0,.35)]"
-                initial={{ opacity: 0, x: -24, scale: 0.97 }}
-                whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                whileHover={{ y: -4, scale: 1.01 }}
-              >
-                {/* halo behind panel */}
+            {/* SIMPLIFIED 4-COLUMN GRID */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  step: "01",
+                  title: "Discover",
+                  desc: "We audit your current state, map your audience, and define clear goals aligned with business value.",
+                  icon: "🔍"
+                },
+                {
+                  step: "02",
+                  title: "Strategy",
+                  desc: "We build the roadmap: positioning, content architecture, and growth loops that drive KPIs.",
+                  icon: "🎯"
+                },
+                {
+                  step: "03",
+                  title: "Build",
+                  desc: "Design systems meet performance-first code. We build scalable solutions with QA built-in.",
+                  icon: "⚡"
+                },
+                {
+                  step: "04",
+                  title: "Launch",
+                  desc: "Ship, measure, and iterate. We use data to optimize CRO, SEO, and creative performance.",
+                  icon: "🚀"
+                },
+              ].map((item, idx) => (
                 <motion.div
-                  aria-hidden
-                  className="pointer-events-none absolute -inset-10 rounded-[1.75rem] bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.3),transparent_60%)] blur-3xl opacity-70"
-                  animate={{ opacity: [0.3, 0.7, 0.3] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                />
-
-                <div className="relative grid grid-cols-1 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-6">
-                  <div className="rounded-xl border bg-card/70 p-4 hover:-translate-y-1 transition-transform duration-300">
-                    <AnimatedBeamMultipleOutputDemo />
+                  key={item.step}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.5 }}
+                  className="group relative p-6 rounded-2xl border border-black/5 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div className="absolute -top-4 -left-4 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    {item.icon}
                   </div>
-                  <div className="rounded-xl border bg-card/70 p-4 hover:-translate-y-1 transition-transform duration-300">
-                    <BoxRevealDemo />
+
+                  <div className="mt-6">
+                    <span className="text-xs font-bold tracking-widest text-blue-500 uppercase mb-2 block">
+                      Step {item.step}
+                    </span>
+                    <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
-                </div>
 
-                {/* animated timeline bar */}
-                <div className="mt-6 h-1 w-full rounded-full bg-muted relative overflow-hidden">
-                  <span className="absolute inset-y-0 left-0 w-1/3 animate-[timeline_6s_linear_infinite] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
-                </div>
-
-                <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] md:text-xs text-muted-foreground">
-                  <span className="inline-flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Live creative routing · AI-assisted
-                  </span>
-                  <span className="text-muted-foreground/80">
-                    Strategy → Design → Engineering → Feedback loop
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* RIGHT – STEP CARDS AS CONTROL COLUMN */}
-              {/* RIGHT – STEP CARDS AS CONTROL COLUMN */}
-              {/* RIGHT – STEP CARDS AS CONTROL COLUMN */}
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-5"
-                initial={{ opacity: 0, x: 24, y: 10 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                {[
-                  {
-                    step: "01",
-                    title: "Discover",
-                    desc: "Audit, goals, audience mapping to align with business value.",
-                  },
-                  {
-                    step: "02",
-                    title: "Strategy",
-                    desc: "Positioning, content architecture, growth loops, KPIs.",
-                  },
-                  {
-                    step: "03",
-                    title: "Build",
-                    desc: "Design systems + performance-first code with QA built in.",
-                  },
-                  {
-                    step: "04",
-                    title: "Launch & Learn",
-                    desc: "Ship, measure, iterate — CRO, SEO, creative testing.",
-                  },
-                ].map((s, idx) => (
-                  <motion.div
-                    key={s.step}
-                    className="group relative rounded-2xl overflow-hidden border border-transparent p-[1px]
-                 bg-gradient-to-br from-blue-500/40 via-indigo-500/30 to-cyan-400/40 
-                 shadow-[0_0_30px_-10px_rgba(99,102,241,0.5)] hover:shadow-[0_0_40px_-10px_rgba(147,197,253,0.8)]
-                 transition-transform duration-300"
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.45, delay: 0.08 * idx, ease: "easeOut" }}
-                    whileHover={{
-                      y: -6,
-                      scale: 1.03,
-                      rotateX: 2,
-                      rotateY: -2,
-                      transition: { duration: 0.25, ease: "easeOut" },
-                    }}
-                  >
-                    {/* border gradient */}
-                    <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-transparent 
-                       [background:linear-gradient(#020617,transparent),linear-gradient(to_right,#60a5fa,#a78bfa,#22d3ee)] 
-                       [background-clip:padding-box,_border-box] border border-transparent" />
-
-                    {/* cursor local glow */}
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full"
-                      style={{
-                        left: "var(--mx, -9999px)",
-                        top: "var(--my, -9999px)",
-                        background:
-                          "radial-gradient(closest-side, rgba(99,102,241,0.18), rgba(99,102,241,0) 65%)",
-                      }}
-                    />
-
-                    {/* CONSTANT FLOATING ORBITING RING */}
-                    <motion.div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0 flex items-center justify-center"
-                      initial={{ rotate: 0 }}
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-                    >
-                      <div className="h-[110%] w-[110%] rounded-full border border-blue-400/20" />
-                    </motion.div>
-
-                    {/* CONSTANT SHIMMER DRIFT */}
-                    <motion.div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-x-0 top-0 h-full bg-gradient-to-b 
-                   from-white/5 via-transparent to-white/5 opacity-10"
-                      animate={{ y: ["-40%", "140%"] }}
-                      transition={{
-                        duration: 9,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    />
-
-                    {/* FLOATING PARTICLE DOTS */}
-                    <motion.div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0"
-                      initial={{ opacity: 0.3 }}
-                      animate={{
-                        opacity: [0.2, 0.4, 0.25],
-                        x: [0, 10, -10, 0],
-                        y: [0, -8, 8, 0],
-                      }}
-                      transition={{
-                        duration: 6,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                      style={{
-                        backgroundImage:
-                          "radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px)",
-                        backgroundSize: "12px 12px",
-                      }}
-                    />
-
-                    {/* CONTENT */}
-                    <div className="relative rounded-2xl bg-[radial-gradient(circle_at_top_left,rgba(30,41,59,0.9),rgba(17,24,39,0.97))] backdrop-blur-xl p-5 md:p-6">
-                      <div className="flex items-center justify-between mb-1.5">
-                        <div className="text-xs text-blue-200/90 tracking-[0.18em] uppercase">
-                          Step {s.step}
-                        </div>
-                        <div className="h-6 w-6 rounded-full border border-blue-400/40 bg-blue-500/10" />
-                      </div>
-                      <h3 className="text-lg font-semibold text-white">{s.title}</h3>
-                      <p className="mt-2 text-sm text-blue-100/80 leading-relaxed">
-                        {s.desc}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 via-blue-500/0 to-purple-500/0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none" />
+                </motion.div>
+              ))}
             </div>
           </main>
         </Element>
