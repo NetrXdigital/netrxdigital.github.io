@@ -125,12 +125,12 @@ export default function Header() {
           >
             Book a call
           </Link>
-          <ModeToggle />
+
         </div>
 
         {/* MOBILE: Theme toggle + hamburger */}
         <div className="md:hidden flex items-center gap-2">
-          <ModeToggle />
+
           <button
             ref={buttonRef}
             type="button"
@@ -203,10 +203,9 @@ export default function Header() {
                         className={`
                           block px-4 py-3 text-[15px] font-medium
                           ${linkBase}
-                          ${
-                            pathname === item.href
-                              ? "text-blue-600 dark:text-blue-400 underline underline-offset-4"
-                              : "text-gray-800 dark:text-gray-200"
+                          ${pathname === item.href
+                            ? "text-blue-600 dark:text-blue-400 underline underline-offset-4"
+                            : "text-gray-800 dark:text-gray-200"
                           }
                         `}
                       >
