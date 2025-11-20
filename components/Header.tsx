@@ -14,7 +14,6 @@ const navItems = [
   { href: "/about_us", label: "About Us" },
 ];
 
-// Golden Ratio constants
 const PHI = 1.618;
 const HEADER_HEIGHT = 50 * PHI; // approx 81px
 const HEADER_HEIGHT_SCROLLED = 40 * PHI; // approx 65px
