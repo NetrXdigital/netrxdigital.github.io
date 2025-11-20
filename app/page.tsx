@@ -8,24 +8,25 @@ import { ChevronLeft, ChevronRight, ShieldCheck, Sparkles } from "lucide-react";
 import { PiCheckBold, PiPlayFill } from "react-icons/pi";
 import { motion } from "framer-motion";
 
-/* Your existing demos/components */
-import { AnimatedBeamMultipleOutputDemo } from "@/components/demos/animated-beam-demo";
-import BoxRevealDemo from "@/components/demos/box-reveal-demo";
+import dynamic from "next/dynamic";
 import { CoverDemo } from "@/components/demos/cover-demo";
-import { ScrollBasedVelocityDemo } from "@/components/demos/scroll-based-velocity-demo";
-import { WordPullUpDemo } from "@/components/demos/word-pull-up-demo";
-import BoxReveal from "@/components/magicui/box-reveal";
-import NumberTicker from "@/components/magicui/number-ticker";
-import { InfiniteMovingLogos } from "@/components/ui/infinite-moving-logos";
-import LetsMakeThingsHappenSection from "@/components/ui/lets-make-things-happen";
-import Footer from "@/components/footer";
+import { MagneticLink } from "@/components/ui/magnetic-link";
+import { TiltCard } from "@/components/ui/tilt-card";
+import { InteractiveGridBackground } from "@/components/ui/interactive-grid-background";
+
+/* Lazy loaded components */
+const AnimatedBeamMultipleOutputDemo = dynamic(() => import("@/components/demos/animated-beam-demo").then(mod => mod.AnimatedBeamMultipleOutputDemo));
+const BoxRevealDemo = dynamic(() => import("@/components/demos/box-reveal-demo"));
+const ScrollBasedVelocityDemo = dynamic(() => import("@/components/demos/scroll-based-velocity-demo").then(mod => mod.ScrollBasedVelocityDemo));
+const WordPullUpDemo = dynamic(() => import("@/components/demos/word-pull-up-demo").then(mod => mod.WordPullUpDemo));
+const BoxReveal = dynamic(() => import("@/components/magicui/box-reveal"));
+const NumberTicker = dynamic(() => import("@/components/magicui/number-ticker"));
+const InfiniteMovingLogos = dynamic(() => import("@/components/ui/infinite-moving-logos").then(mod => mod.InfiniteMovingLogos));
+const LetsMakeThingsHappenSection = dynamic(() => import("@/components/ui/lets-make-things-happen"));
+const Footer = dynamic(() => import("@/components/footer"));
 
 /* 🔗 Unified FX pack (imported components) */
 import CursorFX from "@/components/ui/cursor-fx";
-import { MagneticLink } from "@/components/ui/magnetic-link";
-import { TiltCard } from "@/components/ui/tilt-card";
-
-/* ===== Local helpers ===== */
 
 const services = [
   { icon: "/images/web_development.png", title: "Web Design + Development", description: "Take your business to the next level with our web design and development services" },
@@ -442,23 +443,12 @@ export default function Home() {
       {/* <CursorFX /> */}
       <ScrollProgress />
 
-      {/* ====================== HERO WITH VIDEO BG ====================== */}
-      {/* ====================== HERO WITH VIDEO BG ====================== */}
+      {/* ====================== HERO WITH DOT WAVE BG ====================== */}
       <section
         className="relative pt-24 md:pt-32 min-h-[84vh] md:min-h-[93vh] flex items-center overflow-hidden"
         aria-label="Hero"
       >
-        <video
-          className="absolute inset-0 h-full w-full object-cover pointer-events-none z-0"
-          src="/videos/hero-bg.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(transparent,rgba(0,0,0,0.35))]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.08)_1px,transparent_1px)] bg-[size:14px_24px]" />
+        <InteractiveGridBackground className="absolute inset-0 z-0" />
 
         <div className="relative z-10 md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto text-center">
           <h1 className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
