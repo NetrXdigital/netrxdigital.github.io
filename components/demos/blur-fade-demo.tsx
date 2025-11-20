@@ -5,7 +5,6 @@ import Image from "next/image";
 import { MagneticLink } from "@/components/ui/magnetic-link";
 import CursorFX from "@/components/ui/cursor-fx";
 import { TiltCard } from "@/components/ui/tilt-card";
-
 type Work = {
   background?: string;
   imageUrl: string;
