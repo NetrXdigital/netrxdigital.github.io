@@ -448,6 +448,7 @@ export default function Home() {
         className="relative pt-24 md:pt-32 min-h-[84vh] md:min-h-[93vh] flex items-center overflow-hidden"
         aria-label="Hero"
       >
+        <InteractiveGridBackground className="absolute inset-0 z-0" />
 
 
         <div className="relative z-10 md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto text-center">
