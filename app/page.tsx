@@ -1228,8 +1228,28 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  className="group relative p-6 rounded-2xl border border-black/5 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  animate={{
+                    y: [0, -10, 0],
+                    rotate: [0, 4, 0, -4, 0],
+                  }}
+                  whileHover={{ scale: 1.15 }}
+                  transition={{
+                    delay: idx * 0.1,
+                    duration: 0.5, // For initial entrance
+                    y: {
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: idx * 0.2,
+                    },
+                    rotate: {
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: idx * 0.1,
+                    }
+                  }}
+                  className="group relative p-6 rounded-2xl border border-black/5 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-white/10 transition-colors duration-300 hover:shadow-lg"
                 >
                   <div className="absolute -top-4 -left-4 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
