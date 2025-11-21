@@ -26,9 +26,9 @@ export function InteractiveGridBackground({
         let points: Point[] = [];
         let mouse = { x: -1000, y: -1000 };
 
-        const SPACING = 25; // Density increased
-        const RADIUS = 1.5;
-        const COLOR = "rgba(0, 166, 255, 1)"; // Theme blue
+        const SPACING = 15; // Density increased
+        const RADIUS = 1.4;
+        const COLOR = "rgba(44, 92, 144, 1)"; // Theme blue
         const WAVE_RADIUS = 400;
         const WAVE_STRENGTH = 400;
 
