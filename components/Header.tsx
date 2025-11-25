@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -58,6 +59,7 @@ export default function Header() {
           height: scrolled ? HEADER_HEIGHT_SCROLLED : HEADER_HEIGHT,
         }}
       >
+        <BorderBeam size={250} duration={12} delay={9} />
         <div className="mx-auto flex h-full max-w-[1618px] items-center justify-between px-6 md:px-[42px]">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center gap-2 shrink-0">

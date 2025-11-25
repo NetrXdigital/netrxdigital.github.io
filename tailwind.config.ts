@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -80,7 +80,7 @@ const config = {
             "background-position": "calc(100% + var(--shimmer-width, 200px)) 0",
           },
         },
-        'shine' : {
+        'shine': {
           from: {
             "backgroundPosition": "0 0"
           },
@@ -88,26 +88,26 @@ const config = {
             "backgroundPosition": "-200% 0"
           }
         },
-
-        // ADDED ↓↓↓
         'ping-slow': {
-          '0%':   { transform: 'scale(1)',   opacity: '0.6' },
-          '75%':  { transform: 'scale(1.6)', opacity: '0'   },
-          '100%': { transform: 'scale(1.6)', opacity: '0'   },
+          '0%': { transform: 'scale(1)', opacity: '0.6' },
+          '75%': { transform: 'scale(1.6)', opacity: '0' },
+          '100%': { transform: 'scale(1.6)', opacity: '0' },
         },
-        // ADDED ↑↑↑
-
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         'scroll': 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
-        'shimmer' : 'shimmer 8s infinite',
-        'shine' : 'shine 2s  linear infinite',
-          // ADDED ↓↓↓
+        'shimmer': 'shimmer 8s infinite',
+        'shine': 'shine 2s  linear infinite',
         'ping-slow': 'ping-slow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'pulse-slow': 'pulse 3s ease-in-out infinite', // uses Tailwind's built-in "pulse" keyframes
-        // ADDED ↑↑↑
+        'pulse-slow': 'pulse 3s ease-in-out infinite',
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
       },
     },
   },
