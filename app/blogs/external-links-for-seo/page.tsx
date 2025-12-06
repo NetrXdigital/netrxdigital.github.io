@@ -23,7 +23,7 @@ export const metadata: MD3 = {
         "performance marketing agency in Patna",
     ],
     alternates: {
-        canonical: "/blog/external-links-for-seo",
+        canonical: "/blogs/external-links-for-seo",
     },
     openGraph: {
         title:

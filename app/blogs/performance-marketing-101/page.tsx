@@ -21,7 +21,7 @@ export const metadata: MD2 = {
     "physiotherapist marketing Patna",
     "dentist marketing Patna",
   ],
-  alternates: { canonical: "/blog/performance-marketing-101" },
+  alternates: { canonical: "/blogs/performance-marketing-101" },
   openGraph: {
     title: "Performance Marketing 101 for Medical Practices in Patna",
     description:

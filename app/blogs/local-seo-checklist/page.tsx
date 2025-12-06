@@ -7,7 +7,7 @@ export const metadata: MD4 = {
   title: "Local SEO Checklist for Patna Clinics | NetrX Digital",
   description:
     "Actionable Local SEO checklist for Patna clinics: Google Business Profile, location keywords, mobile speed, schema, citations, social, and measurement.",
-  alternates: { canonical: "/blog/local-seo-checklist" },
+  alternates: { canonical: "/blogs/local-seo-checklist" },
   keywords: [
     "Local SEO Patna",
     "Patna clinics SEO",
