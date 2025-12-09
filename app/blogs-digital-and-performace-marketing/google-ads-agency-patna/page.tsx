@@ -18,7 +18,7 @@ export const metadata: MD = {
     "google ads for doctors patna",
     "NetrX Digital Patna",
   ],
-  alternates: { canonical: "/blogs/google-ads-agency-patna" },
+  alternates: { canonical: "/blogs-digital-and-performace-marketing/google-ads-agency-patna" },
   openGraph: {
     title:
       "Google Ads Agency in Patna: The Fastest Way to Get Customers in 2025",

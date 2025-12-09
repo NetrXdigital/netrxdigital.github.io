@@ -18,7 +18,7 @@ export const metadata: MD3 = {
     "online marketing Patna",
     "digital branding Patna",
   ],
-  alternates: { canonical: "/blogs/essential-factors-hiring-agency" },
+  alternates: { canonical: "/blogs-digital-and-performace-marketing/essential-factors-hiring-agency" },
   openGraph: {
     title:
       "Essential Factors to Evaluate When Hiring a Digital Marketing Agency in Patna | NetrX Digital",

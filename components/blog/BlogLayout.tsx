@@ -70,7 +70,7 @@ export default function BlogLayout({
           </li>
           <li className="opacity-60">/</li>
           <li>
-            <Link href="/blogs" className="hover:underline">Blogs</Link>
+            <Link href="/blogs-digital-and-performace-marketing" className="hover:underline">Blogs</Link>
           </li>
           <li className="opacity-60">/</li>
           <li aria-current="page" className="font-medium">{title}</li>

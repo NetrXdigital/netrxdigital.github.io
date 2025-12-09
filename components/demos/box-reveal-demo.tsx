@@ -14,7 +14,7 @@ const BoxRevealDemo = () => {
       <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
         <h2 className="my-2 text-lg text-gray-500">
           Connect with us via
-          <Link href={"/meeting"} className="text-[#3b82f6]">
+          <Link href={"/contact-netrx-digital"} className="text-[#3b82f6]">
             {" "}
             meeting{" "}
           </Link>

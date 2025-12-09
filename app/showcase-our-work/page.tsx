@@ -142,7 +142,7 @@ export default function ShowcasePage() {
               <div className="mt-2 flex flex-wrap items-center gap-3">
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
                   <Link
-                    href="/meeting"
+                    href="/contact-netrx-digital"
                     className="inline-flex h-11 items-center justify-center rounded-xl bg-primary px-6 text-primary-foreground text-sm md:text-base font-medium shadow-[0_18px_45px_rgba(37,99,235,0.65)] transition hover:brightness-110"
                   >
                     Start a Project

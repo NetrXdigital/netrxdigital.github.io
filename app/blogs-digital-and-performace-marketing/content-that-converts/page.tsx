@@ -19,13 +19,13 @@ export const metadata: MD3 = {
     "dentist Kankarbagh",
     "Patna clinics SEO",
   ],
-  alternates: { canonical: "/blogs/content-that-converts" },
+  alternates: { canonical: "/blogs-digital-and-performace-marketing/content-that-converts" },
   openGraph: {
     title: "Content That Converts: SEO For Patna Clinics | NetrX Digital",
     description:
       "Build trust, answer real patient questions, and drive bookings with conversion-focused content.",
     type: "article",
-    url: "/blogs/content-that-converts",
+    url: "/blogs-digital-and-performace-marketing/content-that-converts",
     images: ["/images/blog/content-that-converts.webp"],
   },
   twitter: {

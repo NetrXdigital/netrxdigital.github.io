@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "local SEO for clinics",
     "patient acquisition Patna",
   ],
-  alternates: { canonical: "/blogs/brand-positioning-for-clinics" },
+  alternates: { canonical: "/blogs-digital-and-performace-marketing/brand-positioning-for-clinics" },
   openGraph: {
     type: "article",
     title: "Brand Positioning for Clinics in Patna: The Key to Optimised Digital Success",

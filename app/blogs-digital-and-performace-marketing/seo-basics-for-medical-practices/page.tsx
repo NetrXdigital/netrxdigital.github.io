@@ -19,7 +19,7 @@ export const metadata: MD = {
     "best dental clinic SEO",
     "skin specialist SEO Patna",
   ],
-  alternates: { canonical: "/blogs/seo-basics-for-medical-practices" },
+  alternates: { canonical: "/blogs-digital-and-performace-marketing/seo-basics-for-medical-practices" },
   openGraph: {
     title: "SEO Basics for Medical Practices in Patna",
     description:

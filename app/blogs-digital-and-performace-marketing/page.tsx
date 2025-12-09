@@ -346,7 +346,7 @@ export default function BlogIndexPage() {
             className="group"
           >
             <Link
-              href={`/blogs/${slug}`}
+              href={`/blogs-digital-and-performace-marketing/${slug}`}
               className="relative block h-full rounded-2xl p-[1px] bg-gradient-to-br from-blue-500/40 via-indigo-500/30 to-cyan-400/40
                          shadow-[0_0_30px_-12px_rgba(99,102,241,0.45)]"
             >
