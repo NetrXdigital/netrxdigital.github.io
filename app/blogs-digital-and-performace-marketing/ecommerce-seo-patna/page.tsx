@@ -19,7 +19,7 @@ export const metadata: MD = {
     "increase online sales Patna",
     "local SEO for ecommerce",
   ],
-  alternates: { canonical: "/blogs/ecommerce-seo-patna" },
+  alternates: { canonical: "/blogs-digital-and-performace-marketing/ecommerce-seo-patna" },
   openGraph: {
     title:
       "SEO for Ecommerce Explained: Increasing Online Visibility in Patna & Bihar",
