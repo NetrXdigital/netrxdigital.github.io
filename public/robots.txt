@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
-Sitemap: https://netrxdigital.github.io/sitemap.xml
+# Host
+Host: https://www.netrxdigital.com
+
+# Sitemaps
+Sitemap: https://www.netrxdigital.com/sitemap.xml

@@ -243,6 +243,39 @@ export default function BlogIndexPage() {
         </motion.p>
       </motion.header>
 
+       {/* SEO intro copy */}
+      <section className="px-6 md:px-0 md:mx-auto xl:w-4/5 2xl:w-[68%] mt-6 text-sm md:text-base text-gray-700 dark:text-gray-200 space-y-3">
+        <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-500/80">
+          Digital marketing blogs for clinics & local businesses
+        </h2>
+        <p>
+          This blog is where{" "}
+          <span className="font-semibold">NetrX Digital</span> breaks down what
+          actually works in SEO, performance marketing, and content for
+          <span className="font-medium">
+            {" "}
+            clinics, local businesses, and ecommerce brands in India
+          </span>
+          . Instead of fluffy theory, every post is written with the same lens
+          we use for client work in Patna and other tier-2 cities – traffic
+          that turns into booked calls, walk-ins, and revenue.
+        </p>
+        <p>
+          You&apos;ll find playbooks on{" "}
+          <strong>local SEO, Google Ads, YouTube campaigns, tracking, and CRO</strong>{" "}
+          explained in clear language, with examples you can plug into your
+          website or campaigns immediately. Whether you run a medical practice,
+          a gym, or an ecommerce store, these articles are designed to help you
+          fix the basics, avoid common mistakes, and scale without burning ad
+          budget blindly.
+        </p>
+        <p>
+          Start with the <strong>SEO basics</strong> and{" "}
+          <strong>local SEO checklists</strong> if you&apos;re new, or dive
+          into performance marketing and external link building guides if
+          you&apos;re already running campaigns and want sharper returns.
+        </p>
+      </section>
 
       {/* Controls */}
       <div className="px-6 md:px-0 md:mx-auto xl:w-4/5 2xl:w-[68%] mt-8">
@@ -378,6 +411,40 @@ export default function BlogIndexPage() {
           </motion.li>
         ))}
       </ul>
+      
+           <section className="px-6 md:px-0 md:mx-auto xl:w-4/5 2xl:w-[68%] mt-10 text-sm md:text-base text-gray-700 dark:text-gray-200 space-y-4">
+        <h2 className="text-base md:text-lg font-semibold">
+          How to use the NetrX Digital blog
+        </h2>
+        <div className="space-y-3">
+          <div>
+            <h3 className="font-medium">
+              Which articles should a clinic owner start with?
+            </h3>
+            <p>
+              If you run a clinic or medical practice, begin with{" "}
+              <strong>“SEO Basics for Medical Practices”</strong> and{" "}
+              <strong>“Brand Positioning for Clinics”</strong>. These give you
+              a clear foundation on how patients search online, how to position
+              your brand in Patna and other cities, and what to fix on your
+              website first.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-medium">
+              Does this blog only apply to Patna-based businesses?
+            </h3>
+            <p>
+              No. We use Patna as a real-world reference because that&apos;s
+              where a lot of our client work started, but the{" "}
+              <strong>SEO and performance marketing frameworks</strong> work
+              for any service business or ecommerce brand in India. The same
+              playbooks can be applied in cities like Delhi, Pune, Mumbai, or
+              Bangalore with minor localisation.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Subtle bottom divider */}
       <div className="px-6 md:px-0 md:mx-auto xl:w-4/5 2xl:w-[68%] my-14">

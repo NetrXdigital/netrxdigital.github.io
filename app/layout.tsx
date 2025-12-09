@@ -6,13 +6,16 @@ import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import FloatingChatButtons from "@/components/FloatingChatButtons";
 
-
 const font = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NetrX | Digital Marketing Company",
+  metadataBase: new URL("https://www.netrxdigital.com"),
+  title: {
+    default: "NetrX Digital | Digital Marketing Company",
+    template: "%s | NetrX Digital",
+  },
   description:
-    "Transform your business with NetrX's cutting-edge digital marketing solutions. We drive growth through strategic SEO, social media, and data-driven campaigns.",
+    "NetrX Digital helps clinics, local businesses, and ecommerce brands grow with SEO, performance marketing, and conversion-focused websites.",
 
   icons: {
     icon: "/favicon.ico",
@@ -21,11 +24,11 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "NetrX | Digital Marketing Company",
+    title: "NetrX Digital | Digital Marketing Company",
     description:
-      "Transform your business with NetrX's cutting-edge digital marketing solutions. We drive growth through strategic SEO, social media, and data-driven campaigns.",
-    url: "https://netrxdigital.github.io",
-    siteName: "NetrX",
+      "Grow your business with ROI-focused SEO, PPC, and digital marketing systems from NetrX Digital.",
+    url: "/", // child pages should override with their own absolute URLs
+    siteName: "NetrX Digital",
     type: "website",
     locale: "en_US",
     images: [
@@ -50,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@your_twitter_handle",
     creator: "@your_twitter_handle",
-    title: "NetrX | Digital Marketing Company",
+    title: "NetrX Digital | Digital Marketing Company",
     description:
       "Transform your business with NetrX's cutting-edge digital marketing solutions.",
     images: ["/twitter-image.jpg"],
@@ -69,11 +72,12 @@ export const metadata: Metadata = {
   },
 
   keywords: [
-    "digital marketing",
-    "SEO",
+    "digital marketing agency",
+    "SEO services",
     "social media marketing",
-    "PPC",
+    "PPC management",
     "content marketing",
+    "digital marketing Patna",
   ],
   authors: [{ name: "NetrX Team" }],
   category: "Digital Marketing",
@@ -132,7 +136,6 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
 
         <ThemeProvider>
-
           <Header />
           <main>{children}</main>
           <FloatingChatButtons />
