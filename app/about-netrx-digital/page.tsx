@@ -136,7 +136,7 @@ export default function About() {
                   className="flex flex-wrap gap-4 text-sm md:text-base"
                 >
                   <Link
-                    href="/meeting"
+                    href="/contact-netrx-digital"
                     className="
                 inline-flex items-center justify-center rounded-xl
                 bg-foreground text-background px-6 py-3
@@ -149,7 +149,7 @@ export default function About() {
                     Book a strategy call
                   </Link>
                   <Link
-                    href="/showcase"
+                    href="/showcase-our-work"
                     className="
                 inline-flex items-center justify-center rounded-xl
                 border border-border/80 bg-background/80 px-6 py-3
@@ -649,7 +649,7 @@ export default function About() {
                   Let&apos;s work together
                 </Link>
                 <Link
-                  href="/showcase"
+                  href="/showcase-our-work"
                   className="
                     py-3.5 px-8 text-sm md:text-base rounded-xl
                     bg-background border-2 border-black dark:border-white

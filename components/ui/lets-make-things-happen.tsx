@@ -90,7 +90,7 @@ function LetsMakeThingsHappenSection() {
               {/* pulsing aura */}
               <span className="pointer-events-none absolute -inset-[2px] rounded-[999px] bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.6),transparent_55%)] opacity-80 blur-md" />
               <Link
-                href="/meeting"
+                href="/contact-netrx-digital"
                 className="
                   relative inline-flex items-center justify-center
                   rounded-[999px]

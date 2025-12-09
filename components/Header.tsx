@@ -10,9 +10,9 @@ import { BorderBeam } from "@/components/ui/border-beam";
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/showcase", label: "Showcase" },
-  { href: "/blogs", label: "Blogs" },
-  { href: "/about_us", label: "About Us" },
+  { href: "/showcase-our-work", label: "Showcase" },
+  { href: "/blogs-digital-and-performace-marketing", label: "Blogs" },
+  { href: "/about-netrx-digital", label: "About Us" },
 ];
 
 const PHI = 1.618;
@@ -105,7 +105,7 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
             <Link
-              href="/meeting"
+              href="/contact-netrx-digital"
               className="group relative inline-flex h-10 items-center justify-center overflow-hidden rounded-full bg-neutral-950 px-8 font-medium text-neutral-50 duration-300 hover:bg-neutral-900 dark:bg-white dark:text-black dark:hover:bg-neutral-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
               <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
@@ -176,7 +176,7 @@ export default function Header() {
                   className="mt-8"
                 >
                   <Link
-                    href="/meeting"
+                    href="/contact-netrx-digital"
                     onClick={() => setOpen(false)}
                     className="px-10 py-4 text-lg font-medium text-white bg-black rounded-full dark:bg-white dark:text-black shadow-xl"
                   >

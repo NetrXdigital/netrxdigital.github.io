@@ -14,7 +14,7 @@ module.exports = {
     // custom priorities per route
     let priority = 0.7;
     if (path === '/') priority = 1.0;
-    if (path.startsWith('/blogs')) priority = 0.8;
+    if (path.startsWith('/blogs-digital-and-performace-marketing')) priority = 0.8;
     if (path.startsWith('/services')) priority = 0.9;
 
     return {

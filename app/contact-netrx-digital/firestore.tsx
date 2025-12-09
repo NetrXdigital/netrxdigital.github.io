@@ -51,10 +51,10 @@ const LeadCaptureForm = () => {
         source: "meeting-page",
       });
 
-      router.push("/meeting/result?status=success");
+      router.push("/contact-netrx-digital/result?status=success");
     } catch (error) {
       console.error("Error adding document: ", error);
-      router.push("/meeting/result?status=error");
+      router.push("/contact-netrx-digital/result?status=error");
     } finally {
       setIsSubmitting(false);
     }

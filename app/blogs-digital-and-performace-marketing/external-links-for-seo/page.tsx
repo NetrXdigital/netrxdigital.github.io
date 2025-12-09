@@ -23,7 +23,7 @@ export const metadata: MD3 = {
         "performance marketing agency in Patna",
     ],
     alternates: {
-        canonical: "/blogs/external-links-for-seo",
+        canonical: "/blogs-digital-and-performace-marketing/external-links-for-seo",
     },
     openGraph: {
         title:
@@ -499,7 +499,7 @@ export default function Page() {
                             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                                 You can{" "}
                                 <Link
-                                    href="/meeting"
+                                    href="/contact-netrx-digital"
                                     className="underline underline-offset-4 decoration-[1.5px]"
                                 >
                                     book a consultation with NetrX Digital
