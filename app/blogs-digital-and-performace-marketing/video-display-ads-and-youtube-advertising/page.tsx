@@ -41,7 +41,7 @@ export const metadata: Metadata = {
       "Video Display Ads & YouTube Advertising: Data-Driven Growth for Indian Brands | NetrX Digital",
     description:
       "A practical guide to using video display ads and YouTube advertising for performance marketing across India.",
-    images: ["/images/blog/video-display-ads-youtube-advertising.webp"]
+    images: ["/images/blogs/video-display-ads-youtube-advertising.webp"]
   },
   authors: [{ name: "NetrX Digital" }]
 };
