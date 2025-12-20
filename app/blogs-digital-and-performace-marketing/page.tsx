@@ -90,6 +90,14 @@ const BLOGS: BlogItem[] = [
     icon: FiLink,
     date: "2025-11-19",
   },
+  {
+    slug: "video-display-ads-and-youtube-advertising",
+    title: "Video Display Ads & YouTube Advertising: Data-Driven Growth for Indian Brands",
+    description:
+      "Learn how video display ads and YouTube advertising help businesses across India drive awareness, leads, and sales with AI-powered, performance-focused campaigns.",
+    icon: FiSearch,
+    date: "2025-12-21",
+  },
 ];
 
 const TAG_DEFS = [
