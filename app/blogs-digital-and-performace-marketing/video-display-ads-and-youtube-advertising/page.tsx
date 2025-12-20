@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     modifiedTime: "2025-11-27",
     images: [
       {
-        url: "/images/blog/video-display-ads-youtube-advertising.webp",
+        url: "/images/blogs/video-display-ads-youtube-advertising.webp",
         width: 1200,
         height: 630,
         alt: "Marketer optimising YouTube video display ads dashboard – NetrX Digital"
@@ -54,7 +54,7 @@ export default function Page() {
       description="How AI-powered, data-driven video display ads and YouTube campaigns help businesses across India build awareness, generate leads, and drive sales."
       publishDate="2025-11-27"
       updatedDate="2025-11-27"
-      imageUrl="/images/blog/video-display-ads-youtube-advertising.webp"
+      imageUrl="/images/blogs/video-display-ads-youtube-advertising.webp"
       toc={[
         { id: "overview", label: "Overview" },
         { id: "what-are-video-display-ads", label: "What Are Video Display Ads?" },
