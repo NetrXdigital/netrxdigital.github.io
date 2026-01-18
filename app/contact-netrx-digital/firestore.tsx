@@ -21,13 +21,14 @@ const LeadCaptureForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Computed form validity: all inputs must be valid
-  const isFormValid = useMemo(() => {
-    return (
-      name.trim().length > 0 &&
-      isValidEmail(email) &&
-      isValidIndianPhone(phoneNumber)
-    );
-  }, [name, email, phoneNumber]);
+const isFormValid = useMemo(() => {
+  return (
+    name.trim().length > 0 &&
+    isValidIndianPhone(phoneNumber) &&
+    (email.trim() === "" || isValidEmail(email))
+  );
+}, [name, email, phoneNumber]);
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
