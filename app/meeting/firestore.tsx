@@ -125,7 +125,7 @@ const LeadCaptureForm = () => {
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
+
               />
               {email && !isValidEmail(email) && (
                 <p className="text-red-500 text-xs mt-1">
