@@ -235,6 +235,9 @@ export default function ShowcasePage() {
                   { top: "24%", right: "16%", label: "Stylizeunique" },
                   { bottom: "20%", left: "22%", label: "Kosut Builders" },
                   { bottom: "18%", right: "20%", label: "Instant Hub" },
+                  { top: "42%", left: "8%", label: "Manglam Electricals" },
+                  { top: "38%", right: "6%", label: "Biyahuti" },
+                  { bottom: "42%", right: "8%", label: "IR Beverages" },
                 ].map((node, i) => (
                   <motion.div
                     key={node.label}

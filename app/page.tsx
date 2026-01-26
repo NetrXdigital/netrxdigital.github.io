@@ -908,6 +908,9 @@ export default function Home() {
                     { logo: "/logo/srfitness.png", name: "S R Fitness" },
                     { logo: "/logo/Kosford.webp", name: "Kosford Pharmaceuticals" },
                     { logo: "/logo/R&M.webp", name: "Resin & Memories.." },
+                    { logo: "/images/biyahuti.webp", name: "Biyahuti" },
+                    { logo: "/images/ir-beverages.webp", name: "IR Beverages" },
+                    { logo: "/images/manglam-electricals.webp", name: "Manglam Electricals" },
                   ]}
                 />
               </motion.div>
