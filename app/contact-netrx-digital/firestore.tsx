@@ -21,14 +21,13 @@ const LeadCaptureForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Computed form validity: all inputs must be valid
-const isFormValid = useMemo(() => {
-  return (
-    name.trim().length > 0 &&
-    isValidIndianPhone(phoneNumber) &&
-    (email.trim() === "" || isValidEmail(email))
-  );
-}, [name, email, phoneNumber]);
-
+  const isFormValid = useMemo(() => {
+    return (
+      name.trim().length > 0 &&
+      isValidIndianPhone(phoneNumber) &&
+      (email.trim().length === 0 || isValidEmail(email.trim()))  
+    );
+  }, [name, email, phoneNumber]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -46,7 +45,7 @@ const isFormValid = useMemo(() => {
       await addDoc(collection(db, "leads"), {
         name: name.trim(),
         phone_number: `+91${phoneNumber}`, // store with +91
-        email: email.trim(),
+        email: email.trim().length ? email.trim() : null,
         created_at: serverTimestamp(),
         status: "new",
         source: "meeting-page",
@@ -123,11 +122,11 @@ const isFormValid = useMemo(() => {
                   focus:outline-none focus:ring-2 focus:ring-blue-500/70 focus:border-blue-500/80
                   placeholder:text-muted-foreground/60
                 "
-                placeholder="you@example.com"
+                placeholder="you@example.com (optional)"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              {email && !isValidEmail(email) && (
+              {email.trim().length > 0 && !isValidEmail(email.trim()) && (
                 <p className="text-red-500 text-xs mt-1">
                   Please enter a valid email address.
                 </p>

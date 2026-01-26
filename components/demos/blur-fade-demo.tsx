@@ -90,6 +90,37 @@ const works: Work[] = [
     // add link / instagram when ready
     tags: ["Resin Art", "Gifting", "Branding"],
   },
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/manglam-electricals.webp",
+    title: "Manglam Electricals",
+    description:
+    "Electrical & electronics distributor in Patna — focused on genuine products, strong service, and local trust. Supported with visibility and growth strategy.",  
+    // add website / instagram / google if you have them
+    instagram: "https://www.instagram.com/manglamelectrical.in",
+    google: "https://share.google/krWocRSNBOid00pFo",
+    tags: ["Electricals", "Distribution", "Local SEO"],
+  },
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/biyahuti.webp",
+    title: "Biyahuti",
+    description:
+    "Women’s fashion e-commerce brand — product-led storytelling, conversion-first design, and growth-focused marketing built for mobile shoppers.",  
+    link: "https://biyahuti.com/",
+    instagram: "https://www.instagram.com/biyahuti",
+    tags: ["Women Fashion", "E-commerce", "Performance"],
+  },
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/ir-beverages.webp",
+    title: "IR Beverages",
+    description:
+    "Major distributor of Parle Beverages in Patna — scaled reach and visibility with a trust-first digital presence and brand positioning.",  
+    // add website / google maps / instagram if available
+    google: "https://share.google/j3QlTuxq8wejVA9rX",
+    tags: ["FMCG", "Distribution", "Brand Presence"],
+  },
 ];
 
 export function BlurFadeDemo() {
