@@ -10,6 +10,7 @@ import { BorderBeam } from "@/components/ui/border-beam";
 
 const navItems = [
   { href: "/", label: "Home" },
+  { href: "/products", label: "Products" },
   { href: "/showcase-our-work", label: "Showcase" },
   { href: "/blogs-digital-and-performace-marketing", label: "Blogs" },
   { href: "/about-netrx-digital", label: "About Us" },
