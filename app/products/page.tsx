@@ -56,7 +56,7 @@ const structuredData = {
           name: "Is the NetrX Web Auditor demo free?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes. A verified account receives a one-time 10-page demo crawl and no payment card is required for the demo.",
+            text: "Yes. A verified account receives a one-time 100-page demo crawl and no payment card is required for the demo.",
           },
         },
         {

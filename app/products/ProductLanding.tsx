@@ -124,7 +124,7 @@ const workflow = [
 ];
 
 const demoIncludes = [
-  "10 crawled pages",
+  "100 crawled pages",
   "1 SERP keyword check",
   "1 brand + 1 competitive GEO question",
   "2 Ask AI questions",
@@ -142,7 +142,7 @@ const faqs = [
   {
     question: "Is the demo really free?",
     answer:
-      "Yes. Create an account and verify your email to use the one-time 10-page demo crawl. No payment card is required for the demo.",
+      "Yes. Create an account and verify your email to use the one-time 100-page demo crawl. No payment card is required for the demo.",
   },
   {
     question: "What does the full ₹100 audit include?",
@@ -292,7 +292,7 @@ function AuditPreview() {
                   </motion.span>
                 ))}
               </div>
-              <p className="mt-4 text-xs text-white/45">10 pages scanned in the demo workspace</p>
+              <p className="mt-4 text-xs text-white/45">100 pages scanned in the demo workspace</p>
             </div>
 
             <div className="rounded-2xl border border-violet-300/15 bg-[linear-gradient(135deg,rgba(124,155,255,.12),rgba(201,166,255,.06))] p-4">
@@ -358,7 +358,7 @@ export default function ProductLanding() {
               </a>
             </motion.div>
             <motion.div variants={reveal} className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/50">
-              {["Free 10-page demo", "No card required", "₹100 full crawl", "No subscription"].map((item) => (
+              {["Free 100-page demo", "No card required", "₹100 full crawl", "No subscription"].map((item) => (
                 <span key={item} className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-cyan-300" />{item}</span>
               ))}
             </motion.div>
@@ -540,7 +540,7 @@ export default function ProductLanding() {
 
         <div className="fixed inset-x-3 bottom-3 z-[90] flex items-center justify-between gap-3 rounded-2xl border border-white/15 bg-[#0d1023]/95 p-2.5 pl-4 shadow-[0_16px_50px_rgba(0,0,0,.55)] backdrop-blur-xl md:hidden">
           <div>
-            <p className="text-xs font-semibold text-white">Free 10-page demo</p>
+            <p className="text-xs font-semibold text-white">Free 100-page demo</p>
             <p className="mt-0.5 text-[10px] text-white/40">No card required</p>
           </div>
           <TrackedLink placement="mobile_sticky" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#638cff] to-[#975cf0] px-4 text-xs font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200">
