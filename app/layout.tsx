@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import FloatingChatButtons from "@/components/FloatingChatButtons";
 
@@ -139,7 +138,6 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
           <FloatingChatButtons />
-          <Analytics />
         </ThemeProvider>
       </body>
     </html>

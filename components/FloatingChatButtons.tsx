@@ -1,9 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { FaWhatsapp, FaInstagram, FaFacebookMessenger, FaPhoneAlt } from "react-icons/fa";
+import { usePathname } from "next/navigation";
+import { FaWhatsapp, FaInstagram, FaPhoneAlt } from "react-icons/fa";
 
 export default function FloatingChatButtons() {
+  const pathname = usePathname();
+
+  if (pathname === "/products") {
+    return null;
+  }
+
   return (
     <div
       className="

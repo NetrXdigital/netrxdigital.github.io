@@ -556,24 +556,6 @@ export default function About() {
                 </p>
               </div>
 
-              {/* PRADEEP (NEW MEMBER) */}
-              <div className="text-center">
-                <div className="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden border border-border/80">
-                  <Image
-                    src="/images/team/deep.webp"
-                    width={128}
-                    height={128}
-                    alt="Pradeep Singh – Managing Partner AI & Engineering"
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground">
-                  Pradeep Singh
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Managing Partner · AI &amp; Software Engineering
-                </p>
-              </div>
 
             </div>
 
