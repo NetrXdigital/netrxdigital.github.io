@@ -19,6 +19,44 @@ type Work = {
 const works: Work[] = [
   {
     background: "bg-card border border-border shadow-sm",
+    imageUrl: "/logo/bagirathi.png",
+    title: "Bhagirathi Steels",
+    description:
+      "Trusted distributor of premium industrial storage and infrastructure solutions, including silos, storage tanks, PEB structures, and STP and ETP systems. Its Terotechnology-led workflow improves asset reliability, extends service life, and optimizes lifecycle costs through quality sourcing, timely delivery, and dependable service.",
+    link: "https://www.bhagirathisteels.com/",
+    tags: ["Industrial Storage", "PEB Structures", "STP & ETP"],
+  },
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/instanthub.png",
+    title: "Instant Hub",
+    description:
+      "Recommerce platform for selling used laptops, phones, and gadgets with instant cash and doorstep pickup — fully powered by NetrX Digital.",
+    link: "https://www.instanthub.in/",
+    instagram: "https://www.instagram.com/instanthub.in/",
+    tags: ["Recommerce", "E-commerce", "Lead Generation"],
+  },
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/biyahuti.webp",
+    title: "Biyahuti",
+    description:
+      "Women’s fashion e-commerce brand — product-led storytelling, conversion-first design, and growth-focused marketing built for mobile shoppers.",
+    link: "https://biyahuti.com/",
+    instagram: "https://www.instagram.com/biyahuti",
+    tags: ["Women Fashion", "E-commerce", "Performance"],
+  },
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/ir-beverages.webp",
+    title: "IR Beverages",
+    description:
+      "Major distributor of Parle Beverages in Patna — scaled reach and visibility with a trust-first digital presence and brand positioning.",
+    google: "https://share.google/j3QlTuxq8wejVA9rX",
+    tags: ["FMCG", "Distribution", "Brand Presence"],
+  },
+  {
+    background: "bg-card border border-border shadow-sm",
     imageUrl: "/images/business.png",
     title: "Stylizeunique",
     description:
@@ -48,16 +86,6 @@ const works: Work[] = [
     google:
       "https://www.google.com/search?q=SR+FITNESS",
     tags: ["Gym", "Brand Marketing", "Social Media"],
-  },
-  {
-    background: "bg-card border border-border shadow-sm",
-    imageUrl: "/images/instanthub.png",
-    title: "Instant Hub",
-    description:
-      "Recommerce platform for selling used laptops, phones, and gadgets with instant cash and doorstep pickup — fully powered by NetrX Digital.",
-    link: "https://www.instanthub.in/",
-    instagram: "https://www.instagram.com/instanthub.in/",
-    tags: ["Recommerce", "E-commerce", "Lead Generation"],
   },
   {
     background: "bg-card border border-border shadow-sm",
@@ -100,26 +128,6 @@ const works: Work[] = [
     instagram: "https://www.instagram.com/manglamelectrical.in",
     google: "https://share.google/krWocRSNBOid00pFo",
     tags: ["Electricals", "Distribution", "Local SEO"],
-  },
-  {
-    background: "bg-card border border-border shadow-sm",
-    imageUrl: "/images/biyahuti.webp",
-    title: "Biyahuti",
-    description:
-    "Women’s fashion e-commerce brand — product-led storytelling, conversion-first design, and growth-focused marketing built for mobile shoppers.",  
-    link: "https://biyahuti.com/",
-    instagram: "https://www.instagram.com/biyahuti",
-    tags: ["Women Fashion", "E-commerce", "Performance"],
-  },
-  {
-    background: "bg-card border border-border shadow-sm",
-    imageUrl: "/images/ir-beverages.webp",
-    title: "IR Beverages",
-    description:
-    "Major distributor of Parle Beverages in Patna — scaled reach and visibility with a trust-first digital presence and brand positioning.",  
-    // add website / google maps / instagram if available
-    google: "https://share.google/j3QlTuxq8wejVA9rX",
-    tags: ["FMCG", "Distribution", "Brand Presence"],
   },
 ];
 

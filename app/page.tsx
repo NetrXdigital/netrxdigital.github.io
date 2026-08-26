@@ -59,6 +59,48 @@ function ScrollProgress() {
   );
 }
 
+function YouTubeClickToPlay() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  if (isPlaying) {
+    return (
+      <iframe
+        className="h-full w-full"
+        src="https://www.youtube.com/embed/nFzc15dg1fc?autoplay=1&rel=0&modestbranding=1&controls=1"
+        title="Digital Marketing Success Stories - How We Transform Businesses"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => setIsPlaying(true)}
+      aria-label="Play the NetrX Digital case study video"
+      className="group relative h-full w-full overflow-hidden bg-black text-white"
+    >
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+        style={{
+          backgroundImage:
+            "url('https://i.ytimg.com/vi/nFzc15dg1fc/hqdefault.jpg')",
+        }}
+      />
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 bg-black/35 transition-colors group-hover:bg-black/25"
+      />
+      <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-red-600 shadow-2xl transition-transform group-hover:scale-110">
+        <PiPlayFill className="ml-1 h-7 w-7" aria-hidden="true" />
+      </span>
+    </button>
+  );
+}
+
 
 
 function ProgressRing({ progress }: { progress: number }) {
@@ -627,15 +669,7 @@ export default function Home() {
                   />
 
                   <div className="relative aspect-video">
-                    <iframe
-                      className="w-full h-full"
-                      src="https://www.youtube.com/embed/nFzc15dg1fc?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1"
-                      title="Digital Marketing Success Stories - How We Transform Businesses"
-                      frameBorder="0"
-                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      loading="lazy"
-                      allowFullScreen
-                    />
+                    <YouTubeClickToPlay />
                   </div>
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
