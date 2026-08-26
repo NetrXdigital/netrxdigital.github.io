@@ -6,5 +6,4 @@ export const firebaseConfig = {
   storageBucket: "netrx-bf282.firebasestorage.app",
   messagingSenderId: "894222674045",
   appId: "1:894222674045:web:054eb5026dc41988be2914",
-  measurementId: "G-2JPHHHHBQQ",
 };
