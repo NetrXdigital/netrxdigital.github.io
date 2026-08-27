@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/logo/logo.webp",
   },
 
   openGraph: {
@@ -33,17 +33,10 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/logo/logo.webp",
-        width: 1200,
-        height: 630,
+        width: 489,
+        height: 510,
         alt: "NetrX Digital Marketing - Grow Your Business Online",
-        type: "image/jpeg",
-      },
-      {
-        url: "/og-image-square.jpg",
-        width: 1200,
-        height: 1200,
-        alt: "NetrX Digital Marketing Logo",
-        type: "image/jpeg",
+        type: "image/webp",
       },
     ],
   },
@@ -55,7 +48,7 @@ export const metadata: Metadata = {
     title: "NetrX Digital | Digital Marketing Company",
     description:
       "Transform your business with NetrX's cutting-edge digital marketing solutions.",
-    images: ["/twitter-image.jpg"],
+    images: ["/logo/logo.webp"],
   },
 
   robots: {
@@ -107,19 +100,7 @@ export default function RootLayout({
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
+          href="/logo/logo.webp"
         />
       </head>
       <body className={`${font.className} bg-background text-foreground`}>

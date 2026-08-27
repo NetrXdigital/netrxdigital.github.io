@@ -25,16 +25,22 @@ const InfiniteMovingLogos = dynamic(() => import("@/components/ui/infinite-movin
 const LetsMakeThingsHappenSection = dynamic(() => import("@/components/ui/lets-make-things-happen"));
 const Footer = dynamic(() => import("@/components/footer"));
 
+const EARLY_VIEWPORT = {
+  once: true,
+  amount: 0.1,
+  margin: "0px 0px 30% 0px",
+} as const;
+
 /* 🔗 Unified FX pack (imported components) */
 import CursorFX from "@/components/ui/cursor-fx";
 
 const services = [
-  { icon: "/images/web_development.png", title: "Web Design + Development", description: "Take your business to the next level with our web design and development services" },
-  { icon: "/images/seo.png", title: "Search Engine Optimization", description: "Get your website to the top of search engine results with our SEO services" },
-  { icon: "/images/content_creation.png", title: "Content Creation", description: "With our content creation services, we help businesses drive results" },
-  { icon: "/images/social_media_marketing.png", title: "Social Media Marketing", description: "Boost your brand's online presence with our social media marketing services" },
-  { icon: "/images/email_marketing.png", title: "Email Marketing", description: "Interact with your customers and increase sales with our email marketing services" },
-  { icon: "/images/pay_per_click.png", title: "Pay-Per-Click Advertising", description: "Stop wasting ad spend — reach ready-to-buy audiences with smart PPC" },
+  { icon: "/images/web_development.webp", title: "Web Design + Development", description: "Take your business to the next level with our web design and development services" },
+  { icon: "/images/seo.webp", title: "Search Engine Optimization", description: "Get your website to the top of search engine results with our SEO services" },
+  { icon: "/images/content_creation.webp", title: "Content Creation", description: "With our content creation services, we help businesses drive results" },
+  { icon: "/images/social_media_marketing.webp", title: "Social Media Marketing", description: "Boost your brand's online presence with our social media marketing services" },
+  { icon: "/images/email_marketing.webp", title: "Email Marketing", description: "Interact with your customers and increase sales with our email marketing services" },
+  { icon: "/images/pay_per_click.webp", title: "Pay-Per-Click Advertising", description: "Stop wasting ad spend — reach ready-to-buy audiences with smart PPC" },
 ];
 
 function ScrollProgress() {
@@ -56,6 +62,48 @@ function ScrollProgress() {
         style={{ width: `${progress}%` }}
       />
     </div>
+  );
+}
+
+function YouTubeClickToPlay() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  if (isPlaying) {
+    return (
+      <iframe
+        className="h-full w-full"
+        src="https://www.youtube.com/embed/nFzc15dg1fc?autoplay=1&rel=0&modestbranding=1&controls=1"
+        title="Digital Marketing Success Stories - How We Transform Businesses"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => setIsPlaying(true)}
+      aria-label="Play the NetrX Digital case study video"
+      className="group relative h-full w-full overflow-hidden bg-black text-white"
+    >
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+        style={{
+          backgroundImage:
+            "url('/images/youtube-case-study-thumbnail.webp')",
+        }}
+      />
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 bg-black/35 transition-colors group-hover:bg-black/25"
+      />
+      <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-red-600 shadow-2xl transition-transform group-hover:scale-110">
+        <PiPlayFill className="ml-1 h-7 w-7" aria-hidden="true" />
+      </span>
+    </button>
   );
 }
 
@@ -114,35 +162,35 @@ function TestimonialsSection() {
         "NetrX Digital helped us boost our online presence and generate consistent leads through smart marketing strategies. Their SEO and social media expertise made a real difference in our growth. Highly recommended!",
       name: "Shouaib Ahmed",
       role: "CEO, Instant Hub",
-      logo: "/logo/instanthub.png",
+      logo: "/logo/instanthub.webp",
     },
     {
       quote:
         "NetrX Digital helped my business grow tremendously. Their marketing strategies and SEO expertise brought real results — more visibility, more leads, and a stronger online presence.",
       name: "Raza",
       role: "Founder, Raza Pioneer Labs",
-      logo: "/logo/raza.png",
+      logo: "/logo/raza.webp",
     },
     {
       quote:
         "NetrX Digital has truly transformed our business growth journey. Highly professional and committed team — we couldn’t have asked for a better partner.",
       name: "Priya Patel",
       role: "Executive, Kosut Builders & Developers",
-      logo: "/logo/Kosut Builder.png",
+      logo: "/logo/Kosut Builder.webp",
     },
     {
       quote:
         "Creative, reliable, and fast. Their digital strategy helped my brand stand out online.",
       name: "Anshu",
       role: "Founder, StylizeUnique",
-      logo: "/logo/business.png",
+      logo: "/logo/business.webp",
     },
     {
       quote:
         "A game-changer for my gym. More clients, better local visibility, and strong ROI.",
       name: "Parth Singh",
       role: "Founder, S R Fitness",
-      logo: "/logo/srfitness.png",
+      logo: "/logo/srfitness.webp",
     },
   ];
 
@@ -221,7 +269,7 @@ function TestimonialsSection() {
           className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10"
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={EARLY_VIEWPORT}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div>
@@ -350,7 +398,7 @@ function TestimonialsSection() {
             className="grid grid-rows-3 gap-4"
             initial={{ opacity: 0, x: 20, y: 10 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={EARLY_VIEWPORT}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             {[
@@ -375,7 +423,7 @@ function TestimonialsSection() {
                 className="relative rounded-2xl border border-border/70 bg-[radial-gradient(circle_at_top_left,rgba(30,64,175,0.9),rgba(15,23,42,0.98))] backdrop-blur-xl p-4 md:p-5 overflow-hidden shadow-[0_12px_40px_rgba(15,23,42,0.7)]"
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={EARLY_VIEWPORT}
                 transition={{
                   duration: 0.45,
                   delay: 0.08 * idx,
@@ -549,7 +597,7 @@ export default function Home() {
               className="text-center mb-14"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
+              viewport={EARLY_VIEWPORT}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <p className="inline-flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-500/10 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.26em] text-blue-300 mb-4">
@@ -584,7 +632,7 @@ export default function Home() {
                 className="relative max-w-5xl mx-auto lg:mx-0"
                 initial={{ opacity: 0, x: -24, scale: 0.97 }}
                 whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.4 }}
+                viewport={EARLY_VIEWPORT}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 {/* floating halo behind video */}
@@ -627,15 +675,7 @@ export default function Home() {
                   />
 
                   <div className="relative aspect-video">
-                    <iframe
-                      className="w-full h-full"
-                      src="https://www.youtube.com/embed/nFzc15dg1fc?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1"
-                      title="Digital Marketing Success Stories - How We Transform Businesses"
-                      frameBorder="0"
-                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      loading="lazy"
-                      allowFullScreen
-                    />
+                    <YouTubeClickToPlay />
                   </div>
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
@@ -646,7 +686,7 @@ export default function Home() {
                   className="text-center mt-6"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.6 }}
+                  viewport={EARLY_VIEWPORT}
                   transition={{ duration: 0.45, ease: "easeOut" }}
                 >
                   <div className="inline-flex items-center gap-x-3 bg-white/90 dark:bg-slate-900/90 px-6 py-3 rounded-full shadow-lg backdrop-blur border border-slate-200/40 dark:border-slate-700/70">
@@ -662,7 +702,7 @@ export default function Home() {
                 className="grid grid-rows-3 gap-5"
                 initial={{ opacity: 0, x: 24, y: 10 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
+                viewport={EARLY_VIEWPORT}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 {[
@@ -687,7 +727,7 @@ export default function Home() {
                          overflow-hidden"
                     initial={{ opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.4 }}
+                    viewport={EARLY_VIEWPORT}
                     transition={{ duration: 0.5, delay: 0.08 * i }}
                     whileHover={{
                       y: -4,
@@ -784,7 +824,7 @@ export default function Home() {
               className="relative"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
+              viewport={EARLY_VIEWPORT}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-muted-foreground backdrop-blur bg-card/70 shadow-[0_0_0_1px_hsl(var(--border)/.4)]">
@@ -803,7 +843,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
+                  viewport={EARLY_VIEWPORT}
                   transition={{ duration: 0.5 }}
                   whileHover={{ y: -4, scale: 1.03 }}
                   className="relative rounded-2xl p-5 md:p-6 border bg-card/60 backdrop-blur shadow-[0_0_0_1px_hsl(var(--border)/.5)] overflow-hidden"
@@ -836,7 +876,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
+                  viewport={EARLY_VIEWPORT}
                   transition={{ duration: 0.6, delay: 0.05 }}
                   whileHover={{ y: -4, scale: 1.03 }}
                   className="relative rounded-2xl p-5 md:p-6 border bg-card/60 backdrop-blur shadow-[0_0_0_1px_hsl(var(--border)/.5)] overflow-hidden"
@@ -877,7 +917,7 @@ export default function Home() {
               className="relative"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
+              viewport={EARLY_VIEWPORT}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               {/* halo behind logos */}
@@ -901,11 +941,11 @@ export default function Home() {
                   speed="slow"
                   direction="left"
                   items={[
-                    { logo: "/logo/instanthub.png", name: "Instant Hub" },
-                    { logo: "/logo/raza.png", name: "Raza Pioneer Labs" },
-                    { logo: "/logo/Kosut Builder.png", name: "Kosut Builders" },
-                    { logo: "/logo/business.png", name: "StylizeUnique" },
-                    { logo: "/logo/srfitness.png", name: "S R Fitness" },
+                    { logo: "/logo/instanthub.webp", name: "Instant Hub" },
+                    { logo: "/logo/raza.webp", name: "Raza Pioneer Labs" },
+                    { logo: "/logo/Kosut Builder.webp", name: "Kosut Builders" },
+                    { logo: "/logo/business.webp", name: "StylizeUnique" },
+                    { logo: "/logo/srfitness.webp", name: "S R Fitness" },
                     { logo: "/logo/Kosford.webp", name: "Kosford Pharmaceuticals" },
                     { logo: "/logo/R&M.webp", name: "Resin & Memories.." },
                     { logo: "/images/biyahuti.webp", name: "Biyahuti" },
@@ -979,7 +1019,7 @@ export default function Home() {
               className="mb-3 flex justify-center"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
+              viewport={EARLY_VIEWPORT}
               transition={{ duration: 0.5 }}
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-500/10 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.26em] text-blue-300">
@@ -993,7 +1033,7 @@ export default function Home() {
               className="text-center text-2xl md:text-3xl lg:text-4xl font-semibold"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
+              viewport={EARLY_VIEWPORT}
               transition={{ duration: 0.55, ease: "easeOut" }}
             >
               <WordPullUpDemo />
@@ -1003,7 +1043,7 @@ export default function Home() {
               className="text-center py-4 md:w-1/2 mx-auto text-xl md:text-2xl text-gray-500"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
+              viewport={EARLY_VIEWPORT}
               transition={{ duration: 0.45, delay: 0.1 }}
             >
               All of our services are designed to help your business stand out
@@ -1015,7 +1055,7 @@ export default function Home() {
               className="pointer-events-none absolute left-1/2 top-[58%] -z-10 hidden md:block"
               initial={{ scale: 0.9, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 0.9 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={EARLY_VIEWPORT}
               transition={{ duration: 0.8 }}
             >
               <motion.div
@@ -1030,15 +1070,15 @@ export default function Home() {
               className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 justify-items-center"
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
+              viewport={EARLY_VIEWPORT}
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 show: {
                   opacity: 1,
                   y: 0,
                   transition: {
-                    staggerChildren: 0.12,
-                    delayChildren: 0.1,
+                    staggerChildren: 0.05,
+                    delayChildren: 0,
                   },
                 },
               }}
@@ -1178,7 +1218,7 @@ export default function Home() {
               className="text-center mb-16"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
+              viewport={EARLY_VIEWPORT}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <div className="mx-auto mb-4 w-fit rounded-full border px-3 py-1 text-xs text-muted-foreground backdrop-blur bg-background/50">
@@ -1230,7 +1270,7 @@ export default function Home() {
                   key={item.step}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={EARLY_VIEWPORT}
                   animate={{
                     y: [0, -10, 0],
                     rotate: [0, 4, 0, -4, 0],

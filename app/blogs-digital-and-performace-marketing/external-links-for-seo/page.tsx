@@ -32,7 +32,7 @@ export const metadata: MD3 = {
             "External links act as digital endorsements. Discover how to use them smartly to boost your website’s authority and rankings, especially for businesses in Patna.",
         url: "https://www.netrxdigital.in/blog/external-links-for-seo",
         type: "article",
-        images: ["/images/blogs/external.jpg"],
+        images: ["/images/blogs/external.webp"],
     },
     twitter: {
         card: "summary_large_image",
@@ -40,7 +40,7 @@ export const metadata: MD3 = {
             "What Are External Links? SEO Guide for Patna Businesses | NetrX Digital",
         description:
             "A practical guide by NetrX Digital for Patna businesses to use external links, backlinks, and off-page SEO to build authority and generate leads.",
-        images: ["/images/blogs/external.jpg"],
+        images: ["/images/blogs/external.webp"],
     },
 };
 
@@ -51,7 +51,7 @@ export default function Page() {
             title="What Are External Links? A Complete SEO Guide for Patna Businesses"
             description="Understand what external links are, why they matter for SEO, and how Patna businesses can use them to build authority and rank higher on Google."
             publishDate="2025-11-19"
-            imageUrl="/images/blogs/external.jpg"
+            imageUrl="/images/blogs/external.webp"
             toc={[
                 { id: "what-are-external-links", label: "What Are External Links?" },
                 {

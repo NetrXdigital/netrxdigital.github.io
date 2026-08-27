@@ -58,7 +58,7 @@ export function AnimatedBeamMultipleOutputDemo({
           </Circle>
           <Circle ref={div3Ref}>
           <Image
-              src={"/logo/figma.png"}
+              src={"/logo/figma.webp"}
               width={10000}
               height={10000}
               className="w-6 h-6"

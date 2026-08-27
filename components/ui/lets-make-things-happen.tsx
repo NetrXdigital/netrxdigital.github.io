@@ -10,7 +10,7 @@ function LetsMakeThingsHappenSection() {
     <motion.section
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.45 }}
+      viewport={{ once: true, amount: 0.1, margin: "0px 0px 30% 0px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="
         my-10 md:py-20 md:mx-auto
@@ -48,7 +48,7 @@ function LetsMakeThingsHappenSection() {
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px 30% 0px" }}
             transition={{ delay: 0.1, duration: 0.6 }}
             className="inline-flex items-center gap-2 rounded-full border border-blue-400/40 bg-blue-500/10 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-blue-200 mb-4"
           >
@@ -59,7 +59,7 @@ function LetsMakeThingsHappenSection() {
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px 30% 0px" }}
             transition={{ delay: 0.18, duration: 0.7 }}
             className="text-3xl md:text-4xl lg:text-[2.6rem] font-semibold tracking-tight text-slate-50"
           >
@@ -69,7 +69,7 @@ function LetsMakeThingsHappenSection() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px 30% 0px" }}
             transition={{ delay: 0.24, duration: 0.7 }}
             className="mt-5 text-base md:text-lg text-slate-300/90 max-w-xl"
           >
@@ -82,7 +82,7 @@ function LetsMakeThingsHappenSection() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.7 }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px 30% 0px" }}
             transition={{ delay: 0.3, duration: 0.7 }}
             className="mt-8 flex flex-wrap items-center gap-4"
           >
@@ -120,7 +120,7 @@ function LetsMakeThingsHappenSection() {
         <motion.div
           initial={{ opacity: 0, x: 40, scale: 0.96 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.1, margin: "0px 0px 30% 0px" }}
           transition={{ delay: 0.25, duration: 0.8, ease: "easeOut" }}
           className="relative mt-10 md:mt-0 md:w-[40%] lg:w-[36%] flex justify-end"
         >
@@ -161,7 +161,7 @@ function LetsMakeThingsHappenSection() {
                     className="flex-1 rounded-full bg-gradient-to-t from-slate-700 via-blue-500/70 to-cyan-300"
                     initial={{ height: 0 }}
                     whileInView={{ height: `${h}%` }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: "0px 0px 30% 0px" }}
                     transition={{
                       duration: 0.9,
                       delay: 0.15 + idx * 0.07,

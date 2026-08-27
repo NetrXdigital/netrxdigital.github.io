@@ -19,7 +19,45 @@ type Work = {
 const works: Work[] = [
   {
     background: "bg-card border border-border shadow-sm",
-    imageUrl: "/images/business.png",
+    imageUrl: "/logo/bagirathi.webp",
+    title: "Bhagirathi Steels",
+    description:
+      "Trusted distributor of premium industrial storage and infrastructure solutions, including silos, storage tanks, PEB structures, and STP and ETP systems. Its Terotechnology-led workflow improves asset reliability, extends service life, and optimizes lifecycle costs through quality sourcing, timely delivery, and dependable service.",
+    link: "https://www.bhagirathisteels.com/",
+    tags: ["Industrial Storage", "PEB Structures", "STP & ETP"],
+  },
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/instanthub.webp",
+    title: "Instant Hub",
+    description:
+      "Recommerce platform for selling used laptops, phones, and gadgets with instant cash and doorstep pickup — fully powered by NetrX Digital.",
+    link: "https://www.instanthub.in/",
+    instagram: "https://www.instagram.com/instanthub.in/",
+    tags: ["Recommerce", "E-commerce", "Lead Generation"],
+  },
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/biyahuti.webp",
+    title: "Biyahuti",
+    description:
+      "Women’s fashion e-commerce brand — product-led storytelling, conversion-first design, and growth-focused marketing built for mobile shoppers.",
+    link: "https://biyahuti.com/",
+    instagram: "https://www.instagram.com/biyahuti",
+    tags: ["Women Fashion", "E-commerce", "Performance"],
+  },
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/ir-beverages.webp",
+    title: "IR Beverages",
+    description:
+      "Major distributor of Parle Beverages in Patna — scaled reach and visibility with a trust-first digital presence and brand positioning.",
+    google: "https://share.google/j3QlTuxq8wejVA9rX",
+    tags: ["FMCG", "Distribution", "Brand Presence"],
+  },
+  {
+    background: "bg-card border border-border shadow-sm",
+    imageUrl: "/images/business-logo.webp",
     title: "Stylizeunique",
     description:
       "Custom resin art creations tailored to client specifications. Handcrafted unique pieces that bring artistic vision to life.",
@@ -29,7 +67,7 @@ const works: Work[] = [
   },
   {
     background: "bg-card border border-border shadow-sm",
-    imageUrl: "/images/Kosut Builder.png",
+    imageUrl: "/images/Kosut Builder.webp",
     title: "Kosut Builders",
     description:
       "Premium real-estate presence for a Patna-based construction company—focused on trust, clarity, and lead generation.",
@@ -40,7 +78,7 @@ const works: Work[] = [
   },
   {
     background: "bg-card border border-border shadow-sm",
-    imageUrl: "/images/srfitness.png",
+    imageUrl: "/images/srfitness.webp",
     title: "SR Fitness",
     description:
       "A modern fitness center in Patna dedicated to strength, discipline, and transformation — empowered by NetrX Digital’s social growth strategy.",
@@ -51,17 +89,7 @@ const works: Work[] = [
   },
   {
     background: "bg-card border border-border shadow-sm",
-    imageUrl: "/images/instanthub.png",
-    title: "Instant Hub",
-    description:
-      "Recommerce platform for selling used laptops, phones, and gadgets with instant cash and doorstep pickup — fully powered by NetrX Digital.",
-    link: "https://www.instanthub.in/",
-    instagram: "https://www.instagram.com/instanthub.in/",
-    tags: ["Recommerce", "E-commerce", "Lead Generation"],
-  },
-  {
-    background: "bg-card border border-border shadow-sm",
-    imageUrl: "/images/raza.png",
+    imageUrl: "/images/raza.webp",
     title: "Raza Pioneer Mobile Lab",
     description:
       "Leading mobile shop and repair center in Anisabad, Patna — optimized for online visibility and customer reach.",
@@ -101,26 +129,6 @@ const works: Work[] = [
     google: "https://share.google/krWocRSNBOid00pFo",
     tags: ["Electricals", "Distribution", "Local SEO"],
   },
-  {
-    background: "bg-card border border-border shadow-sm",
-    imageUrl: "/images/biyahuti.webp",
-    title: "Biyahuti",
-    description:
-    "Women’s fashion e-commerce brand — product-led storytelling, conversion-first design, and growth-focused marketing built for mobile shoppers.",  
-    link: "https://biyahuti.com/",
-    instagram: "https://www.instagram.com/biyahuti",
-    tags: ["Women Fashion", "E-commerce", "Performance"],
-  },
-  {
-    background: "bg-card border border-border shadow-sm",
-    imageUrl: "/images/ir-beverages.webp",
-    title: "IR Beverages",
-    description:
-    "Major distributor of Parle Beverages in Patna — scaled reach and visibility with a trust-first digital presence and brand positioning.",  
-    // add website / google maps / instagram if available
-    google: "https://share.google/j3QlTuxq8wejVA9rX",
-    tags: ["FMCG", "Distribution", "Brand Presence"],
-  },
 ];
 
 export function BlurFadeDemo() {
@@ -141,8 +149,12 @@ export function BlurFadeDemo() {
           ) => (
             <BlurFade
               key={title}
-              delay={0.18 + idx * 0.06}
+              delay={0}
+              duration={0.32}
               inView
+              inViewMargin="0px 0px 35% 0px"
+              yOffset={4}
+              blur="4px"
               className={`
                 overflow-hidden
                 rounded-[1.25rem]      /* slightly smaller radius */
@@ -178,6 +190,7 @@ export function BlurFadeDemo() {
                     className="object-contain p-3 will-change-transform"
                     sizes="(min-width: 1280px) 360px, (min-width: 768px) 50vw, 100vw"
                     priority={idx === 0}
+                    loading={idx === 0 ? undefined : idx < 4 ? "eager" : "lazy"}
                   />
                   {/* subtle animated border */}
                   <div className="pointer-events-none absolute inset-0 rounded-lg [mask-image:radial-gradient(180px_120px_at_10%_-10%,#000,transparent)] border border-transparent bg-[conic-gradient(from_180deg_at_50%_10%,rgba(99,102,241,.35),transparent_60%)]" />
