@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     modifiedTime: "2025-08-27",
     images: [
       {
-        url: "/images/blog/brand-positioning-for-clinics.jpg",
+        url: "/images/blogs/brand-positioning-for-clinics.webp",
         width: 1200,
         height: 630,
         alt: "Brand Positioning for Clinics – NetrX Digital Blog",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Brand Positioning for Clinics in Patna: The Key to Optimised Digital Success",
     description:
       "In Patna’s competitive healthcare market, clear brand positioning plus local SEO drives visibility, trust, and sustainable patient growth.",
-    images: ["/images/blog/brand-positioning-for-clinics.jpg"],
+    images: ["/images/blogs/brand-positioning-for-clinics.webp"],
   },
   authors: [{ name: "NetrX Digital" }],
 };

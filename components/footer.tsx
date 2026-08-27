@@ -15,7 +15,7 @@ const Footer = () => {
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px 30% 0px" }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="relative w-full md:w-[55%]"
           >

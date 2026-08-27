@@ -103,7 +103,7 @@ export default function Page() {
     publisher: {
       "@type": "Organization",
       name: "NetrX Digital",
-      logo: { "@type": "ImageObject", url: "/images/logo.png" },
+      logo: { "@type": "ImageObject", url: "/logo/logo.webp" },
     },
     articleSection: "PPC, Google Ads, Patna",
     inLanguage: "en",
