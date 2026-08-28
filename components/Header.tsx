@@ -18,6 +18,7 @@ const navItems = [
 ];
 
 const productNavItems = [
+  { href: "/", label: "Home" },
   { href: "#what-you-get", label: "What it checks" },
   { href: "#how-it-works", label: "How it works" },
   { href: "#pricing", label: "Pricing" },

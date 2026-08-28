@@ -4,7 +4,16 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Element } from "react-scroll";
-import { ChevronLeft, ChevronRight, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Bot,
+  ChevronLeft,
+  ChevronRight,
+  Gauge,
+  SearchCheck,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import { PiCheckBold, PiPlayFill } from "react-icons/pi";
 import { motion } from "framer-motion";
 
@@ -781,6 +790,126 @@ export default function Home() {
       </Element>
 
 
+      {/* Web Auditor */}
+      <section className="relative overflow-hidden py-20 md:py-24">
+        <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/.22)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/.22)_1px,transparent_1px)] bg-[size:18px_28px]" />
+          <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
+          <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-violet-500/20 blur-3xl" />
+        </div>
+
+        <div className="mx-6 md:mx-auto md:px-0 xl:w-4/5 2xl:w-[68%]">
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: -20, y: 12 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={EARLY_VIEWPORT}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-cyan-300">
+                <SearchCheck className="h-3.5 w-3.5" />
+                NetrX Web Auditor
+              </div>
+
+              <h2 className="mt-5 text-3xl font-extrabold tracking-tight md:text-5xl">
+                Find what is holding your website{" "}
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 bg-clip-text text-transparent">
+                  back
+                </span>
+              </h2>
+
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Crawl your website and turn technical SEO, performance, search,
+                and AI visibility signals into a clear, prioritized action plan.
+              </p>
+
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <motion.a
+                  href="https://websiteaudit.netrxai.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-violet-500 px-6 text-sm font-semibold text-white shadow-[0_18px_45px_rgba(59,130,246,0.35)] transition-shadow hover:shadow-[0_22px_55px_rgba(99,102,241,0.5)]"
+                >
+                  Audit your website
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </motion.a>
+                <span className="text-xs text-muted-foreground">
+                  Free demo · No installation required
+                </span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20, scale: 0.97 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={EARLY_VIEWPORT}
+              transition={{ duration: 0.65, ease: "easeOut" }}
+              className="relative"
+            >
+              <div className="pointer-events-none absolute -inset-8 rounded-[2rem] bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.22),transparent_65%)] blur-2xl" />
+
+              <div className="relative overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-950/90 p-5 shadow-[0_28px_90px_rgba(15,23,42,0.75)] backdrop-blur-xl md:p-7">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                  </div>
+                  <span className="rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-emerald-300">
+                    Actionable audit
+                  </span>
+                </div>
+
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {[
+                    {
+                      icon: SearchCheck,
+                      title: "Technical SEO",
+                      description: "Find crawl, metadata, indexability, and architecture issues.",
+                    },
+                    {
+                      icon: Gauge,
+                      title: "Performance",
+                      description: "Connect Core Web Vitals and speed signals to individual pages.",
+                    },
+                    {
+                      icon: ShieldCheck,
+                      title: "Site health",
+                      description: "Catch broken links, redirects, and content gaps before they cost traffic.",
+                    },
+                    {
+                      icon: Bot,
+                      title: "Search + AI visibility",
+                      description: "Review keyword positions and how your brand appears in AI answers.",
+                    },
+                  ].map(({ icon: Icon, title, description }, index) => (
+                    <motion.div
+                      key={title}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={EARLY_VIEWPORT}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      className="rounded-2xl border border-white/10 bg-white/[0.045] p-4"
+                    >
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10">
+                        <Icon className="h-5 w-5 text-cyan-300" />
+                      </div>
+                      <h3 className="mt-4 text-sm font-semibold text-white">{title}</h3>
+                      <p className="mt-1.5 text-xs leading-relaxed text-slate-300/75">
+                        {description}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+
       {/* Trust strip – FUTURISTIC */}
       <section className="relative w-full py-24 overflow-hidden">
         {/* BACKGROUND FX */}
@@ -949,7 +1078,7 @@ export default function Home() {
                     { logo: "/logo/Kosford.webp", name: "Kosford Pharmaceuticals" },
                     { logo: "/logo/R&M.webp", name: "Resin & Memories.." },
                     { logo: "/images/biyahuti.webp", name: "Biyahuti" },
-                    { logo: "/images/ir-beverages.webp", name: "IR Beverages" },
+                    { logo: "/images/ir-beverages.webp", name: "IR Beverages Pvt Ltd" },
                     { logo: "/images/manglam-electricals.webp", name: "Manglam Electricals" },
                   ]}
                 />

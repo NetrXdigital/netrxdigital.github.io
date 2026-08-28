@@ -508,7 +508,7 @@ export default function About() {
               Meet the team
             </h2>
             <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-              Three leaders. One mission: build an agency that feels like an
+              Two leaders. One mission: build an agency that feels like an
               in-house growth team — not an outsourced vendor.
             </p>
           </div>
