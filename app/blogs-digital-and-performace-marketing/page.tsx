@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 
@@ -25,6 +26,7 @@ type BlogItem = {
   slug: string;
   title: string;
   description: string;
+  image: string;
   icon: React.ElementType;
   date: string; // ISO
 };
@@ -34,6 +36,7 @@ const BLOGS: BlogItem[] = [
     slug: "seo-basics-for-medical-practices",
     title: "SEO Basics for Medical Practices",
     description: "Foundations to rank your clinic and drive appointment leads.",
+    image: "/images/blogs/seo-basics-for-medical-practices.webp",
     icon: FiSearch,
     date: "2025-08-01",
   },
@@ -41,6 +44,7 @@ const BLOGS: BlogItem[] = [
     slug: "performance-marketing-101",
     title: "Performance Marketing 101",
     description: "PPC, tracking, and ROAS—what actually moves the needle.",
+    image: "/images/blogs/performance-marketing-101.webp",
     icon: FiTrendingUp,
     date: "2025-08-05",
   },
@@ -48,6 +52,7 @@ const BLOGS: BlogItem[] = [
     slug: "content-that-converts",
     title: "Content that Converts",
     description: "How to turn posts into patients—without sounding salesy.",
+    image: "/images/blogs/content-that-converts.webp",
     icon: FiPenTool,
     date: "2025-08-10",
   },
@@ -55,6 +60,7 @@ const BLOGS: BlogItem[] = [
     slug: "local-seo-checklist",
     title: "Local SEO Checklist",
     description: "GMB, NAP, reviews, citations—the no-nonsense checklist.",
+    image: "/images/blogs/local-seo-checklist.webp",
     icon: FiTarget,
     date: "2025-08-12",
   },
@@ -62,6 +68,7 @@ const BLOGS: BlogItem[] = [
     slug: "brand-positioning-for-clinics",
     title: "Brand Positioning for Clinics",
     description: "Own a niche, charge premium, and stay top-of-mind.",
+    image: "/images/blogs/brand-positioning-for-clinics.webp",
     icon: FiBookOpen,
     date: "2025-08-15",
   },
@@ -71,6 +78,7 @@ const BLOGS: BlogItem[] = [
       "SEO for Ecommerce Explained: Increasing Online Visibility (Patna & Bihar)",
     description:
       "A quick guide to Ecommerce SEO in Patna—rank higher, get traffic, boost sales.",
+    image: "/images/blogs/ecommerce-seo-patna.webp",
     icon: FiShoppingCart,
     date: "2025-09-02",
   },
@@ -79,6 +87,7 @@ const BLOGS: BlogItem[] = [
     title: "Essential Factors to Evaluate When Hiring a Digital Marketing Agency in Patna",
     description:
       "Checklist to pick the right agency: portfolio, team, website quality, client results — tailored for Patna businesses.",
+    image: "/images/blogs/essential-factors-hiring-agency.webp",
     icon: FiClipboard,
     date: "2025-11-12",
   },
@@ -87,6 +96,7 @@ const BLOGS: BlogItem[] = [
     title: "What Are External Links? Complete SEO Guide",
     description:
       "Understand what external links are, why they matter for SEO, and how to use them without triggering spam filters.",
+    image: "/images/blogs/external.webp",
     icon: FiLink,
     date: "2025-11-19",
   },
@@ -95,6 +105,7 @@ const BLOGS: BlogItem[] = [
     title: "Video Display Ads & YouTube Advertising: Data-Driven Growth for Indian Brands",
     description:
       "Learn how video display ads and YouTube advertising help businesses across India drive awareness, leads, and sales with AI-powered, performance-focused campaigns.",
+    image: "/images/blogs/video-display-ads-youtube-advertising.webp",
     icon: FiSearch,
     date: "2025-12-21",
   },
@@ -345,7 +356,7 @@ export default function BlogIndexPage() {
 
       {/* Cards */}
       <ul className="px-6 md:px-0 md:mx-auto xl:w-4/5 2xl:w-[68%] mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filtered.map(({ slug, title, description, icon: Icon, date }, i) => (
+        {filtered.map(({ slug, title, description, image, icon: Icon, date }, i) => (
           <motion.li
             key={slug}
             initial={{ opacity: 0, y: 10 }}
@@ -365,8 +376,8 @@ export default function BlogIndexPage() {
                 aria-hidden
               />
               <div
-                className="relative rounded-2xl h-full bg-[radial-gradient(circle_at_top_left,rgba(30,41,59,0.92),rgba(17,24,39,0.96))]
-                           backdrop-blur-xl p-5"
+                className="relative h-full overflow-hidden rounded-2xl bg-[radial-gradient(circle_at_top_left,rgba(30,41,59,0.92),rgba(17,24,39,0.96))]
+                           backdrop-blur-xl"
                 onMouseMove={(e) => {
                   const el = e.currentTarget.parentElement as HTMLElement;
                   const rect = el.getBoundingClientRect();
@@ -377,42 +388,59 @@ export default function BlogIndexPage() {
                   el.style.setProperty("--mx", `-9999px`);
                 }}
               >
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className="grid place-items-center rounded-lg size-11 bg-white/5 ring-1 ring-white/10">
-                      <Icon className="text-xl text-blue-300" />
-                    </div>
-                    <div className="text-[11px] uppercase tracking-wide text-blue-200/80">
-                      {tagFor(Icon)}
-                    </div>
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {new Date(date).toLocaleDateString()}
-                  </div>
+                <div className="relative aspect-[16/9] overflow-hidden bg-slate-900">
+                  <Image
+                    src={image}
+                    alt={`${title} blog cover`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    loading={i < 3 ? "eager" : "lazy"}
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent"
+                  />
                 </div>
 
-                <h2 className="mt-4 text-lg font-semibold text-white">
-                  {title}
-                </h2>
-                <p className="mt-2 text-sm text-blue-100/80">{description}</p>
+                <div className="p-5">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="grid place-items-center rounded-lg size-11 bg-white/5 ring-1 ring-white/10">
+                        <Icon className="text-xl text-blue-300" />
+                      </div>
+                      <div className="text-[11px] uppercase tracking-wide text-blue-200/80">
+                        {tagFor(Icon)}
+                      </div>
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      {new Date(date).toLocaleDateString()}
+                    </div>
+                  </div>
 
-                <div className="mt-4 inline-flex items-center gap-2 text-blue-300 text-sm">
-                  Read article
-                  <svg
-                    className="h-4 w-4 translate-x-0 group-hover:translate-x-0.5 transition-transform"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden
-                  >
-                    <path
-                      d="M7 5l6 5-6 5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <h2 className="mt-4 text-lg font-semibold text-white">
+                    {title}
+                  </h2>
+                  <p className="mt-2 text-sm text-blue-100/80">{description}</p>
+
+                  <div className="mt-4 inline-flex items-center gap-2 text-blue-300 text-sm">
+                    Read article
+                    <svg
+                      className="h-4 w-4 translate-x-0 group-hover:translate-x-0.5 transition-transform"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden
+                    >
+                      <path
+                        d="M7 5l6 5-6 5"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </Link>

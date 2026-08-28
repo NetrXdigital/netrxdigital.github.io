@@ -49,7 +49,7 @@ const works: Work[] = [
   {
     background: "bg-card border border-border shadow-sm",
     imageUrl: "/images/ir-beverages.webp",
-    title: "IR Beverages",
+    title: "IR Beverages Pvt Ltd",
     description:
       "Major distributor of Parle Beverages in Patna — scaled reach and visibility with a trust-first digital presence and brand positioning.",
     google: "https://share.google/j3QlTuxq8wejVA9rX",

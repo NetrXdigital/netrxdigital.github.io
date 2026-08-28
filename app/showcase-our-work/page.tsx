@@ -237,7 +237,7 @@ export default function ShowcasePage() {
                   { bottom: "18%", right: "20%", label: "Instant Hub" },
                   { top: "42%", left: "8%", label: "Manglam Electricals" },
                   { top: "38%", right: "6%", label: "Biyahuti" },
-                  { bottom: "42%", right: "8%", label: "IR Beverages" },
+                  { bottom: "42%", right: "8%", label: "IR Beverages Pvt Ltd" },
                 ].map((node, i) => (
                   <motion.div
                     key={node.label}
