@@ -16,6 +16,9 @@
 # production
 /build
 
+# uncompressed/local video sources
+/video-originals/
+
 # misc
 .DS_Store
 *.pem

@@ -21,7 +21,6 @@ import dynamic from "next/dynamic";
 import { CoverDemo } from "@/components/demos/cover-demo";
 import { MagneticLink } from "@/components/ui/magnetic-link";
 import { TiltCard } from "@/components/ui/tilt-card";
-import { InteractiveGridBackground } from "@/components/ui/interactive-grid-background";
 
 /* Lazy loaded components */
 const AnimatedBeamMultipleOutputDemo = dynamic(() => import("@/components/demos/animated-beam-demo").then(mod => mod.AnimatedBeamMultipleOutputDemo));
@@ -500,12 +499,27 @@ export default function Home() {
       {/* <CursorFX /> */}
       <ScrollProgress />
 
-      {/* ====================== HERO WITH DOT WAVE BG ====================== */}
+      {/* ====================== HERO WITH VIDEO BACKGROUND ====================== */}
       <section
-        className="relative pt-24 md:pt-32 min-h-[84vh] md:min-h-[93vh] flex items-center overflow-hidden"
+        className="relative isolate pt-24 md:pt-32 min-h-[84vh] md:min-h-[93vh] flex items-center overflow-hidden bg-slate-950"
         aria-label="Hero"
       >
-        <InteractiveGridBackground className="absolute inset-0 z-0" />
+        <video
+          className="absolute inset-0 -z-20 h-full w-full object-cover motion-reduce:hidden"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div
+          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/65 via-slate-950/45 to-slate-950/80"
+          aria-hidden="true"
+        />
 
 
         <div className="relative z-10 md:px-0 mx-6 xl:w-4/5 2xl:w-[68%] md:mx-auto text-center">
